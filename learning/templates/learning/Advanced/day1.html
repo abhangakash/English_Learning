@@ -73,7 +73,7 @@
                         <div class="combined-recording-section">
                             <div class="recording-item-title">🎙️ Shadow Recording</div>
                             <div class="recording-controls">
-                                <button id="authorityRecordBtn" class="record-btn">🎙️ Record</button>
+                                <button id="authorityRecordBtn" class="record-btn"> Record</button>
                                 <button id="authorityStopBtn" class="record-btn" style="background:#64748b;display:none;">⏹️ Stop</button>
                             </div>
                             <div id="authorityPlaybackCard" style="display:none;margin-top:0.5rem;">
@@ -120,9 +120,9 @@
                             <p class="task-description">Practise these authority-building opening statements for presentations and discussions.</p>
                         </div>
                         <div class="speaking-sentences-list">
-                            <div class="speaking-sentence-item"><div class="sentence-number-badge">1</div><div class="sentence-text-content">"Before I begin, I want to establish one thing: this data speaks for itself."</div></div>
-                            <div class="speaking-sentence-item"><div class="sentence-number-badge">2</div><div class="sentence-text-content">"I have analysed the situation thoroughly, and I am confident in the path forward."</div></div>
-                            <div class="speaking-sentence-item"><div class="sentence-number-badge">3</div><div class="sentence-text-content">"The findings I am about to share will reshape how we approach this challenge."</div></div>
+                            <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">1</div><div class="sentence-text-content">Before I begin, I want to establish one thing: this data speaks for itself."</p></div></div>
+                            <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">2</div><div class="sentence-text-content">"I have analysed the situation thoroughly, and I am confident in the path forward."</p></div></div>
+                            <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">3</div><div class="sentence-text-content">"The findings I am about to share will reshape how we approach this challenge."</p></div></div>
                         </div>
                         <div class="speaking-recording-section">
                             <div class="recording-header"><span>🎙️</span><h4>Your Recording</h4></div>
@@ -216,11 +216,6 @@
                     </div>
                     <textarea id="writingEssay" class="essay-textarea" rows="6" placeholder="Write your 120-word professional introduction here...&#10;&#10;Example: &quot;With over a decade of engineering experience, my approach to problem-solving is rooted in data-driven conviction...&quot;"></textarea>
                     <div class="word-counter">Words: <span id="wordCount">0</span> / <span>120</span> <span id="wordCountWarning" style="display:none;margin-left:0.5rem;">Aim for ~120 words</span></div>
-                    <ul class="writing-checklist" id="writingChecklist">
-                        <li class="unmet" id="wcVocab">Use 3+ vocabulary words</li>
-                        <li class="unmet" id="wcCauseEffect">Include cause-effect sentence</li>
-                        <li class="unmet" id="wcFuturePerfect">Include future perfect tense</li>
-                    </ul>
                     <div id="referenceAnswerContainer" style="display:none;"></div>
                     <button class="btn-outline" id="checkWritingBtn">✓ Check Answer</button>
                     <div id="writingFeedback" class="fix-feedback" style="margin-top:0.75rem;"></div>
@@ -247,7 +242,7 @@
                         </table>
                     </div>
                     <div class="power-word-section">
-                        <div style="display:flex;align-items:center;gap:0.5rem;font-weight:700;color:#854d0e;"><span>🔥</span><span>POWER WORD: INCONTROVERTIBLE</span></div>
+                        <div style="display:flex;align-items:center;gap:0.5rem;font-weight:700;color:#854d0e;"><span>🔥</span><span>POWER WORD: INCONTROVERTIBLE (In-kon-truh-VUR-tuh-bul)</span></div>
                         <br><p><strong>Meaning:</strong> Impossible to deny or dispute</p>
                         <p><strong>Usage:</strong> "The incontrovertible evidence supports our design choice."</p>
                     </div>
@@ -310,7 +305,7 @@
                         <span class="badge" id="progressCounter">0/6 completed</span>
                     </div>
                     <div style="display:flex;justify-content:center;">
-                        <button class="day-complete-btn" id="dayCompleteBtn" disabled>🏆 Complete Day 1</button>
+                        <button class="day-complete-btn" id="dayCompleteBtn" disabled> Complete Day 1</button>
                     </div>
                 </div>
             </div>
@@ -965,121 +960,435 @@
             });
         }
 
-        // ========== WRITING ==========
-        const writingEssay = document.getElementById('writingEssay');
-        const wcs = document.getElementById('wordCount');
-        const wcw = document.getElementById('wordCountWarning');
-        const wcl = {
-            vocab: document.getElementById('wcVocab'),
-            ce: document.getElementById('wcCauseEffect'),
-            fp: document.getElementById('wcFuturePerfect')
-        };
-        let writingPassed = false;
-        const refContainer = document.getElementById('referenceAnswerContainer');
-        const checklistEl = document.getElementById('writingChecklist');
+        // ========== WRITING ACTIVITY (AI Evaluation + Local Fallback) ==========
+const writingEssay = document.getElementById('writingEssay');
+const wcs = document.getElementById('wordCount');
+const wcw = document.getElementById('wordCountWarning');
+const wcl = {
+    vocab: document.getElementById('wcVocab'),
+    ce: document.getElementById('wcCauseEffect'),
+    fp: document.getElementById('wcFuturePerfect')
+};
+let writingPassed = false;
+const refContainer = document.getElementById('referenceAnswerContainer');
+const checklistEl = document.getElementById('writingChecklist');
 
-        if (writingEssay) {
-            writingEssay.addEventListener('input', function() {
-                const text = this.value.trim();
-                const wc = text ? text.split(/\s+/).length : 0;
-                wcs.textContent = wc;
-                if (wc < 100) {
-                    wcs.classList.add('under');
-                    wcw.style.display = 'inline';
-                } else {
-                    wcs.classList.remove('under');
-                    wcw.style.display = 'none';
-                }
-                const vw = ['conviction', 'credibility', 'articulate', 'calibrate', 'leverage', 'incontrovertible'];
-                const lt = text.toLowerCase();
-                let vc = 0;
-                vw.forEach(w => { if (lt.includes(w)) vc++; });
-                updateCL(wcl.vocab, vc >= 3);
-                updateCL(wcl.ce, /because|therefore|as a result|consequently|thus|hence|so|leads to|results in|due to|owing to/.test(lt));
-                updateCL(wcl.fp, /will have\s+\w+(ed|en|d|t|gone|been|done|made|taken|written|built|known|seen|spoken)/i.test(text));
-            });
-        }
-
-        function updateCL(el, cond) {
-            if (cond) {
-                el.classList.add('met');
-                el.classList.remove('unmet');
+// WORD COUNTER - Updates number only, no right-side text
+if (writingEssay) {
+    writingEssay.addEventListener('input', function() {
+        const text = this.value.trim();
+        const words = text ? text.split(/\s+/).filter(function(w) { return w.length > 0; }).length : 0;
+        
+        // Update word count number
+        if (wcs) {
+            wcs.textContent = words;
+            
+            // Color the number based on progress
+            if (words === 0) {
+                wcs.style.color = '#94a3b8'; // Gray
+            } else if (words < 70) {
+                wcs.style.color = '#ef4444'; // Red
+            } else if (words < 100) {
+                wcs.style.color = '#f59e0b'; // Orange
+            } else if (words <= 150) {
+                wcs.style.color = '#10b981'; // Green
             } else {
-                el.classList.add('unmet');
-                el.classList.remove('met');
+                wcs.style.color = '#3b82f6'; // Blue
             }
         }
+        
+        // Always hide right-side warning
+        if (wcw) {
+            wcw.style.display = 'none';
+        }
+        
+        // Update checklist
+        const vw = ['conviction', 'credibility', 'articulate', 'calibrate', 'leverage', 'incontrovertible'];
+        const lt = text.toLowerCase();
+        let vc = 0;
+        vw.forEach(w => { if (lt.includes(w)) vc++; });
+        updateCL(wcl.vocab, vc >= 3);
+        updateCL(wcl.ce, /because|therefore|as a result|consequently|thus|hence|so|leads to|results in|due to|owing to/.test(lt));
+        updateCL(wcl.fp, /will have\s+\w+(ed|en|d|t|gone|been|done|made|taken|written|built|known|seen|spoken)/i.test(text));
+        
+        saveProgressToCache();
+    });
+    
+    // Initialize on load
+    setTimeout(function() {
+        writingEssay.dispatchEvent(new Event('input'));
+    }, 100);
+}
 
-        document.getElementById('checkWritingBtn')?.addEventListener('click', () => {
-            const text = writingEssay.value.trim();
-            const fb = document.getElementById('writingFeedback');
-            refContainer.style.display = 'none';
-            refContainer.innerHTML = '';
-            if (!text) {
-                fb.innerHTML = '⚠️ Please write your paragraph.';
-                fb.className = 'fix-feedback empty';
-                fb.style.display = 'block';
-                writingPassed = false;
-            } else if (text.split(/\s+/).length < 50) {
-                fb.innerHTML = '⚠️ Write a complete paragraph (~120 words).' + createHintSection('Write about your professional background.');
-                fb.className = 'fix-feedback empty';
-                fb.style.display = 'block';
-                writingPassed = false;
-            } else if (isGibberish(text)) {
-                fb.innerHTML = '⚠️ Please write meaningful sentences.';
-                fb.className = 'fix-feedback empty';
-                fb.style.display = 'block';
-                writingPassed = false;
-            } else {
-                const vw = ['conviction', 'credibility', 'articulate', 'calibrate', 'leverage', 'incontrovertible'];
-                const lt = text.toLowerCase();
-                let vc = 0;
-                vw.forEach(w => { if (lt.includes(w)) vc++; });
-                const hce = /because|therefore|as a result|consequently|thus|hence|so|leads to|results in|due to|owing to/.test(lt);
-                const hfp = /will have\s+\w+(ed|en|d|t|gone|been|done|made|taken|written|built|known|seen|spoken)/i.test(text);
-                const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
-                let maxI = 0, curI = 0;
-                sentences.forEach(s => {
-                    if (/^I\s/i.test(s.trim()) || /^i\s/i.test(s.trim())) {
-                        curI++;
-                        maxI = Math.max(maxI, curI);
-                    } else {
-                        curI = 0;
-                    }
-                });
-                const opOk = maxI <= 2;
-                const wc = text.split(/\s+/).length;
-                const allMet = vc >= 3 && hce && hfp && opOk && wc >= 100;
-                if (allMet) {
-                    fb.innerHTML = '✅ Excellent!<br><em style="font-size:0.8rem;color:#64748b;">See the reference above to improve further.</em>';
-                    fb.className = 'fix-feedback correct';
-                    fb.style.display = 'block';
-                    writingPassed = true;
-                    checklistEl.style.display = 'none';
-                    refContainer.style.display = 'block';
-                    refContainer.innerHTML = '<div class="reference-answer-box"><h4>📖 Reference Answer</h4><div class="ref-text">With over a decade of engineering experience, my approach to problem-solving is rooted in data-driven <span class="highlight-vocab">conviction</span>. I have learned to <span class="highlight-vocab">calibrate</span> every decision with precision. <span class="highlight-ce">Because I communicate with clarity, my team trusts my judgment implicitly.</span> My <span class="highlight-vocab">credibility</span> has been built through years of delivering results. <span class="highlight-fp">By next quarter, I will have completed the certification that strengthens my expertise.</span></div><div class="legend"><span><span class="legend-dot vocab"></span> Vocabulary</span><span><span class="legend-dot ce"></span> Cause-effect</span><span><span class="legend-dot fp"></span> Future perfect</span></div></div>';
-                } else {
-                    let missing = [];
-                    if (vc < 3) missing.push('Use 3+ vocabulary words (currently: ' + vc + ')');
-                    if (!hce) missing.push('Add a cause-effect sentence');
-                    if (!hfp) missing.push('Add future perfect tense');
-                    if (!opOk) missing.push('Too many "I" starts (max 2)');
-                    if (wc < 100) missing.push('Reach ~120 words (currently: ' + wc + ')');
-                    fb.innerHTML = '⚠️ Fix:<br>• ' + missing.join('<br>• ');
-                    fb.className = 'fix-feedback almost';
-                    fb.style.display = 'block';
-                    writingPassed = false;
-                    checklistEl.style.display = 'block';
-                }
+function updateCL(el, cond) {
+    if (cond) {
+        el.classList.add('met');
+        el.classList.remove('unmet');
+    } else {
+        el.classList.add('unmet');
+        el.classList.remove('met');
+    }
+}
+
+// Word count message helper
+function getWordCountMessage(words) {
+    if (words === 0) return '';
+    if (words < 50) return 'Write more... (' + words + '/120 words)';
+    if (words < 100) return (120 - words) + ' more words needed to reach 120';
+    if (words < 120) return 'Almost there! Only ' + (120 - words) + ' words to go';
+    if (words <= 150) return '';
+    return (words - 120) + ' words over the 120 target';
+}
+
+// Reference answer - ONLY shown when local validation passes
+function showReferenceAnswer() {
+    if (refContainer) {
+        refContainer.style.display = 'block';
+        refContainer.innerHTML = `
+            <div class="reference-answer-box">
+                <h4>📖 Reference Answer - Professional Introduction</h4>
+                <div class="ref-text">
+                    With over a decade of engineering experience, my approach to problem-solving 
+                    is rooted in data-driven <span class="highlight-vocab">conviction</span>. 
+                    I have learned to <span class="highlight-vocab">calibrate</span> every decision 
+                    with precision. 
+                    <span class="highlight-ce">Because I communicate with clarity, my team trusts my judgment implicitly.</span> 
+                    My <span class="highlight-vocab">credibility</span> has been built through years 
+                    of delivering results that exceed expectations. 
+                    <span class="highlight-fp">By next quarter, I will have completed the advanced 
+                    certification that strengthens my technical expertise.</span> 
+                    This combination of <span class="highlight-vocab">leverage</span> and precision 
+                    defines my professional identity.
+                </div>
+                <div class="legend">
+                    <span><span class="legend-dot vocab"></span> Vocabulary Words</span>
+                    <span><span class="legend-dot ce"></span> Cause-Effect Sentence</span>
+                    <span><span class="legend-dot fp"></span> Future Perfect Tense</span>
+                </div>
+            </div>
+        `;
+    }
+}
+
+// LOCAL FALLBACK VALIDATION - Only used when server evaluation fails
+function localValidateWriting(text, words, feedback) {
+    const lt = text.toLowerCase();
+    
+    // Check vocabulary (3+ required)
+    const vw = ['conviction', 'credibility', 'articulate', 'calibrate', 'leverage', 'incontrovertible'];
+    let vc = 0;
+    let foundVocab = [];
+    vw.forEach(w => { 
+        if (lt.includes(w)) { 
+            vc++; 
+            foundVocab.push(w); 
+        } 
+    });
+    
+    // Check cause-effect
+    const hce = /because|therefore|as a result|consequently|thus|hence|so|leads to|results in|due to|owing to/.test(lt);
+    
+    // Check future perfect
+    const hfp = /will have\s+\w+(ed|en|d|t|gone|been|done|made|taken|written|built|known|seen|spoken)/i.test(text);
+    
+    // Check "I" starts (max 2 in a row)
+    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    let maxI = 0, curI = 0;
+    sentences.forEach(s => {
+        if (/^I\s/i.test(s.trim()) || /^i\s/i.test(s.trim())) {
+            curI++;
+            maxI = Math.max(maxI, curI);
+        } else {
+            curI = 0;
+        }
+    });
+    const opOk = maxI <= 2;
+    
+    let issues = [];
+    if (vc < 3) issues.push('Use 3+ vocabulary words (Conviction, Credibility, Articulate, Calibrate, Leverage) - currently: ' + vc);
+    if (!hce) issues.push('Add a cause-effect sentence using "because", "therefore", or "as a result"');
+    if (!hfp) issues.push('Add future perfect tense - Example: "By next year, I will have completed..."');
+    if (!opOk) issues.push('Too many sentences starting with "I" - limit to 2 in a row');
+    
+    // Word count
+    const wordMsg = getWordCountMessage(words);
+    if (wordMsg && words < 100) {
+        issues.push(wordMsg);
+    }
+    
+    const allMet = vc >= 3 && hce && hfp && opOk && words >= 100;
+    
+    if (allMet) {
+        let feedbackHTML = '✅ <strong>Excellent!</strong> Your professional introduction meets all requirements.<br><br>';
+        feedbackHTML += '<em style="font-size:0.8rem;color:#10b981;">';
+        feedbackHTML += '✅ Vocabulary: ' + vc + ' words ✓ | Cause-Effect ✓ | Future Perfect ✓';
+        if (opOk) feedbackHTML += ' | Sentence Variety ✓';
+        feedbackHTML += '</em>';
+        if (foundVocab.length > 0) {
+            feedbackHTML += '<br><em style="font-size:0.8rem;color:#10b981;">📘 Words used: ' + foundVocab.join(', ') + '</em>';
+        }
+        if (wordMsg) {
+            feedbackHTML += '<br><em style="font-size:0.8rem;color:#64748b;">📝 ' + wordMsg + '</em>';
+        }
+        feedbackHTML += '<br><br><em style="font-size:0.75rem;color:#64748b;">📝 Checked locally (server temporarily unavailable)</em>';
+        
+        feedback.innerHTML = feedbackHTML;
+        feedback.className = 'fix-feedback correct';
+        feedback.style.display = 'block';
+        checklistEl.style.display = 'none';
+        showReferenceAnswer();
+        return true;
+    } else {
+        let feedbackHTML = '<strong>⚠️ Almost there!</strong> Here\'s what to improve:<br>';
+        feedbackHTML += '<div style="margin-top:0.5rem;">• ' + issues.join('<br>• ') + '</div>';
+        if (wordMsg && words < 120) {
+            feedbackHTML += '<br><em style="font-size:0.8rem;color:#64748b;">📝 ' + wordMsg + '</em>';
+        }
+        feedbackHTML += '<br><em style="font-size:0.75rem;color:#64748b;">📝 Checked locally (server temporarily unavailable)</em>';
+        
+        feedback.innerHTML = feedbackHTML;
+        feedback.className = 'fix-feedback almost';
+        feedback.style.display = 'block';
+        checklistEl.style.display = 'block';
+        return false;
+    }
+}
+
+// SERVER EVALUATION FUNCTION
+async function evaluateWriting() {
+    const inputEl = document.getElementById('writingEssay');
+    if (!inputEl) return false;
+    const text = inputEl.value.trim();
+    const feedback = document.getElementById('writingFeedback');
+    const words = text.split(/\s+/).filter(function(w) { return w.length > 0; }).length;
+    
+    // Hide reference answer and checklist
+    if (refContainer) {
+        refContainer.style.display = 'none';
+        refContainer.innerHTML = '';
+    }
+    if (checklistEl) checklistEl.style.display = 'none';
+    
+    // Empty check
+    if (text === "") {
+        feedback.innerHTML = '⚠️ Please write your professional introduction.';
+        feedback.className = 'fix-feedback empty';
+        feedback.style.display = 'block';
+        return false;
+    }
+    
+    // Word count check
+    if (words < 50) {
+        const wordMsg = getWordCountMessage(words);
+        feedback.innerHTML = '<strong>⚠️ Too short!</strong> You wrote ' + words + ' words. ' + wordMsg + '. Write a complete introduction of about 120 words.';
+        feedback.className = 'fix-feedback empty';
+        feedback.style.display = 'block';
+        return false;
+    }
+    
+    // Show evaluating status (No "AI" word)
+    feedback.innerHTML = '<span style="display:inline-block;animation:pulse 1.5s infinite;">⏳</span> Evaluating your introduction...';
+    feedback.className = 'fix-feedback hint-box';
+    feedback.style.display = 'block';
+    
+   const customPrompt = `You are an Advanced English instructor and teacher evaluating a professional self-introduction written by an engineering diploma student.
+Day 1 - Commanding Authority in Speech.
+
+TASK: Write a 120-word professional introduction about yourself as an advanced-level professional.
+
+REQUIREMENTS:
+1. At least 3 vocabulary words from: Conviction, Credibility, Articulate, Calibrate, Leverage
+2. At least 1 cause-effect sentence (using because, therefore, as a result, consequently)
+3. At least 1 sentence with future perfect tense (will have + past participle)
+4. Avoid starting sentences with "I" more than twice in a row
+5. Professional tone appropriate for workplace introduction
+
+EVALUATION RULES:
+- FIRST: Check if the text is gibberish, random words, or meaningless content
+- Count vocabulary words used correctly from the list
+- Check for a clear cause-effect relationship in at least one sentence
+- Verify future perfect tense usage (will have + past participle)
+- Check sentence variety - too many "I" starts is a problem
+- Assess overall professional tone and credibility
+
+SCORING:
+- 85-100: All requirements met, professional tone, good variety, 100+ words
+- 60-84: Most requirements met (missing 1), decent tone, 80+ words
+- 40-59: Some requirements missing (2+), basic introduction, under 80 words
+- 20-39: Very few requirements met, poor structure
+- 0-19: Gibberish, random words, not a real introduction
+
+IMPORTANT: DETECT GIBBERISH FIRST
+Before evaluating requirements, check if the text is:
+- Random words with no sentences (like "apple banana cat dog...")
+- Lists of unrelated terms
+- Copied text that is clearly not an introduction
+- Meaningless strings of characters
+
+If the text IS gibberish/random, respond with:
+{
+  "score": 5,
+  "correct": false,
+  "feedback": "This appears to be random words rather than a professional introduction. Please write a genuine introduction about yourself as an engineer. Start with your experience: 'With over five years of engineering experience...' and build from there. Use real sentences that describe your professional background.",
+  "suggestion": "With over five years of engineering experience, my approach combines technical expertise with clear communication."
+}
+
+FEEDBACK RULES (CRITICAL - MUST FOLLOW):
+1. Check for gibberish/random words FIRST - if found, say so directly
+2. If text is too short, say "Your introduction is too short. Write about 120 words."
+3. For partial answers, start with what they did RIGHT first
+4. Point out EXACTLY what's missing with specific examples
+5. Give CONCRETE sentences the student can copy and adapt
+6. Be encouraging like a real teacher
+7. Keep feedback to 3-4 sentences, direct and helpful
+8. Address the student as "you"
+9. NEVER use the word "AI" in your feedback
+10. NEVER mention "reference answer" or "local validation"
+
+FEEDBACK EXAMPLES BY SCENARIO:
+
+FOR GIBBERISH/RANDOM WORDS:
+"This appears to be random words, not a professional introduction. Please write a genuine introduction about yourself as an engineer. Describe your experience, skills, and professional goals using complete sentences."
+
+FOR VERY SHORT (under 30 words):
+"Your introduction is too short. Write about 120 words describing your engineering background, skills, and professional goals. Include vocabulary like 'conviction' and 'credibility' to strengthen your tone."
+
+FOR MISSING VOCABULARY:
+"Good professional tone! You have a cause-effect sentence and future perfect tense. Add 3 vocabulary words from the lesson: 'conviction', 'credibility', and 'leverage'. Example: 'My conviction in data-driven decisions has built lasting credibility with clients.'"
+
+FOR MISSING CAUSE-EFFECT:
+"I like your use of 'calibrate' and 'articulate'! You need a cause-effect sentence. Try: 'Because I communicate technical details clearly, stakeholders trust my recommendations.' This shows the connection between your actions and results."
+
+FOR MISSING FUTURE PERFECT:
+"Strong vocabulary and good cause-effect sentence! Add future perfect tense to show your goals. Example: 'By next year, I will have completed my advanced certification in systems engineering.'"
+
+FOR TOO MANY "I" STARTS:
+"Good content but too many sentences start with 'I'. Vary your sentence structure. Instead of 'I have experience... I work hard...' try: 'Engineering challenges require both precision and creativity, qualities I have developed over six years...'"
+
+FOR ALMOST PERFECT:
+"Excellent introduction! You have strong vocabulary, cause-effect, and future perfect. Just add one more vocabulary word like 'leverage' or 'calibrate' to fully meet the requirements."
+
+FOR PERFECT:
+"Outstanding professional introduction! You've included all required elements: strong vocabulary, a clear cause-effect relationship, and future perfect tense. Your varied sentence structure reads naturally and professionally. Well done!"
+
+BAD FEEDBACK (NEVER USE):
+- "Good job!" (too vague)
+- "Needs improvement" (not specific)
+- "Lacks professionalism" (not helpful)
+- "Check the reference" (don't mention)
+- "AI suggests..." (don't mention AI)
+
+Return ONLY a JSON object: 
+{
+  "score": 0-100,
+  "correct": true/false,
+  "feedback": "3-4 sentences that directly address the student's specific submission",
+  "suggestion": "One complete sentence (under 25 words) the student can directly use"
+}`;
+
+    try {
+        const response = await fetch('/learning/ai/evaluate/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({
+                text: text,
+                task_type: 'professional_introduction',
+                day_number: 1,
+                level: 'advanced',
+                system_prompt: customPrompt
+            })
+        });
+        
+        const res = await response.json();
+        
+        if (res.success) {
+            // ✅ SERVER EVALUATION WORKED - Show feedback (no "AI" label)
+            const isCorrect = res.correct !== false && res.score >= 60;
+            const statusIcon = isCorrect ? '✅' : '⚠️';
+            const statusClass = isCorrect ? 'correct' : 'almost';
+            
+            let feedbackHTML = '';
+            feedbackHTML += statusIcon + ' <strong>Feedback</strong><br>';
+            feedbackHTML += '<div style="margin-top:0.5rem;">' + res.feedback + '</div><br>';
+            feedbackHTML += '💡 <strong>Suggestion:</strong> <em>"' + res.suggestion + '"</em>';
+            
+            // Word count note if needed
+            const wordMsg = getWordCountMessage(words);
+            if (wordMsg && words < 100) {
+                feedbackHTML += '<br><br><em style="font-size:0.8rem;color:#64748b;">📝 Word count: ' + words + '/120 - ' + wordMsg + '</em>';
             }
-            const cwb = document.getElementById('completeWritingBtn');
-            if (cwb && cwb.textContent !== '✓ Completed') cwb.disabled = !writingPassed;
-        });
+            
+            feedback.innerHTML = feedbackHTML;
+            feedback.className = 'fix-feedback ' + statusClass;
+            feedback.style.display = 'block';
+            
+            // DO NOT show reference answer when server works
+            if (refContainer) {
+                refContainer.style.display = 'none';
+            }
+            if (checklistEl) checklistEl.style.display = 'none';
+            
+            if (isCorrect && words >= 100) {
+                return true;
+            }
+            return false;
+        } else {
+            // ❌ SERVER FAILED - Use local validation
+            console.log('Server evaluation failed, using local validation');
+            return localValidateWriting(text, words, feedback);
+        }
+    } catch (e) {
+        // ❌ NETWORK ERROR - Use local validation
+        console.error('Evaluation error:', e);
+        return localValidateWriting(text, words, feedback);
+    }
+}
 
-        document.getElementById('completeWritingBtn')?.addEventListener('click', () => {
-            if (writingPassed) markActivityComplete('writing', 'chk6');
-            else alert('⚠️ Complete the writing task first.');
-        });
+// Check Writing Button
+document.getElementById('checkWritingBtn')?.addEventListener('click', async function () {
+    const btn = document.getElementById('checkWritingBtn');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '⏳ Checking...';
+    
+    writingPassed = await evaluateWriting();
+    
+    btn.disabled = false;
+    btn.textContent = originalText;
+    
+    const completeBtn = document.getElementById('completeWritingBtn');
+    if (completeBtn && completeBtn.textContent !== '✓ Completed') {
+        completeBtn.disabled = !writingPassed;
+    }
+});
+
+// Complete Writing Button
+document.getElementById('completeWritingBtn')?.addEventListener('click', () => {
+    if (writingPassed) {
+        markActivityComplete('writing', 'chk6');
+    } else {
+        alert('⚠️ Please complete the writing task successfully first. Use the feedback to improve your introduction.');
+    }
+});
+
+// getCookie function
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 
         // Auto-save on input changes
         document.addEventListener('input', e => {
@@ -1118,5 +1427,6 @@
             updateChecklistProgress();
         });
     </script>
+      <script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 </html>

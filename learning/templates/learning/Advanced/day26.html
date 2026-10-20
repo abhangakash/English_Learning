@@ -33,7 +33,7 @@
         </div>
         <div class="audio-player">
             <audio id="listeningAudio" controls>
-                <source src="{% static 'learning/audio/Advanced/day6.mp3' %}" type="audio/mpeg">
+                <source src="{% static 'learning/audio/Advanced/day26.mp3' %}" type="audio/mpeg">
             </audio>
         </div>
         <div id="postAudioListeningContent" style="display:none;">
@@ -123,9 +123,9 @@
             <div class="activity-card" id="speaking-card"><div class="card-header speaking"><h2>🗣️ 2. Speaking Activity : The Natural Idiom Conversation</h2></div><div class="card-body">
                 <div class="speaking-unified-box"><div class="speaking-task-header"><div class="task-title"><span>🎯</span><span>Task</span></div><p class="task-description">Practise using these professional idioms naturally in context — not forced.</p></div>
                 <div class="speaking-sentences-list">
-                    <div class="speaking-sentence-item"><div class="sentence-number-badge">1</div><div class="sentence-text-content">"On the same page: Before we proceed, I want to make sure we are all on the same page regarding the revised specifications."</div></div>
-                    <div class="speaking-sentence-item"><div class="sentence-number-badge">2</div><div class="sentence-text-content">"Back to the drawing board: The load test results indicate we need to go back to the drawing board on the thermal management section."</div></div>
-                    <div class="speaking-sentence-item"><div class="sentence-number-badge">3</div><div class="sentence-text-content">"Hit the ground running: The new graduate joined the team and hit the ground running — she completed the data audit in two days."</div></div>
+                    <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">1</div><div class="sentence-text-content">"On the same page: Before we proceed, I want to make sure we are all on the same page regarding the revised specifications."</div></div>
+                    <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">2</div><div class="sentence-text-content">"Back to the drawing board: The load test results indicate we need to go back to the drawing board on the thermal management section."</div></div>
+                    <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">3</div><div class="sentence-text-content">"Hit the ground running: The new graduate joined the team and hit the ground running — she completed the data audit in two days."</div></div>
                 </div>
                 <div class="speaking-recording-section"><div class="recording-header"><span>🎙️</span><h4>Your Recording </h4></div><div class="recording-controls-group"><button id="speakingRecordBtn" class="speaking-record-btn">Start Recording</button><button id="speakingStopBtn" class="speaking-stop-btn" style="display:none;">Stop Recording</button></div><div id="speakingRecordingStatus" class="recording-status-indicator" style="display:none;"><div class="recording-dot-live"></div><span class="recording-timer-display" id="speakingTimer">00:00</span><span class="recording-hint">Recording... speak all 3 sentences</span></div><div id="speakingPlaybackArea" class="speaking-playback-area" style="display:none;"><audio id="speakingPlayback" controls></audio><div class="playback-success-msg">Listen back to check your natural delivery.</div></div></div></div>
                 <div class="speaking-complete-wrapper"><button class="complete-activity-btn" id="completeSpeakingBtn" disabled>✓ Mark Speaking as Complete</button></div>
@@ -175,8 +175,8 @@
 </div>
 
             <!-- CHECKLIST -->
-            <div class="activity-card"><div class="card-header vocabulary"><h2>✅ DAY 6 COMPLETION CHECKLIST</h2></div><div class="card-body"><ul class="checklist"><li><input type="checkbox" id="chk1" disabled><label> Identified four idioms and their meanings in the listening script</label></li><li><input type="checkbox" id="chk2" disabled><label> Practised three idioms in natural spoken context</label></li><li><input type="checkbox" id="chk3" disabled><label> Identified when idioms should be eliminated from the reading</label></li><li><input type="checkbox" id="chk4" disabled><label> Wrote the 150-word idiom message with contextual explanations</label></li>
-<li><input type="checkbox" id="chk5" disabled><label> Used 'Colloquial' in speaking and writing</label></li></ul><div style="text-align:right;margin:1rem 0;"><span class="badge" id="progressCounter">0/5 completed</span></div><div style="display:flex;justify-content:center;"><button class="day-complete-btn" id="dayCompleteBtn" disabled>🏆 Complete Day 6</button></div></div></div>
+            <div class="activity-card"><div class="card-header vocabulary"><h2>✅ DAY 26 COMPLETION CHECKLIST</h2></div><div class="card-body"><ul class="checklist"><li><input type="checkbox" id="chk1" disabled><label> Identified four idioms and their meanings in the listening script</label></li><li><input type="checkbox" id="chk2" disabled><label> Practised three idioms in natural spoken context</label></li><li><input type="checkbox" id="chk3" disabled><label> Identified when idioms should be eliminated from the reading</label></li><li><input type="checkbox" id="chk4" disabled><label> Wrote the 150-word idiom message with contextual explanations</label></li>
+<li><input type="checkbox" id="chk5" disabled><label> Used 'Colloquial' in speaking and writing</label></li></ul><div style="text-align:right;margin:1rem 0;"><span class="badge" id="progressCounter">0/5 completed</span></div><div style="display:flex;justify-content:center;"><button class="day-complete-btn" id="dayCompleteBtn" disabled> Complete Day 26</button></div></div></div>
         </div>
     </div>
 
@@ -635,7 +635,7 @@ document.addEventListener('DOMContentLoaded', function() {
     restoreCompletedButtons();
     setTimeout(restoreCompletedButtons, 500);
 });
-
     </script>
+    <script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 </html>

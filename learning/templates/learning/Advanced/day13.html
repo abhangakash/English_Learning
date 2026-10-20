@@ -10,6 +10,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'learning/css/base.css' %}">
     <style>
+        .complete-activity-btn.completed,
+.complete-activity-btn:disabled {
+    background-color: #9ca3af !important;
+    border-color: #9ca3af !important;
+    color: white !important;
+    cursor: not-allowed;
+}
+
+        /* Input validation styles */
+#taskRunTime.correct-input,
+#taskTempReading.correct-input,
+#taskRatedMax.correct-input {
+    border-color: #10b981 !important;
+    background: #f0fdf4 !important;
+}
+
+#taskRunTime.incorrect-input,
+#taskTempReading.incorrect-input,
+#taskRatedMax.incorrect-input {
+    border-color: #ef4444 !important;
+    background: #fef2f2 !important;
+}
         .writing-textarea {
             width: 100%;
             padding: 1.2rem;
@@ -81,9 +103,7 @@
                     <strong style="color: #7518e8; letter-spacing: 0.05em;">TIP OF THE DAY</strong>
                 </div>
                 <p style="color: #475569; line-height: 1.6;">
-                    Force yourself to write only <strong>one sentence of notes per minute</strong>. This constraint
-                    forces your brain to identify the single most important point — the core skill of expert listeners.
-                    Quantity of notes does not correlate with quality of understanding.
+                    When attending a lecture, meeting, or technical briefing, force yourself to write only one sentence of notes per minute. This constraint forces your brain to identify the single most important point in each minute of speech — the core skill of expert listeners. Quantity of notes does not correlate with quality of understanding.
                 </p>
             </div>
         </div>
@@ -94,7 +114,7 @@
             <!-- 1. LISTENING ACTIVITY -->
             <div class="activity-card" id="listening-card">
                 <div class="card-header listening">
-                    <h2>🎧 1. Listening Activity · Filtering Noise</h2>
+                    <h2>🎧 1. Listening Activity : Filtering Noise</h2>
                 </div>
                 <div class="card-body">
                     <div class="task-box">
@@ -107,7 +127,7 @@
                     </div>
 
                     <audio id="listeningAudioLocal" controls>
-                        <source src="{% static 'learning/audio/Beginner/day13.mp3' %}" type="audio/mpeg">
+                        <source src="{% static 'learning/audio/Advanced/day13.mp3' %}" type="audio/mpeg">
                     </audio>
 
                     <div id="listeningTextSection" style="display: none;">
@@ -189,75 +209,63 @@
             </div>
 
             <!-- 2. SPEAKING ACTIVITY -->
-            <div class="activity-card" id="speaking-card">
-                <div class="card-header speaking">
-                    <h2>🗣️ 2. Speaking Activity · The Executive Summary</h2>
+<div class="activity-card" id="speaking-card">
+    <div class="card-header speaking">
+        <h2>🗣️ 2. Speaking Activity : The Executive Summary</h2>
+    </div>
+    <div class="card-body">
+        <div class="speaking-unified-box">
+            <div class="speaking-task-header">
+                <div class="task-title">
+                    <span>🎯</span>
+                    <span>Task</span>
                 </div>
-                <div class="card-body">
-                    <div class="speaking-unified-box">
-                        <div class="speaking-task-header">
-                            <div class="task-title">
-                                <span>🎯</span>
-                                <span>Task</span>
-                            </div>
-                            <p class="task-description">
-                                Practise delivering only the critical information — no filler, no hedging. Compress the
-                                rambling version into the critical version.
-                            </p>
-                        </div>
+                <p class="task-description">
+                    Compress this rambling explanation into a <strong>10-second critical summary</strong>. 
+                    Practise delivering only the critical information — no filler, no hedging.
+                </p>
+            </div>
 
-                        <div class="speaking-sentences-list">
-                            <div class="speaking-sentence-item">
-                                <div class="sentence-number-badge">1</div>
-                                <div class="sentence-text-content">
-                                    <strong>Full version:</strong> "The motor, which we had been observing for a while,
-                                    eventually — after about five or six hours of operation — reached a temperature that
-                                    was higher than it should have been."
-                                </div>
-                            </div>
-                            <div class="speaking-sentence-item">
-                                <div class="sentence-number-badge">2</div>
-                                <div class="sentence-text-content">
-                                    <strong>Critical version:</strong> "After six hours of operation, the motor reached
-                                    78°C — 8°C above the rated maximum. Immediate shutdown was required."
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="speaking-recording-section">
-                            <div class="recording-header">
-                                <span>🎙️</span>
-                                <h4>Record Your Executive Summary</h4>
-                            </div>
-                            <div class="recording-controls-group">
-                                <button id="speakingRecordBtn" class="speaking-record-btn">Start Recording</button>
-                                <button id="speakingStopBtn" class="speaking-stop-btn" style="display: none;">Stop
-                                    Recording</button>
-                            </div>
-                            <div id="speakingRecordingStatus" class="recording-status-indicator" style="display: none;">
-                                <div class="recording-dot-live"></div>
-                                <span class="recording-timer-display" id="speakingTimer">00:00</span>
-                                <span class="recording-hint">Recording in progress...</span>
-                            </div>
-                            <div id="speakingPlaybackCard" class="speaking-playback-area" style="display: none;">
-                                <audio id="speakingPlayback" controls></audio>
-                                <div class="playback-success-msg"><span>✅</span> Recording saved! Listen for impact and
-                                    clarity.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
-                        <button class="complete-activity-btn" id="completeSpeakingBtn" disabled data-checklist="chk2">✓
-                            Mark Speaking as Complete</button>
+            <div class="speaking-sentences-list">
+                <div class="speaking-sentence-item">
+                    <div class="sentence-number-badge">1</div>
+                    <div class="sentence-text-content">
+                        <strong> Full version : </strong><br>
+                        "The motor, which we had been observing for a while, eventually — after about five or six 
+                        hours of operation — reached a temperature that was higher than it should have been."
                     </div>
                 </div>
             </div>
 
+            <div class="speaking-recording-section">
+                <div class="recording-header">
+                    <span>🎙️</span>
+                    <h4>Record Your Critical Version</h4>
+                </div>
+                <div class="recording-controls-group">
+                    <button id="speakingRecordBtn" class="speaking-record-btn">Start Recording</button>
+                    <button id="speakingStopBtn" class="speaking-stop-btn" style="display: none;">Stop Recording</button>
+                </div>
+                <div id="speakingRecordingStatus" class="recording-status-indicator" style="display: none;">
+                    <div class="recording-dot-live"></div>
+                    <span class="recording-timer-display" id="speakingTimer">00:00</span>
+                    <span class="recording-hint">Recording in progress...</span>
+                </div>
+                <div id="speakingFeedback" class="fix-feedback" style="margin-top:0.75rem;"></div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
+            <button class="complete-activity-btn" id="completeSpeakingBtn" disabled data-checklist="chk2">✓
+                Mark Speaking as Complete</button>
+        </div>
+    </div>
+</div>
+
             <!-- 3. READING ACTIVITY -->
             <div class="activity-card" id="reading-card">
                 <div class="card-header reading">
-                    <h2>📖 3. Reading Passage · Filtering Noise</h2>
+                    <h2>📖 3. Reading Passage : Filtering Noise</h2>
                 </div>
                 <div class="card-body">
                     <div class="task-box" style="margin-bottom: 1.5rem;">
@@ -278,7 +286,7 @@
                         <h3 style="margin-bottom: 1rem; color: #1e293b;">🔍 Analysis Tasks</h3>
 
                         <div class="listening-task-area">
-                            <p>(a) What is 'cognitive load' and why is it relevant to listening?</p>
+                            <p>1️⃣ What is 'cognitive load' and why is it relevant to listening?</p>
                             <textarea id="readingT31" class="grammar-input" rows="2"
                                 placeholder="Explain cognitive load..."></textarea>
                             <button class="btn-outline" id="checkReadingT31Btn">✓ Check Answer</button>
@@ -286,7 +294,7 @@
                         </div>
 
                         <div class="listening-task-area">
-                            <p>(b) Describe the mental template the author recommends for advanced listening.</p>
+                            <p>2️⃣ Describe the mental template the author recommends for advanced listening.</p>
                             <textarea id="readingT32" class="grammar-input" rows="2"
                                 placeholder="Describe the template..."></textarea>
                             <button class="btn-outline" id="checkReadingT32Btn">✓ Check Answer</button>
@@ -294,7 +302,7 @@
                         </div>
 
                         <div class="listening-task-area">
-                            <p>(c) Apply this template to a recent lecture or meeting you attended.</p>
+                            <p>3️⃣ Apply this template to a recent lecture or meeting you attended.</p>
                             <textarea id="readingT33" class="grammar-input" rows="2"
                                 placeholder="Apply the template..."></textarea>
                             <button class="btn-outline" id="checkReadingT33Btn">✓ Check Answer</button>
@@ -309,10 +317,52 @@
                 </div>
             </div>
 
+            <!-- 6. WRITING ACTIVITY -->
+            <div class="activity-card" id="writing-card">
+                <div class="card-header writing">
+                    <h2>✍️ 4. Writing Activity · The Critical Summary</h2>
+                </div>
+                <div class="card-body">
+                    <div class="writing-tip-box">
+                        <p><strong>💡 Writing Tip:</strong> The strongest summary sentences begin with what the reader
+                            needs to know, not the context. Example: 'The failure rate increased by 22% in Q3' is
+                            stronger than 'In Q3, we found the rate had gone up.'</p>
+                    </div>
+
+                    <div class="task-box">
+                        <div class="task-header">
+                            <div class="title"><span>🎯</span><span>The Task</span></div>
+                        </div>
+                        <div class="task-content">
+                            Watch or listen to a five-minute technical talk (YouTube, TED, or your engineering
+                            department). Write a 100-word summary containing ONLY the three most critical points.
+                            <strong>Use
+                                the template: Key Fact | Critical Number | Required Action</strong>.
+                        </div>
+                    </div>
+
+                    <div class="writing-prompt">
+                        <textarea id="progressEmailBody" class="writing-textarea"
+                            placeholder="Key Fact: ... | Critical Number: ... | Required Action: ..."></textarea>
+                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
+                            count: <span id="wordCount">0</span> / ~100</div>
+                    </div>
+
+                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check My
+                        Summary</button>
+                    <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
+
+                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
+                            Mark Writing as Complete</button>
+                    </div>
+                </div>
+            </div>
+
             <!-- 4. VOCABULARY ACTIVITY -->
             <div class="activity-card" id="vocabulary-card">
                 <div class="card-header vocabulary">
-                    <h2>📘 4. Vocabulary of the Day</h2>
+                    <h2>📘 5. Vocabulary of the Day</h2>
                 </div>
                 <div class="card-body">
                     <div class="vocab-table-container">
@@ -380,11 +430,12 @@
                             notice it."</p>
                     </div>
 
-                    <div class="power-word-section" style="border-left-color: #22c55e;">
+                      <div class="idiom-section">
                         <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #166534;">
                             <span>💬</span><span>IDIOM: "Separate the wheat from the chaff"</span>
                         </div>
                         <p><strong>Meaning:</strong> Distinguish the important from the unimportant</p>
+                        <p><strong>Example:</strong> "A trained analyst can separate the wheat from the chaff in a complex data set within minutes."</p>
                     </div>
 
                     <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
@@ -415,47 +466,7 @@
                 </div>
             </div>
 
-            <!-- 6. WRITING ACTIVITY -->
-            <div class="activity-card" id="writing-card">
-                <div class="card-header writing">
-                    <h2>✍️ 5. Writing Activity · The Critical Summary</h2>
-                </div>
-                <div class="card-body">
-                    <div class="writing-tip-box">
-                        <p><strong>💡 Writing Tip:</strong> The strongest summary sentences begin with what the reader
-                            needs to know, not the context. Example: 'The failure rate increased by 22% in Q3' is
-                            stronger than 'In Q3, we found the rate had gone up.'</p>
-                    </div>
-
-                    <div class="task-box">
-                        <div class="task-header">
-                            <div class="title"><span>🎯</span><span>The Task</span></div>
-                        </div>
-                        <div class="task-content">
-                            Watch or listen to a five-minute technical talk (YouTube, TED, or your engineering
-                            department). Write a 100-word summary containing ONLY the three most critical points.
-                            <strong>Use
-                                the template: Key Fact | Critical Number | Required Action</strong>.
-                        </div>
-                    </div>
-
-                    <div class="writing-prompt">
-                        <textarea id="progressEmailBody" class="writing-textarea"
-                            placeholder="Key Fact: ... | Critical Number: ... | Required Action: ..."></textarea>
-                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
-                            count: <span id="wordCount">0</span> / ~100</div>
-                    </div>
-
-                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check My
-                        Summary</button>
-                    <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
-
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
-                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
-                            Mark Writing as Complete</button>
-                    </div>
-                </div>
-            </div>
+    
 
             <!-- CHECKLIST -->
             <div class="activity-card">
@@ -488,201 +499,357 @@
     <!-- JS SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="{% static 'learning/js/main.js' %}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize Day
-            if (typeof initializeDay === 'function') {
-                initializeDay(13, 'advanced', {
-                    vocabularyWords: ['Salient', 'Extraneous', 'Discerning', 'Cognitive', 'Prioritise']
-                });
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="{% static 'learning/js/main.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize Day
+        if (typeof initializeDay === 'function') {
+            initializeDay(13, 'advanced', {
+                vocabularyWords: ['Salient', 'Extraneous', 'Discerning', 'Cognitive', 'Prioritise']
+            });
+        }
+
+        // --- 1. LISTENING ---
+        let taskDone = false, quizDone = false;
+
+        const correctAnswers = {
+            runTime: ['6-8 hours', '6 to 8 hours', 'six to eight hours', '6-8 hrs', '6 to 8 hrs', 'approximately 6-8 hours', 'about 6-8 hours'],
+            tempReading: ['78 degrees', '78°', '78 deg', '78', '78 degrees celsius', '78°c'],
+            ratedMax: ['70 degrees', '70°', '70 deg', '70', '70 degrees celsius', '70°c']
+        };
+
+        const hints = {
+            runTime: 'The speaker said "six to eight hours" despite the hesitant delivery.',
+            tempReading: 'The temperature gauge showed 78 degrees.',
+            ratedMax: 'The rated maximum operating temperature is 70 degrees.'
+        };
+
+        const audio = document.getElementById('listeningAudioLocal');
+        if (audio) {
+            audio.addEventListener('ended', function() {
+                document.getElementById('listeningTextSection').style.display = 'block';
+                document.getElementById('postAudioListeningContent').style.display = 'block';
+            });
+        }
+
+        function updateListeningCompletion() {
+            const btn = document.getElementById('completeListeningBtn');
+            btn.disabled = !(taskDone && quizDone);
+        }
+
+        function isAnswerCorrect(userAnswer, correctList) {
+            const cleaned = userAnswer.trim().toLowerCase().replace(/\s+/g, ' ');
+            return correctList.some(answer => {
+                const ans = answer.toLowerCase().replace(/\s+/g, ' ');
+                return cleaned === ans || cleaned.includes(ans) || ans.includes(cleaned);
+            });
+        }
+
+        function validateField(value, correctList, inputId, hintText) {
+            const input = document.getElementById(inputId);
+            if (!value || value.trim() === '') {
+                showFeedbackBelow(input, '⚠️ Please enter your answer.', 'empty');
+                return false;
             }
-
-            // --- 1. LISTENING ---
-            let taskDone = false, quizDone = false;
-            
-            // Audio Reveal Logic (Isolated from main.js)
-            const audio = document.getElementById('listeningAudioLocal');
-            if (audio) {
-                audio.addEventListener('ended', function() {
-                    document.getElementById('listeningTextSection').style.display = 'block';
-                    document.getElementById('postAudioListeningContent').style.display = 'block';
-                });
+            const isCorrect = isAnswerCorrect(value, correctList);
+            if (isCorrect) {
+                showFeedbackBelow(input, '✅ Correct!', 'correct');
+                if (input) { input.style.borderColor = '#10b981'; input.style.background = '#f0fdf4'; }
+                return true;
+            } else {
+                showFeedbackBelow(input, '❌ Incorrect. ' + hintText, 'incorrect');
+                if (input) { input.style.borderColor = '#ef4444'; input.style.background = '#fef2f2'; }
+                return false;
             }
+        }
 
-            function updateListeningCompletion() {
-                if (taskDone && quizDone) document.getElementById('completeListeningBtn').disabled = false;
-            }
+        function showFeedbackBelow(input, message, type) {
+            const oldFb = input.parentElement.querySelector('.inline-feedback');
+            if (oldFb) oldFb.remove();
+            const fb = document.createElement('div');
+            fb.className = 'inline-feedback fix-feedback ' + type;
+            fb.innerHTML = message;
+            fb.style.display = 'block';
+            fb.style.marginTop = '0.3rem';
+            fb.style.fontSize = '0.85rem';
+            input.parentElement.appendChild(fb);
+        }
 
-            document.getElementById('checkTaskBtn')?.addEventListener('click', async () => {
-                const rt = document.getElementById('taskRunTime').value.trim();
-                const tr = document.getElementById('taskTempReading').value.trim();
-                const rm = document.getElementById('taskRatedMax').value.trim();
-                const feedback = document.getElementById('taskFeedback');
-
-                if (!rt || !tr || !rm) {
-                    feedback.innerHTML = '⚠️ Please fill in all three facts.';
-                    feedback.className = 'fix-feedback incorrect';
-                    feedback.style.display = 'block';
-                    return;
-                }
-
-                const combinedText = `Fact 1 (Run Time): ${rt} | Fact 2 (Temp): ${tr} | Fact 3 (Max): ${rm}`;
-                taskDone = await evaluateTaskRaw(combinedText, 'taskFeedback', 'listening_analysis', 5);
+        document.getElementById('checkTaskBtn')?.addEventListener('click', () => {
+            const rtCorrect = validateField(document.getElementById('taskRunTime').value.trim(), correctAnswers.runTime, 'taskRunTime', hints.runTime);
+            const trCorrect = validateField(document.getElementById('taskTempReading').value.trim(), correctAnswers.tempReading, 'taskTempReading', hints.tempReading);
+            const rmCorrect = validateField(document.getElementById('taskRatedMax').value.trim(), correctAnswers.ratedMax, 'taskRatedMax', hints.ratedMax);
+            if (rtCorrect && trCorrect && rmCorrect) {
+                taskDone = true;
+                const tf = document.getElementById('taskFeedback');
+                if (tf) { tf.innerHTML = ''; tf.style.display = 'none'; }
                 updateListeningCompletion();
-            });
-
-            document.getElementById('checkListeningWorkBtnLocal')?.addEventListener('click', function () {
-                const q1 = document.querySelector('input[name="q1"]:checked')?.value;
-                const q2 = document.querySelector('input[name="q2"]:checked')?.value;
-                const fb = document.getElementById('listeningQuizFeedback');
-
-                if (!q1 || !q2) {
-                    fb.innerHTML = '⚠️ Please answer both questions.';
-                    fb.className = 'quiz-feedback incorrect';
-                    fb.style.display = 'block';
-                    return;
-                }
-
-                const isCorrect = q1 === "B" && q2 === "B";
-                fb.innerHTML = isCorrect ? '✅ Correct facts identified!' : '❌ Incorrect. Check the rated maximum and the core problem.';
-                fb.className = `quiz-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-                fb.style.display = 'block';
-                if (isCorrect) { quizDone = true; updateListeningCompletion(); }
-            });
-
-            // --- AI EVALUATION HELPER ---
-            async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
-                const feedback = document.getElementById(feedbackId);
-                const words = text.split(/\s+/).filter(w => w.length > 0).length;
-
-                if (words < minWords) {
-                    feedback.innerHTML = `⚠️ Too brief. Please provide more detail for each fact.`;
-                    feedback.className = 'fix-feedback incorrect';
-                    feedback.style.display = 'block';
-                    return false;
-                }
-
-                feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
-                feedback.className = 'fix-feedback';
-                feedback.style.display = 'block';
-
-                const customPrompts = {
-                    listening_analysis: "Identify three critical facts from the script. Correct facts: (1) Run time: 6-8 hours, (2) Temperature reading: 78 degrees, (3) Rated maximum: 70 degrees. Evaluation should check for accuracy of these numbers.",
-                    reading_a: "Explain Cognitive Load Theory based on the reading. Correct answer should mention the brain's limited capacity to process raw data and how excessive data hinders decision-making.",
-                    reading_b: "Describe the 'Key Fact | Number | Action' template from the text. Correct answer should explain that it distills complex data into actionable intelligence.",
-                    reading_c: "Apply the 'Key Fact | Number | Action' template to a technical scenario (e.g., a meeting or report). Correct answer should follow the exact format: 'Fact | Number | Action'.",
-                    professional_monologue: "Write a 100-word critical summary of a technical talk using the exact template: 'Key Fact | Critical Number | Required Action'."
-                };
-
-                const system_prompt = `Evaluate the following response as an English communication trainer.
-                
-                Original Task: "${customPrompts[type]}"
-
-                Provide a strict, professional evaluation in this format:
-                ✅ Evaluation:
-                2-4 sentences assessing how well the response meets the task requirements. Comment on content selection, structure, clarity, relevance, and adherence to the instructions.
-
-                💡 Improvement:
-                Give one specific, practical suggestion that would make the response stronger. Focus only on the single most important improvement.
-
-                Do not mention scores, grades, ratings, or word count. Keep the feedback concise, direct, and teacher-like.
-
-                Return ONLY a JSON object:
-                {
-                    "correct": true/false,
-                    "evaluation": "The evaluation text...",
-                    "improvement": "The improvement suggestion..."
-                }`;
-
-                try {
-                    const response = await fetch('/learning/ai/evaluate/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
-                        body: JSON.stringify({ text, task_type: type, day_number: 13, level: 'advanced', system_prompt })
-                    });
-                    const res = await response.json();
-                    if (res.success) {
-                        const isCorrect = res.correct !== false;
-                        const statusEmoji = isCorrect ? '✅' : '❌';
-
-                        feedback.innerHTML = `
-                            <div style="margin-bottom: 0.8rem;">
-                                <strong>${statusEmoji} Evaluation:</strong><br>
-                                <span style="font-size: 0.95rem; line-height: 1.5;">${res.evaluation}</span>
-                            </div>
-                            <div style="border-top: 1px solid #e2e8f0; padding-top: 0.8rem;">
-                                <strong>💡 Improvement:</strong><br>
-                                <span style="font-size: 0.95rem; line-height: 1.5;">${res.improvement}</span>
-                            </div>
-                        `;
-                        feedback.className = `fix-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-                        return isCorrect;
-                    }
-                    return false;
-                } catch (e) {
-                    feedback.innerHTML = '⚠️ Error connecting to AI.';
-                    feedback.className = 'fix-feedback incorrect';
-                    return false;
-                }
             }
-
-            async function evaluateTask(id, type, taskName, minWords = 5) {
-                const inputEl = document.getElementById(id + 'Input') || document.getElementById(id);
-                return await evaluateTaskRaw(inputEl.value.trim(), id + 'Feedback', type, minWords);
-            }
-
-            // --- READING ---
-            let r1 = false, r2 = false, r3 = false;
-            function updateReading() { if (r1 && r2 && r3) document.getElementById('completeReadingBtn').disabled = false; }
-            document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => { r1 = await evaluateTask('readingT31', 'reading_a', 'Explain cognitive load', 10); updateReading(); });
-            document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => { r2 = await evaluateTask('readingT32', 'reading_b', 'Describe mental template', 10); updateReading(); });
-            document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => { r3 = await evaluateTask('readingT33', 'reading_c', 'Apply template to a meeting', 15); updateReading(); });
-
-            // --- WRITING ---
-            document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
-                const isCorrect = await evaluateTask('progressEmailBody', 'professional_monologue', '100-word critical summary with template', 70);
-                if (isCorrect) document.getElementById('completeWritingBtn').disabled = false;
-            });
-            document.getElementById('progressEmailBody')?.addEventListener('input', function () {
-                document.getElementById('wordCount').innerText = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
-            });
-
-            // --- SPEAKING ---
-            let speakMediaRecorder, speakChunks = [];
-            document.getElementById('speakingRecordBtn')?.addEventListener('click', async () => {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                speakMediaRecorder = new MediaRecorder(stream);
-                speakChunks = [];
-                speakMediaRecorder.ondataavailable = e => speakChunks.push(e.data);
-                speakMediaRecorder.onstop = () => {
-                    const blob = new Blob(speakChunks, { type: 'audio/webm' });
-                    document.getElementById('speakingPlayback').src = URL.createObjectURL(blob);
-                    document.getElementById('speakingPlaybackCard').style.display = 'block';
-                    document.getElementById('completeSpeakingBtn').disabled = false;
-                    stream.getTracks().forEach(t => t.stop());
-                };
-                speakMediaRecorder.start();
-                document.getElementById('speakingRecordBtn').style.display = 'none';
-                document.getElementById('speakingStopBtn').style.display = 'inline-flex';
-                document.getElementById('speakingRecordingStatus').style.display = 'flex';
-            });
-            document.getElementById('speakingStopBtn')?.addEventListener('click', () => {
-                speakMediaRecorder.stop();
-                document.getElementById('speakingRecordBtn').style.display = 'inline-flex';
-                document.getElementById('speakingStopBtn').style.display = 'none';
-                document.getElementById('speakingRecordingStatus').style.display = 'none';
-            });
-
-            // --- COMPLETION ---
-            document.getElementById('completeListeningBtn')?.addEventListener('click', () => markActivityComplete('listening', 'chk1'));
-            document.getElementById('completeSpeakingBtn')?.addEventListener('click', () => markActivityComplete('speaking', 'chk2'));
-            document.getElementById('completeReadingBtn')?.addEventListener('click', () => markActivityComplete('reading', 'chk3'));
-            document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => markActivityComplete('vocabulary', 'chk4'));
-            document.getElementById('completeWritingBtn')?.addEventListener('click', () => markActivityComplete('writing', 'chk5'));
-            document.getElementById('dayCompleteBtn')?.addEventListener('click', completeDay);
-
         });
-    </script>
+
+        ['taskRunTime', 'taskTempReading', 'taskRatedMax'].forEach(id => {
+            const input = document.getElementById(id);
+            if (input) {
+                input.addEventListener('input', function() {
+                    this.style.borderColor = '#e2e8f0';
+                    this.style.background = '#ffffff';
+                    const oldFb = this.parentElement.querySelector('.inline-feedback');
+                    if (oldFb) oldFb.remove();
+                });
+            }
+        });
+
+        document.getElementById('checkListeningWorkBtnLocal')?.addEventListener('click', function () {
+            const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+            const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+            const fb = document.getElementById('listeningQuizFeedback');
+            if (!q1 || !q2) {
+                fb.innerHTML = '⚠️ Please answer both questions.';
+                fb.className = 'quiz-feedback incorrect';
+                fb.style.display = 'block';
+                return;
+            }
+            const isCorrect = q1 === "B" && q2 === "B";
+            if (isCorrect) {
+                fb.innerHTML = '✅ Correct! The rated maximum is 70 degrees, and the temperature exceeded the safe limit.';
+                fb.className = 'quiz-feedback correct';
+                quizDone = true;
+                updateListeningCompletion();
+            } else {
+                let msg = '❌ ';
+                if (q1 !== "B") msg += 'Q1: The critical threshold is the rated maximum (70 degrees). ';
+                if (q2 !== "B") msg += 'Q2: The main fact is the temperature exceeded the safe limit.';
+                fb.innerHTML = msg;
+                fb.className = 'quiz-feedback incorrect';
+                quizDone = false;
+            }
+            fb.style.display = 'block';
+        });
+
+        // --- AI EVALUATION HELPER ---
+        async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
+            const feedback = document.getElementById(feedbackId);
+            const words = text.split(/\s+/).filter(w => w.length > 0).length;
+            if (words < minWords) {
+                feedback.innerHTML = '⚠️ Too brief. Please provide more detail.';
+                feedback.className = 'fix-feedback incorrect';
+                feedback.style.display = 'block';
+                return false;
+            }
+            feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
+            feedback.className = 'fix-feedback';
+            feedback.style.display = 'block';
+
+            const customPrompts = {
+                reading_a: "Explain Cognitive Load Theory based on the reading.",
+                reading_b: "Describe the 'Key Fact | Number | Action' template from the text.",
+                reading_c: "Apply the template to a technical scenario.",
+                professional_monologue: "Write a 100-word critical summary using 'Key Fact | Critical Number | Required Action'."
+            };
+
+            const system_prompt = `You are an English instructor. Evaluate: "${customPrompts[type]}". 
+IMPORTANT: Always address the user as "you" — NEVER say "the student" or "they".
+Return JSON: {"correct":true/false,"evaluation":"2-3 sentences using 'you'","improvement":"one specific suggestion using 'you'"}`;
+
+            try {
+                const response = await fetch('/learning/ai/evaluate/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                    body: JSON.stringify({ text, task_type: type, day_number: 13, level: 'advanced', system_prompt })
+                });
+                const res = await response.json();
+                if (res.success) {
+                    const isCorrect = res.correct !== false;
+                    feedback.innerHTML = `<strong>${isCorrect ? '✅' : '❌'} Evaluation:</strong><br>${res.evaluation}<br><br><strong>💡 Improvement:</strong><br>${res.improvement}`;
+                    feedback.className = `fix-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                    return isCorrect;
+                }
+                return false;
+            } catch (e) {
+                feedback.innerHTML = '⚠️ Error connecting to server.';
+                feedback.className = 'fix-feedback incorrect';
+                return false;
+            }
+        }
+
+        async function evaluateTask(id, type, minWords = 5) {
+            const inputEl = document.getElementById(id + 'Input') || document.getElementById(id);
+            return await evaluateTaskRaw(inputEl.value.trim(), id + 'Feedback', type, minWords);
+        }
+
+        // --- READING ---
+        let r1 = false, r2 = false, r3 = false;
+        function updateReading() { if (r1 && r2 && r3) document.getElementById('completeReadingBtn').disabled = false; }
+        document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => { r1 = await evaluateTask('readingT31', 'reading_a', 10); updateReading(); });
+        document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => { r2 = await evaluateTask('readingT32', 'reading_b', 10); updateReading(); });
+        document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => { r3 = await evaluateTask('readingT33', 'reading_c', 15); updateReading(); });
+
+        // --- WRITING ---
+        document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
+            const isCorrect = await evaluateTask('progressEmailBody', 'professional_monologue', 70);
+            if (isCorrect) document.getElementById('completeWritingBtn').disabled = false;
+        });
+        document.getElementById('progressEmailBody')?.addEventListener('input', function () {
+            document.getElementById('wordCount').innerText = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+        });
+
+        // ========== SPEAKING (AI + Speech Recognition) ==========
+        let speakingPassed = false;
+
+        const sr = document.getElementById('speakingRecordBtn');
+        const ss = document.getElementById('speakingStopBtn');
+        const srs = document.getElementById('speakingRecordingStatus');
+        const st = document.getElementById('speakingTimer');
+        const csb = document.getElementById('completeSpeakingBtn');
+        const sfb = document.getElementById('speakingFeedback');
+
+        let recognition = null, isRecording = false, finalTranscript = '';
+        let timerInterval = null, recordingSeconds = 0;
+
+        function formatTime(s) { const m = Math.floor(s/60), sec = s%60; return m.toString().padStart(2,'0')+':'+sec.toString().padStart(2,'0'); }
+
+        function stopRecording() {
+            if (recognition && isRecording) { recognition.stop(); isRecording = false; }
+            if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+            if (sr) sr.style.display = 'inline-flex';
+            if (ss) ss.style.display = 'none';
+            if (srs) srs.style.display = 'none';
+        }
+
+        function localFallback(transcript, seconds, isManual) {
+            const lower = transcript.toLowerCase();
+            const wc = transcript.split(/\s+/).length;
+            const hasRuntime = /\b(six|6|five|5|hours|hour)\b/.test(lower);
+            const hasTemp = /\b(78|seventy.?eight|temperature)\b/.test(lower);
+            const hasAction = /\b(shutdown|shut down|stop|action|required|immediate)\b/.test(lower);
+            const hasNoFiller = !/\b(um|uh|like|you know|basically|actually|sort of|kind of)\b/.test(lower);
+            const factsFound = [hasRuntime, hasTemp, hasAction].filter(Boolean).length;
+            const passed = factsFound >= 2 && hasNoFiller && wc >= 8;
+            if (passed) {
+                sfb.innerHTML = `<div style="background:#d1fae5;border:1px solid #6ee7b7;border-left:4px solid #10b981;padding:1rem;border-radius:12px;color:#065f46;">✅ <strong>Good critical summary!</strong> You captured the key facts concisely.</div>`;
+                sfb.className = ''; speakingPassed = true; if (csb) csb.disabled = false;
+            } else {
+                let msg = '<strong>⚠️ Almost!</strong><br><div style="margin-top:0.5rem;">';
+                if (factsFound < 2) msg += '• Include motor runtime, temperature (78°C), and required action.<br>';
+                if (!hasNoFiller) msg += '• Remove filler words.<br>';
+                if (wc < 8) msg += '• Add more detail.<br>';
+                msg += '</div>';
+                sfb.innerHTML = `<div style="background:#fef9c3;border:1px solid #facc15;border-left:4px solid #eab308;padding:1rem;border-radius:12px;color:#854d0e;">${msg}<em style="font-size:0.8rem;color:#64748b;">📝 Try: "After 6 hours, the motor reached 78°C — 8°C above the rated maximum. Immediate shutdown was required."</em></div>`;
+                sfb.className = '';
+            }
+            sfb.style.display = 'block';
+        }
+
+        async function validateWithAI(transcript, seconds, isManual) {
+            sfb.innerHTML = `<div style="background:#e0f2fe;border:1px solid #7dd3fc;border-left:4px solid #0ea5e9;padding:1rem;border-radius:12px;color:#075985;">⏳ <strong>Evaluating your critical summary...</strong></div>`;
+            sfb.style.display = 'block';
+            try {
+                const res = await fetch('/learning/ai/evaluate/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                    body: JSON.stringify({ text: transcript, task_type: 'critical_summary', day_number: 13, level: 'advanced',
+                        system_prompt: `Evaluate a critical summary. Original: "The motor... reached a temperature that was higher than it should have been." Key facts needed: 6 hours runtime, 78°C temperature, above rated max, shutdown required. Return JSON: {"score":0-100,"correct":true/false,"feedback":"2-3 sentences with specific praise and what to fix","suggestion":"example sentence under 20 words"}`
+                    })
+                });
+                const d = await res.json();
+                if (d.success) {
+                    const ok = d.correct !== false && d.score >= 60;
+                    sfb.innerHTML = (ok ? '✅ ' : '⚠️ ') + d.feedback + '<br><br>💡 <strong>' + (ok ? 'Suggestion' : 'Try this') + ':</strong> <em>"' + d.suggestion + '"</em>';
+                    sfb.className = ok ? 'fix-feedback correct' : 'fix-feedback almost';
+                    if (ok) { speakingPassed = true; if (csb) csb.disabled = false; }
+                } else { localFallback(transcript, seconds, isManual); }
+            } catch (e) { localFallback(transcript, seconds, isManual); }
+            sfb.style.display = 'block';
+        }
+
+        if (sr) {
+            sr.addEventListener('click', () => {
+                try {
+                    speakingPassed = false; if (csb) csb.disabled = true;
+                    recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                    recognition.lang = 'en-US'; recognition.interimResults = true; recognition.maxAlternatives = 1; recognition.continuous = true;
+                    finalTranscript = '';
+                    recognition.onresult = (e) => { for (let i=e.resultIndex; i<e.results.length; i++) { if (e.results[i].isFinal) finalTranscript += e.results[i][0].transcript+' '; } };
+                    recognition.onerror = () => { sfb.innerHTML = `<div style="background:#fef9c3;border:1px solid #facc15;border-left:4px solid #eab308;padding:1rem;border-radius:12px;color:#854d0e;">⚠️ Speech error. Please try again.</div>`; sfb.style.display='block'; stopRecording(); };
+                    recognition.onend = () => { stopRecording(); if (finalTranscript.trim()) validateWithAI(finalTranscript, recordingSeconds, false); else { sfb.innerHTML = `<div style="background:#fef9c3;border:1px solid #facc15;border-left:4px solid #eab308;padding:1rem;border-radius:12px;color:#854d0e;">⚠️ No speech detected.</div>`; sfb.style.display='block'; } };
+                    recognition.start(); isRecording=true; recordingSeconds=0;
+                    if (st) st.textContent = formatTime(0); if (srs) srs.style.display='flex';
+                    timerInterval = setInterval(() => { recordingSeconds++; if (st) st.textContent = formatTime(recordingSeconds); }, 1000);
+                    sr.style.display='none'; if (ss) ss.style.display='inline-flex';
+                    sfb.innerHTML = `<div style="background:#e0f2fe;border:1px solid #7dd3fc;border-left:4px solid #0ea5e9;padding:1rem;border-radius:12px;color:#075985;">🎤 <strong>Listening...</strong> Speak your critical summary now.</div>`;
+                    sfb.style.display='block';
+                } catch (e) { sfb.innerHTML = `<div style="background:#fef9c3;border:1px solid #facc15;border-left:4px solid #eab308;padding:1rem;border-radius:12px;color:#854d0e;">⚠️ Microphone access denied.</div>`; sfb.style.display='block'; }
+            });
+        }
+        if (ss) ss.addEventListener('click', stopRecording);
+
+        // ========== HELPER: Mark activity as complete ==========
+        function completeActivity(checklistId, buttonId, activityName) {
+            const chk = document.getElementById(checklistId);
+            if (chk && !chk.checked) chk.checked = true;
+            const btn = document.getElementById(buttonId);
+            if (btn) {
+                btn.textContent = '✓ Completed';
+                btn.disabled = true;
+                btn.classList.add('completed');
+                btn.style.backgroundColor = '#9ca3af';
+                btn.style.borderColor = '#9ca3af';
+                btn.style.color = 'white';
+            }
+            if (activityName && typeof activityCompleted !== 'undefined') {
+                activityCompleted[activityName] = true;
+            }
+            if (activityName === 'speaking') window.speakingCompleted = true;
+            if (activityName === 'reading') window.readingCompleted = true;
+            if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+            if (typeof saveProgress === 'function') saveProgress();
+        }
+
+        // --- COMPLETION BUTTONS ---
+        document.getElementById('completeListeningBtn')?.addEventListener('click', () => completeActivity('chk1', 'completeListeningBtn', 'listening'));
+        
+        document.getElementById('completeSpeakingBtn')?.addEventListener('click', () => {
+            if (speakingPassed) completeActivity('chk2', 'completeSpeakingBtn', 'speaking');
+            else alert('⚠️ Complete the speaking task first. Record your critical summary.');
+        });
+        
+        document.getElementById('completeReadingBtn')?.addEventListener('click', () => completeActivity('chk3', 'completeReadingBtn', 'reading'));
+        document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => completeActivity('chk4', 'completeVocabularyBtn', 'vocabulary'));
+        document.getElementById('completeWritingBtn')?.addEventListener('click', () => completeActivity('chk5', 'completeWritingBtn', 'writing'));
+        document.getElementById('dayCompleteBtn')?.addEventListener('click', () => { if (typeof completeDay === 'function') completeDay(); });
+
+        // ========== RESTORE ON LOAD ==========
+        setTimeout(function() {
+            const metaUserId = document.querySelector('meta[name="user-id"]')?.content || 'guest';
+            const storageKey = 'progress_' + metaUserId + '_advanced_day_13';
+            const saved = localStorage.getItem(storageKey);
+            if (!saved) return;
+            try {
+                const data = JSON.parse(saved);
+                if (data.completed) {
+                    const map = { 'listening':'chk1','speaking':'chk2','reading':'chk3','vocabulary':'chk4','writing':'chk5' };
+                    Object.keys(map).forEach(activity => {
+                        if (data.completed[activity]) {
+                            const chk = document.getElementById(map[activity]);
+                            if (chk) chk.checked = true;
+                            const btn = document.getElementById('complete' + activity.charAt(0).toUpperCase() + activity.slice(1) + 'Btn');
+                            if (btn) {
+                                btn.textContent = '✓ Completed'; btn.disabled = true;
+                                btn.classList.add('completed');
+                                btn.style.backgroundColor = '#9ca3af';
+                                btn.style.borderColor = '#9ca3af';
+                                btn.style.color = 'white';
+                            }
+                        }
+                    });
+                }
+                if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+            } catch(e) { console.warn('Day 13 restore failed:', e); }
+        }, 300);
+    });
+</script>
+<script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 
 </html>

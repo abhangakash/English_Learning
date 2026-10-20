@@ -84,7 +84,7 @@
                         
                         <!-- Quiz Questions -->
                         <div class="quiz-section" style="margin-top:1.5rem;">
-                            <p><strong>🧠 Quick Listening Check</strong></p>
+                            <p style="margin-bottom:0.5rem;"><strong>🧠 Quick Listening Check</strong></p>
                             <div>
                                 <p><strong>1. What three qualities does the speaker claim to have developed?</strong></p>
                                 <label class="quiz-option"><input type="radio" name="q1" value="wrong"> Speed, length, volume</label>
@@ -121,27 +121,27 @@
             </div>
             <div class="speaking-sentences-list">
                 <div class="speaking-sentence-item">
-                    <div class="sentence-number-badge">1</div>
+                    <p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">1</div>
                     <div class="sentence-text-content"><span style="color:#5b21b6;font-weight:600;">Opening:</span> "Today, I am a [confident/clear/precise] communicator who..."</div>
                 </div>
                 <div class="speaking-sentence-item">
-                    <div class="sentence-number-badge">2</div>
+                    <p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">2</div>
                     <div class="sentence-text-content"><span style="color:#5b21b6;font-weight:600;">Commitment:</span> "I commit to [practice 1], [practice 2], and [practice 3]..."</div>
                 </div>
                 <div class="speaking-sentence-item">
-                    <div class="sentence-number-badge">3</div>
+                    <p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">3</div>
                     <div class="sentence-text-content"><span style="color:#5b21b6;font-weight:600;">Goal:</span> "In 90 days, I will [measurable goal]..."</div>
                 </div>
                 <div class="speaking-sentence-item">
-                    <div class="sentence-number-badge">4</div>
+                    <p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">4</div>
                     <div class="sentence-text-content"><span style="color:#5b21b6;font-weight:600;">Closing:</span> "I am no longer just learning English — I am..."</div>
                 </div>
             </div>
             <div class="speaking-recording-section">
                 <div class="recording-header"><span>🎙️</span><h4>Your Manifesto Recording</h4></div>
                 <div class="recording-controls-group">
-                    <button id="speakingRecordBtn" class="speaking-record-btn">🎤 Start Recording</button>
-                    <button id="speakingStopBtn" class="speaking-stop-btn" style="display:none;">⏹️ Stop Recording</button>
+                    <button id="speakingRecordBtn" class="speaking-record-btn"> Start Recording</button>
+                    <button id="speakingStopBtn" class="speaking-stop-btn" style="display:none;"> Stop Recording</button>
                 </div>
                 <div id="speakingRecordingStatus" class="recording-status-indicator" style="display:none;">
                     <div class="recording-dot-live"></div>
@@ -173,7 +173,7 @@
                     
                     <div class="task-box" style="margin-top:1rem;">
                         <div class="task-content">
-                            <p><strong>1. What is the relationship between the skills you have developed?</strong></p>
+                            <p><strong>1️⃣ What is the relationship between the skills you have developed?</strong></p>
                             <input type="text" id="q8Input" class="grammar-input" placeholder="Write your answer...">
                             <div id="q8Feedback" class="fix-feedback"></div>
                         </div>
@@ -181,7 +181,7 @@
                     
                     <div class="task-box" style="margin-top:1rem;">
                         <div class="task-content">
-                            <p><strong>2. What question will determine more about your career than any technical qualification?</strong></p>
+                            <p><strong>2️⃣ What question will determine more about your career than any technical qualification?</strong></p>
                             <input type="text" id="q9Input" class="grammar-input" placeholder="Write your answer...">
                             <div id="q9Feedback" class="fix-feedback"></div>
                         </div>
@@ -189,7 +189,7 @@
                     
                     <div class="task-box" style="margin-top:1rem;">
                         <div class="task-content">
-                            <p><strong>3. Write your answer to that question — honestly and specifically.</strong></p>
+                            <p><strong>3️⃣ Write your answer to that question — honestly and specifically.</strong></p>
                             <input type="text" id="q10Input" class="grammar-input" placeholder="Write your personal answer...">
                             <div id="q10Feedback" class="fix-feedback"></div>
                         </div>
@@ -326,7 +326,7 @@
                         <span class="badge" id="progressCounter">0/5 completed</span>
                     </div>
                     <div style="display:flex;justify-content:center;">
-                        <button class="day-complete-btn" id="dayCompleteBtn" disabled>🏆 Complete Day 30</button>
+                        <button class="day-complete-btn" id="dayCompleteBtn" disabled> Complete Day 30</button>
                     </div>
                 </div>
             </div>
@@ -1227,5 +1227,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
     </script>
+    <script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 </html>

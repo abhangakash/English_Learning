@@ -110,8 +110,8 @@
         <div class="speaking-sentence-card">
             <div class="simple">Unedited: <span style="color:#4a3b8f;font-weight:400;">"I would like to inform you that we have reached the conclusion that the system is working well."</span></div>
             <div class="recording-controls" style="margin:0;">
-                <button class="record-btn sp1RecordBtn">🎙️ Record</button>
-                <button class="record-btn sp1StopBtn" style="background:#a78bfa;display:none;">⏹️ Stop</button>
+                <button class="record-btn sp1RecordBtn">Record</button>
+                <button class="record-btn sp1StopBtn" style="background:#a78bfa;display:none;"> Stop</button>
             </div>
             <div class="sp1Feedback fix-feedback"></div>
         </div>
@@ -120,8 +120,8 @@
         <div class="speaking-sentence-card">
             <div class="simple">Unedited: <span style="color:#4a3b8f;font-weight:400;">"Due to the fact that the temperature was quite high, the component failed."</span></div>
             <div class="recording-controls" style="margin:0;">
-                <button class="record-btn sp2RecordBtn">🎙️ Record</button>
-                <button class="record-btn sp2StopBtn" style="background:#a78bfa;display:none;">⏹️ Stop</button>
+                <button class="record-btn sp2RecordBtn">Record</button>
+                <button class="record-btn sp2StopBtn" style="background:#a78bfa;display:none;"> Stop</button>
             </div>
             <div class="sp2Feedback fix-feedback"></div>
         </div>
@@ -174,7 +174,7 @@
             </div>
 
             <!-- CHECKLIST -->
-            <div class="activity-card"><div class="card-header vocabulary"><h2>✅ DAY 27 COMPLETION CHECKLIST</h2></div><div class="card-body"><ul class="checklist"><li><input type="checkbox" id="chk1" disabled><label> Edited a sentence by removing redundancy and hedging</label></li><li><input type="checkbox" id="chk2" disabled><label> Delivered edited versions of two unedited sentences</label></li><li><input type="checkbox" id="chk3" disabled><label> Identified editing targets and edited a complex sentence</label></li><li><input type="checkbox" id="chk4" disabled><label> Edited previous writing with 20-25% word reduction</label></li><li><input type="checkbox" id="chk5" disabled><label> Used 'Fastidious' in speaking and writing</label></li></ul><div style="text-align:right;margin:1rem 0;"><span class="badge" id="progressCounter">0/5 completed</span></div><div style="display:flex;justify-content:center;"><button class="day-complete-btn" id="dayCompleteBtn" disabled>🏆 Complete Day 27</button></div></div></div>
+            <div class="activity-card"><div class="card-header vocabulary"><h2>✅ DAY 27 COMPLETION CHECKLIST</h2></div><div class="card-body"><ul class="checklist"><li><input type="checkbox" id="chk1" disabled><label> Edited a sentence by removing redundancy and hedging</label></li><li><input type="checkbox" id="chk2" disabled><label> Delivered edited versions of two unedited sentences</label></li><li><input type="checkbox" id="chk3" disabled><label> Identified editing targets and edited a complex sentence</label></li><li><input type="checkbox" id="chk4" disabled><label> Edited previous writing with 20-25% word reduction</label></li><li><input type="checkbox" id="chk5" disabled><label> Used 'Fastidious' in speaking and writing</label></li></ul><div style="text-align:right;margin:1rem 0;"><span class="badge" id="progressCounter">0/5 completed</span></div><div style="display:flex;justify-content:center;"><button class="day-complete-btn" id="dayCompleteBtn" disabled> Complete Day 27</button></div></div></div>
         </div>
     </div>
 
@@ -577,5 +577,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(restoreCompletedButtons, 1500);
 });
 </script>
+<script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 </html>

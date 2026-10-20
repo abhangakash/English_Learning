@@ -3,6 +3,9 @@
 <html lang="en">
 
 <head>
+    <meta name="analytics-level" content="intermediate">
+    <meta name="analytics-day" content="1">
+    <meta name="analytics-stage" content="daily_learning">
     <meta charset="UTF-8">
     <meta name="user-id" content="{{ request.user.id }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -462,12 +465,6 @@
         } catch (e) { console.warn("Load progress failed", e); }
     }
 
-        
-    
-
-            
-    
-
             function getCookie(name) { let v = null; if (document.cookie && document.cookie !== '') { const c = document.cookie.split(';'); for (let i = 0; i < c.length; i++) { const t = c[i].trim(); if (t.substring(0, name.length + 1) === (name + '=')) { v = decodeURIComponent(t.substring(name.length + 1)); break; } } } return v; }
             function updateProgressCounter() { const c = ['chk1', 'chk2', 'chk3', 'chk4', 'chk5']; let done = 0; c.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) done++; }); const ct = document.getElementById('progressCounter'); if (ct) ct.textContent = `${done}/5 completed`; const db = document.getElementById('dayCompleteBtn'); if (db) db.disabled = (done !== 5); }
             function markActivityComplete(activityId, checklistId) {
@@ -582,6 +579,8 @@
     loadProgress();
 });
     </script>
+
+    <script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 
 </html>

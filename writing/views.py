@@ -30,7 +30,7 @@ except LookupError:
 try:
     import language_tool_python
     LANGUAGE_TOOL_AVAILABLE = True
-    print("✅ LanguageTool imported successfully")
+    print("LanguageTool imported successfully")
 except (ImportError, ModuleNotFoundError) as e:
     LANGUAGE_TOOL_AVAILABLE = False
     print(f"⚠️ LanguageTool not available: {e}")

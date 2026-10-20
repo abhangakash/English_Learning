@@ -5,15 +5,9 @@ from django.dispatch import receiver
 from .models import StudentProfile
 
 @receiver(post_save, sender=User)
-def create_or_update_user_profile(sender, instance, created, **kwargs):
-    """Create or update StudentProfile when User is saved"""
+def create_student_profile(sender, instance, created, raw=False, **kwargs):
+    if raw:
+        return
+
     if created:
-        # Create new profile for new user
-        StudentProfile.objects.create(user=instance)
-    else:
-        # Update existing profile when user is updated
-        try:
-            instance.profile.save()
-        except StudentProfile.DoesNotExist:
-            # In case profile was deleted, create it again
-            StudentProfile.objects.create(user=instance)
+        StudentProfile.objects.get_or_create(user=instance)

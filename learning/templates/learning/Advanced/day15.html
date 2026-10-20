@@ -10,6 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'learning/css/base.css' %}">
     <style>
+         .complete-activity-btn.completed,
+        .complete-activity-btn:disabled {
+            background-color: #9ca3af !important;
+            border-color: #9ca3af !important;
+            color: white !important;
+            cursor: not-allowed;
+        }
+
         .writing-textarea {
             width: 100%;
             padding: 1.2rem;
@@ -81,21 +89,29 @@
             background: #f1f5f9;
         }
 
-        .temp-underlined {
-            background: #f5f3ff;
-        }
+           .temp-underlined {
+    text-decoration: underline !important;
+    text-decoration-thickness: 3px !important;
+    text-decoration-color: #3b82f6 !important;
+    background: #eff6ff !important;
+    display: inline-block;
+}
 
-        .underline-correct {
-            border-bottom: 2px solid #22c55e !important;
-            background: #f0fdf4 !important;
-            color: #166534;
-        }
+.underline-correct {
+    text-decoration: underline !important;
+    text-decoration-thickness: 3px !important;
+    text-decoration-color: #22c55e !important;
+    background: #f0fdf4 !important;
+    display: inline-block;
+}
 
-        .underline-incorrect {
-            border-bottom: 2px solid #ef4444 !important;
-            background: #fef2f2 !important;
-            color: #991b1b;
-        }
+.underline-incorrect {
+    text-decoration: underline !important;
+    text-decoration-thickness: 3px !important;
+    text-decoration-color: #dc2626 !important;
+    background: #fee2e2 !important;
+    display: inline-block;
+}
     </style>
 </head>
 
@@ -104,7 +120,7 @@
         <!-- HERO SECTION -->
         <div class="lesson-hero">
             <div class="hero-content">
-                <div class="day-badge">Day 15 • Inferring Author's Purpose • Advanced</div>
+                <div class="day-badge">Day 15 • Week 3 • Advanced</div>
                 <h1 class="hero-title">INFERRING AUTHOR'S PURPOSE</h1>
                 <div class="power-line">💬 "Reading is not receiving. It is a conversation with the writer's intent."
                 </div>
@@ -131,7 +147,7 @@
             <!-- 1. LISTENING ACTIVITY -->
             <div class="activity-card" id="listening-card">
                 <div class="card-header listening">
-                    <h2>🎧 1. Listening Activity · Authorial Intent</h2>
+                    <h2>🎧 1. Listening Activity : Authorial Intent</h2>
                 </div>
                 <div class="card-body">
                     <div class="task-box">
@@ -147,7 +163,7 @@
                     <!-- 🔊 AUDIO PLAYER SECTION -->
                     <div class="audio-player-container" style="margin: 1.5rem 0;">
                         <audio id="listeningAudio15" controls style="width: 100%;">
-                            <source src="{% static 'learning/audio/Beginner/day15.mp3' %}" type="audio/mpeg">
+                            <source src="{% static 'learning/audio/Advanced/day15.mp3' %}" type="audio/mpeg">
                         </audio>
                     </div>
 
@@ -168,7 +184,7 @@
                         <div class="listening-task-group" style="margin-top: 1.5rem;">
                             <!-- Task 1 -->
                             <div class="listening-task-area">
-                                <p>🎯 <strong>Task 1:</strong> Identify the author's purpose. Is this informing,
+                                <p><strong> 1 :</strong> Identify the author's purpose. Is this informing,
                                     persuading, or promoting?</p>
                                 <textarea id="listeningT1" class="grammar-input" rows="2"
                                     placeholder="Write your answer here..."></textarea>
@@ -179,7 +195,7 @@
 
                             <!-- Task 2 (Underline) -->
                             <div class="listening-task-area">
-                                <p>🎯 <strong>Task 2:</strong> Underline the words in the text above that reveal
+                                <p><strong> 2 :</strong> Underline the words in the text above that reveal
                                     promotional intent.</p>
                                 <div style="display: flex; gap: 0.8rem; margin: 0.8rem 0;">
                                     <button class="btn-outline" id="checkUnderlinesBtn">✓ Check Underlines</button>
@@ -190,7 +206,7 @@
 
                             <!-- Task 3 -->
                             <div class="listening-task-area">
-                                <p>🎯 <strong>Task 3:</strong> What should a critical reader question about this
+                                <p><strong> 3 :</strong> What should a critical reader question about this
                                     passage?</p>
                                 <textarea id="listeningT3" class="grammar-input" rows="2"
                                     placeholder="Write your analysis here..."></textarea>
@@ -211,7 +227,7 @@
             <!-- 2. SPEAKING ACTIVITY -->
             <div class="activity-card" id="speaking-card">
                 <div class="card-header speaking">
-                    <h2>🗣️ 2. Speaking Activity · The Purpose Analysis</h2>
+                    <h2>🗣️ 2. Speaking Activity : The Purpose Analysis</h2>
                 </div>
                 <div class="card-body">
                     <div class="speaking-unified-box">
@@ -221,8 +237,7 @@
                                 <span>Task</span>
                             </div>
                             <p class="task-description">
-                                Practise identifying author's purpose aloud using these frames. Focus on tone and
-                                analytical clarity.
+                               Practise identifying author's purpose aloud — a skill critical in exams, interviews, and meetings
                             </p>
                         </div>
 
@@ -282,7 +297,7 @@
             <!-- 3. READING ACTIVITY -->
             <div class="activity-card" id="reading-card">
                 <div class="card-header reading">
-                    <h2>📖 3. Reading · Interrogating Intent</h2>
+                    <h2>📖 3. Reading : Interrogating Intent</h2>
                 </div>
                 <div class="card-body">
                     <div class="task-box" style="margin-bottom: 1.5rem;">
@@ -299,7 +314,7 @@
 
                     <div class="listening-task-group">
                         <div class="listening-task-area">
-                            <p>(a) List three questions the author recommends asking of any text you read.</p>
+                            <p>1️⃣ List three questions the author recommends asking of any text you read.</p>
                             <textarea id="readingT31" class="grammar-input" rows="2"
                                 placeholder="List the questions..."></textarea>
                             <button class="btn-outline" id="checkReadingT31Btn">✓ Check Answer</button>
@@ -307,7 +322,7 @@
                         </div>
 
                         <div class="listening-task-area">
-                            <p>(b) Apply these three questions to the promotional passage from the listening activity.
+                            <p>2️⃣ Apply these three questions to the promotional passage from the listening activity.
                             </p>
                             <textarea id="readingT32" class="grammar-input" rows="3"
                                 placeholder="Apply the questions..."></textarea>
@@ -316,7 +331,7 @@
                         </div>
 
                         <div class="listening-task-area">
-                            <p>(c) Find an engineering specification or product data sheet. Identify its purpose in one
+                            <p>3️⃣ Find an engineering specification or product data sheet. Identify its purpose in one
                                 sentence.</p>
                             <textarea id="readingT33" class="grammar-input" rows="2"
                                 placeholder="Identify the purpose..."></textarea>
@@ -331,11 +346,50 @@
                     </div>
                 </div>
             </div>
+            <!-- 6. WRITING ACTIVITY -->
+            <div class="activity-card" id="writing-card">
+                <div class="card-header writing">
+                    <h2>✍️ 4. Writing Activity : Editorial Analysis</h2>
+                </div>
+                <div class="card-body">
+                    <div class="writing-tip-box">
+                        <p><strong>💡 Writing Tip:</strong> The difference between summary and analysis is this: summary
+                            tells WHAT the author said; analysis tells WHY they said it and WHETHER it is convincing.
+                            Your writing task today requires analysis, not summary — make sure your response answers
+                            'why' and 'how effectively'.</p>
+                    </div>
 
+                    <div class="task-box">
+                        <div class="task-header">
+                            <div class="title"><span>🎯</span><span>The Task</span></div>
+                        </div>
+                        <div class="task-content">
+                            Read a newspaper editorial of your choice. Write 150 words analysing: (a) the author's main
+                            argument, (b) their apparent purpose, (c) one assumption they are making, and (d) one piece
+                            of evidence they could have included to strengthen their case.
+                        </div>
+                    </div>
+
+                    <div class="writing-prompt">
+                        <textarea id="progressEmailBody" class="writing-textarea"
+                            placeholder="Start your analysis here..."></textarea>
+                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
+                            count: <span id="wordCount">0</span> / ~150</div>
+                    </div>
+
+                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check Answer</button>
+                    <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
+
+                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
+                            Mark Writing as Complete</button>
+                    </div>
+                </div>
+            </div>
             <!-- 4. VOCABULARY ACTIVITY -->
             <div class="activity-card" id="vocabulary-card">
                 <div class="card-header vocabulary">
-                    <h2>📘 4. Vocabulary of the Day</h2>
+                    <h2>📘 5. Vocabulary of the Day</h2>
                 </div>
                 <div class="card-body">
                     <div class="vocab-table-container">
@@ -396,17 +450,17 @@
 
                     <div class="power-word-section">
                         <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #854d0e;">
-                            <span>🔥</span><span>POWER WORD: ANALYTICAL</span>
-                        </div>
+                            <span>🔥</span><span>POWER WORD: ANALYTICAL (an-uh-LIT-ih-kul)</span>
+                        </div><br>
                         <p><strong>Meaning:</strong> Using systematic logical thinking</p>
                         <p><strong>Usage:</strong> "An analytical approach to reading extracts meaning beyond the
                             surface text."</p>
                     </div>
 
-                    <div class="power-word-section" style="border-left-color: #22c55e;">
+                      <div class="idiom-section">
                         <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #166534;">
                             <span>💬</span><span>IDIOM: "Read the room"</span>
-                        </div>
+                        </div><br>
                         <p><strong>Meaning:</strong> Understand the mood and expectations of your audience</p>
                         <p><strong>Example:</strong> "A skilled presenter reads the room and adjusts their tone based on
                             audience reactions."</p>
@@ -433,49 +487,6 @@
                     </p>
                 </div>
             </div>
-
-            <!-- 6. WRITING ACTIVITY -->
-            <div class="activity-card" id="writing-card">
-                <div class="card-header writing">
-                    <h2>✍️ 5. Writing Activity · Editorial Analysis</h2>
-                </div>
-                <div class="card-body">
-                    <div class="writing-tip-box">
-                        <p><strong>💡 Writing Tip:</strong> The difference between summary and analysis is this: summary
-                            tells WHAT the author said; analysis tells WHY they said it and WHETHER it is convincing.
-                            Your writing task today requires analysis, not summary — make sure your response answers
-                            'why' and 'how effectively'.</p>
-                    </div>
-
-                    <div class="task-box">
-                        <div class="task-header">
-                            <div class="title"><span>🎯</span><span>The Task</span></div>
-                        </div>
-                        <div class="task-content">
-                            Read a newspaper editorial of your choice. Write 150 words analysing: (a) the author's main
-                            argument, (b) their apparent purpose, (c) one assumption they are making, and (d) one piece
-                            of evidence they could have included to strengthen their case.
-                        </div>
-                    </div>
-
-                    <div class="writing-prompt">
-                        <textarea id="progressEmailBody" class="writing-textarea"
-                            placeholder="Start your analysis here..."></textarea>
-                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
-                            count: <span id="wordCount">0</span> / ~150</div>
-                    </div>
-
-                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check My
-                        Analysis</button>
-                    <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
-
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
-                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
-                            Mark Writing as Complete</button>
-                    </div>
-                </div>
-            </div>
-
             <!-- CHECKLIST -->
             <div class="activity-card">
                 <div class="card-header vocabulary">
@@ -507,304 +518,371 @@
     <!-- JS SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="{% static 'learning/js/main.js' %}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    // ==================== Local Storage Persistence ====================
-    const STORAGE_KEY = 'progress_advanced_day15';
-
-    function saveProgress() {
-        const data = {
-            inputs: {},
-            checkboxes: {},
-            activityCompleted: typeof activityCompleted !== 'undefined' ? { ...activityCompleted } : {}
-        };
-        document.querySelectorAll('input[type="text"], textarea').forEach(el => {
-            if (el.id) data.inputs[el.id] = el.value;
-        });
-        document.querySelectorAll('input[type="radio"]').forEach(el => {
-            if (el.name && el.checked) {
-                data.inputs[el.name] = el.value;
-            }
-        });
-        document.querySelectorAll('select').forEach(el => {
-            if (el.id) data.inputs[el.id] = el.value;
-        });
-        document.querySelectorAll('input[type="checkbox"]').forEach(el => {
-            if (el.id) data.checkboxes[el.id] = el.checked;
-        });
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    }
-
-    function loadProgress() {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (!saved) return;
-        try {
-            const data = JSON.parse(saved);
-            if (data.inputs) {
-                Object.keys(data.inputs).forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.value = data.inputs[id];
-                        el.dispatchEvent(new Event('input'));
-                    } else {
-                        const radio = document.querySelector(`input[name="${id}"][value="${data.inputs[id]}"]`);
-                        if (radio) radio.checked = true;
-                    }
-                });
-            }
-            if (data.checkboxes) {
-                Object.keys(data.checkboxes).forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) el.checked = data.checkboxes[id];
-                });
-            }
-            if (data.activityCompleted && typeof activityCompleted !== 'undefined') {
-                Object.keys(data.activityCompleted).forEach(key => {
-                    activityCompleted[key] = data.activityCompleted[key];
-                });
-            }
-            
-            // Restore button states based on checkboxes
-            ['chk1', 'chk2', 'chk3', 'chk4', 'chk5', 'chk6'].forEach(chkId => {
-                const chk = document.getElementById(chkId);
-                if (chk && chk.checked) {
-                    // Heuristic for Advanced templates
-                    const buttons = Array.from(document.querySelectorAll('button.complete-activity-btn'));
-                    buttons.forEach(btn => {
-                        if (btn.id.toLowerCase().includes(chkId.replace('chk', '')) || 
-                            (btn.dataset.checklist === chkId)) {
-                             btn.disabled = true;
-                             btn.textContent = '✓ Completed';
-                             btn.classList.add('completed');
-                             btn.style.background = '#94a3b8';
-                             btn.style.opacity = '1';
-                        }
-                    });
-                }
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize Day
+        if (typeof initializeDay === 'function') {
+            initializeDay(15, 'advanced', {
+                vocabularyWords: ['Analytical', 'Bias', 'Implicit', 'Rhetoric', 'Scrutinise']
             });
+        }
 
-            if (typeof updateProgressCounter === 'function') updateProgressCounter(); saveProgress();
-        } catch (e) { console.error("Error loading progress:", e); }
-    }
-
-            // Initialize Day
-            if (typeof initializeDay === 'function') {
-                initializeDay(15, 'advanced', {
-                    vocabularyWords: ['Analytical', 'Bias', 'Implicit', 'Rhetoric', 'Scrutinise']
-                });
+        // ========== HELPER: Mark activity as complete ==========
+        function completeActivity(checklistId, buttonId, activityName) {
+            const chk = document.getElementById(checklistId);
+            if (chk && !chk.checked) chk.checked = true;
+            const btn = document.getElementById(buttonId);
+            if (btn) {
+                btn.textContent = '✓ Completed';
+                btn.disabled = true;
+                btn.classList.add('completed');
+                btn.style.backgroundColor = '#9ca3af';
+                btn.style.borderColor = '#9ca3af';
+                btn.style.color = 'white';
             }
+            if (activityName && typeof activityCompleted !== 'undefined') {
+                activityCompleted[activityName] = true;
+            }
+            if (activityName === 'speaking') window.speakingCompleted = true;
+            if (activityName === 'reading') window.readingCompleted = true;
+            if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+            if (typeof saveProgress === 'function') saveProgress();
+        }
 
-            // --- 1. LISTENING ACTIVITY ---
-            let listeningTask1Done = false, listeningTask2Done = false, listeningTask3Done = false;
-            const passageText = "Our new FastCharge technology charges your device in under 20 minutes. Independent tests — conducted by our own labs — confirm a 95% satisfaction rate. With over 2 million units sold, FastCharge is clearly the choice of professionals everywhere.";
-            const targetWords = ["new", "independent", "tests", "our", "own", "labs", "95%", "satisfaction", "clearly", "choice", "professionals", "everywhere"];
-            let readingWords = [], underlineSet = new Set();
-            let hasCheckedUnderlines = false;
+        // --- 1. LISTENING ACTIVITY ---
+        let listeningTask1Done = false, listeningTask2Done = false, listeningTask3Done = false;
+        const passageText = "Our new FastCharge technology charges your device in under 20 minutes. Independent tests — conducted by our own labs — confirm a 95% satisfaction rate. With over 2 million units sold, FastCharge is clearly the choice of professionals everywhere.";
+        const targetWords = ["new", "independent", "tests", "our", "own", "labs", "95%", "satisfaction", "clearly", "choice", "professionals", "everywhere"];
+        
+        let readingWords = [];
+        let underlineSet = new Set();
+        let hasCheckedUnderlines = false;
 
-            const audio = document.getElementById('listeningAudio15');
-            if (audio) {
-                audio.addEventListener('ended', function () {
-                    document.getElementById('listeningTextSection').style.display = 'block';
-                    document.getElementById('postAudioListeningContent').style.display = 'block';
-                    buildInteractiveText();
-                });
-            } else {
-                // Fallback for testing
+        const audio = document.getElementById('listeningAudio15');
+        if (audio) {
+            audio.addEventListener('ended', function () {
                 document.getElementById('listeningTextSection').style.display = 'block';
                 document.getElementById('postAudioListeningContent').style.display = 'block';
                 buildInteractiveText();
-            }
+            });
+        } else {
+            document.getElementById('listeningTextSection').style.display = 'block';
+            document.getElementById('postAudioListeningContent').style.display = 'block';
+            buildInteractiveText();
+        }
 
-            function buildInteractiveText() {
-                const container = document.getElementById("listeningPassage");
-                if (!container) return;
-                readingWords = [];
-                underlineSet.clear();
-                const tokens = passageText.split(/(\s+)/);
-                container.innerHTML = "";
-                let idx = 0;
-                tokens.forEach(token => {
-                    if (token.trim() === "") {
-                        container.appendChild(document.createTextNode(token));
-                        return;
-                    }
-                    const clean = token.toLowerCase().replace(/[.,!?;:—]/g, '');
-                    const span = document.createElement('span');
-                    span.className = 'clickable-word';
-                    span.textContent = token;
-                    span.setAttribute('data-clean', clean);
-                    span.onclick = (function (i) { return function () { toggleWord(i); }; })(idx);
-                    container.appendChild(span);
-                    readingWords.push({ element: span, clean: clean, idx: idx });
-                    idx++;
-                });
-            }
-
-            function toggleWord(idx) {
-                if (hasCheckedUnderlines) return;
-                underlineSet.has(idx) ? underlineSet.delete(idx) : underlineSet.add(idx);
-                updateVisuals();
-            }
-
-            function updateVisuals() {
-                readingWords.forEach(item => {
-                    item.element.className = 'clickable-word';
-                    if (underlineSet.has(item.idx)) {
-                        if (hasCheckedUnderlines) {
-                            if (targetWords.includes(item.clean)) item.element.classList.add('underline-correct');
-                            else item.element.classList.add('underline-incorrect');
+        function buildInteractiveText() {
+            const container = document.getElementById("listeningPassage");
+            if (!container) return;
+            
+            readingWords = [];
+            underlineSet.clear();
+            hasCheckedUnderlines = false;
+            
+            const tokens = passageText.split(/(\s+)/);
+            container.innerHTML = "";
+            let idx = 0;
+            
+            tokens.forEach(token => {
+                if (token.trim() === "") {
+                    container.appendChild(document.createTextNode(token));
+                    return;
+                }
+                const clean = token.replace(/[.,!?;:—'"]/g, '').toLowerCase();
+                const span = document.createElement('span');
+                span.className = 'clickable-word';
+                span.textContent = token;
+                span.style.cursor = 'pointer';
+                
+                (function(wordIndex) {
+                    span.addEventListener('click', function() {
+                        if (underlineSet.has(wordIndex)) {
+                            underlineSet.delete(wordIndex);
                         } else {
-                            item.element.classList.add('temp-underlined');
+                            underlineSet.add(wordIndex);
                         }
-                    }
-                });
-            }
-
-            document.getElementById('checkUnderlinesBtn')?.addEventListener('click', function () {
-                hasCheckedUnderlines = true;
-                let found = 0;
-                underlineSet.forEach(idx => { if (targetWords.includes(readingWords[idx].clean)) found++; });
-                const fb = document.getElementById('underlineFeedback');
-                if (found >= 4) {
-                    listeningTask2Done = true;
-                    fb.innerHTML = "✅ Excellent work! You identified the persuasive and promotional keywords.";
-                    fb.className = "fix-feedback correct";
-                } else {
-                    fb.innerHTML = "❌ Try to find more words that signal persuasion or promotional claims.";
-                    fb.className = "fix-feedback incorrect";
-                }
-                fb.style.display = 'block';
-                updateVisuals();
-                updateListeningCompletion();
-            });
-
-            document.getElementById('resetUnderlinesBtn')?.addEventListener('click', function () {
-                underlineSet.clear();
-                hasCheckedUnderlines = false;
-                document.getElementById('underlineFeedback').style.display = 'none';
-                updateVisuals();
-            });
-
-            function updateListeningCompletion() {
-                if (listeningTask1Done && listeningTask2Done && listeningTask3Done) {
-                    const btn = document.getElementById('completeListeningBtn');
-                    btn.disabled = false;
-                    btn.classList.add('ready');
-                }
-            }
-
-            document.getElementById('checkListeningT1Btn')?.addEventListener('click', async () => {
-                listeningTask1Done = await evaluateTaskRaw(document.getElementById('listeningT1').value, 'listeningT1Feedback', 'listening_a', 3);
-                updateListeningCompletion();
-            });
-
-            document.getElementById('checkListeningT3Btn')?.addEventListener('click', async () => {
-                listeningTask3Done = await evaluateTaskRaw(document.getElementById('listeningT3').value, 'listeningT3Feedback', 'listening_c', 5);
-                updateListeningCompletion();
-            });
-
-            // --- AI EVALUATION HELPER ---
-            async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
-                const feedback = document.getElementById(feedbackId);
-                const words = text.split(/\s+/).filter(w => w.length > 0).length;
-                if (words < minWords) {
-                    feedback.innerHTML = `⚠️ Too brief. Please provide more detail.`;
-                    feedback.className = 'fix-feedback incorrect';
-                    feedback.style.display = 'block';
-                    return false;
-                }
-                feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
-                feedback.style.display = 'block';
-                const customPrompts = {
-                    listening_a: "Identify the author's primary intent in the promotional script. Correct answer should state the intent is to sell or promote FastCharge technology.",
-                    listening_c: "Identify two persuasive claims in the script that lack objective proof. Correct answers include: 'Independent tests conducted by our own labs' (bias) and 'Clearly the choice of professionals everywhere' (vague/unproven).",
-                    reading_a: "List the three critical reading questions mentioned in the text. Correct answers: (1) What is the author's purpose? (2) What are the underlying assumptions? (3) Is the evidence sufficient and unbiased?",
-                    reading_b: "Apply the critical reading questions to a promotional text. Correct answer should demonstrate a skeptical analysis of promotional claims using the three questions.",
-                    reading_c: "Identify the author's purpose in the reading passage itself. Correct answer should state the purpose is to teach critical reading or analytical thinking skills.",
-                    writing_analysis: "Evaluate a 150-word editorial analysis. Response must cover: (a) main argument, (b) purpose, (c) one assumption, and (d) one missing piece of evidence."
-                };
-                const system_prompt = `Evaluate as English communication trainer. Task: "${customPrompts[type]}". Return JSON: {"correct": true/false, "evaluation": "...", "improvement": "..."}`;
-                try {
-                    const response = await fetch('/learning/ai/evaluate/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
-                        body: JSON.stringify({ text, task_type: type, day_number: 15, level: 'advanced', system_prompt })
+                        updateAllVisuals();
                     });
-                    const res = await response.json();
-                    if (res.success) {
-                        feedback.innerHTML = `<div><strong>${res.correct !== false ? '✅' : '❌'} Evaluation:</strong><br>${res.evaluation}</div><div style='margin-top:0.5rem'><strong>💡 Improvement:</strong><br>${res.improvement}</div>`;
-                        feedback.className = `fix-feedback ${res.correct !== false ? 'correct' : 'incorrect'}`;
-                        return res.correct !== false;
+                })(idx);
+                
+                container.appendChild(span);
+                readingWords.push({ element: span, clean: clean, idx: idx });
+                idx++;
+            });
+        }
+
+        function updateAllVisuals() {
+            readingWords.forEach(function(item) {
+                item.element.className = 'clickable-word';
+                item.element.style.cursor = 'pointer';
+                
+                if (underlineSet.has(item.idx)) {
+                    if (hasCheckedUnderlines) {
+                        if (targetWords.includes(item.clean)) {
+                            item.element.classList.add('underline-correct');
+                        } else {
+                            item.element.classList.add('underline-incorrect');
+                        }
+                    } else {
+                        item.element.classList.add('temp-underlined');
                     }
-                } catch (e) { feedback.innerHTML = '⚠️ Error.'; return false; }
+                }
+            });
+        }
+
+        document.getElementById('checkUnderlinesBtn')?.addEventListener('click', function () {
+            hasCheckedUnderlines = true;
+            
+            let correctWords = [];
+            let incorrectWords = [];
+            let missingWords = [];
+            
+            underlineSet.forEach(function(idx) {
+                if (targetWords.includes(readingWords[idx].clean)) {
+                    correctWords.push(readingWords[idx].clean);
+                } else {
+                    incorrectWords.push(readingWords[idx].clean);
+                }
+            });
+            
+            targetWords.forEach(function(word) {
+                let found = false;
+                underlineSet.forEach(function(idx) {
+                    if (readingWords[idx].clean === word) found = true;
+                });
+                if (!found) missingWords.push(word);
+            });
+            
+            const fb = document.getElementById('underlineFeedback');
+            let html = '';
+            
+            if (correctWords.length > 0) html += '✅ Correct: ' + correctWords.join(', ') + '<br>';
+            if (incorrectWords.length > 0) html += '❌ Remove: ' + incorrectWords.join(', ') + '<br>';
+            if (missingWords.length > 0) html += '⚠️ Missing: ' + missingWords.join(', ');
+            
+            if (correctWords.length >= 4 && incorrectWords.length === 0) {
+                listeningTask2Done = true;
+                fb.className = 'fix-feedback correct';
+            } else if (correctWords.length >= 4) {
+                listeningTask2Done = false;
+                fb.className = 'fix-feedback warning';
+            } else {
+                listeningTask2Done = false;
+                fb.className = 'fix-feedback incorrect';
             }
+            
+            fb.innerHTML = html;
+            fb.style.display = 'block';
+            updateAllVisuals();
+            updateListeningCompletion();
+        });
 
-            async function evaluateTask(id, type, taskName, minWords = 5) {
-                const inputEl = document.getElementById(id + 'Input') || document.getElementById(id);
-                return await evaluateTaskRaw(inputEl.value.trim(), id + 'Feedback', type, minWords);
+        document.getElementById('resetUnderlinesBtn')?.addEventListener('click', function () {
+            underlineSet.clear();
+            hasCheckedUnderlines = false;
+            listeningTask2Done = false;
+            document.getElementById('underlineFeedback').style.display = 'none';
+            document.getElementById('underlineFeedback').innerHTML = '';
+            readingWords.forEach(function(item) {
+                item.element.className = 'clickable-word';
+                item.element.style.cursor = 'pointer';
+            });
+            updateListeningCompletion();
+        });
+
+        function updateListeningCompletion() {
+            const btn = document.getElementById('completeListeningBtn');
+            btn.disabled = !(listeningTask1Done && listeningTask2Done && listeningTask3Done);
+        }
+
+        document.getElementById('checkListeningT1Btn')?.addEventListener('click', async () => {
+            const text = document.getElementById('listeningT1').value.trim();
+            if (!text) {
+                const fb = document.getElementById('listeningT1Feedback');
+                fb.innerHTML = '⚠️ Please write your answer.';
+                fb.className = 'fix-feedback incorrect';
+                fb.style.display = 'block';
+                return;
             }
+            listeningTask1Done = await evaluateTaskRaw(text, 'listeningT1Feedback', 'listening_a', 3);
+            updateListeningCompletion();
+        });
 
-            // --- SPEAKING ---
-            let mediaRecorder, chunks = [];
-            document.getElementById('speakingRecordBtn')?.addEventListener('click', async () => {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
-                chunks = [];
-                mediaRecorder.ondataavailable = e => chunks.push(e.data);
-                mediaRecorder.onstop = () => {
-                    const blob = new Blob(chunks, { type: 'audio/webm' });
-                    document.getElementById('speakingPlayback').src = URL.createObjectURL(blob);
-                    document.getElementById('speakingPlaybackCard').style.display = 'block';
-                    document.getElementById('completeSpeakingBtn').disabled = false;
-                    stream.getTracks().forEach(t => t.stop());
-                };
-                mediaRecorder.start();
-                document.getElementById('speakingRecordBtn').style.display = 'none';
-                document.getElementById('speakingStopBtn').style.display = 'inline-flex';
-                document.getElementById('speakingRecordingStatus').style.display = 'flex';
+        document.getElementById('checkListeningT3Btn')?.addEventListener('click', async () => {
+            const text = document.getElementById('listeningT3').value.trim();
+            if (!text) {
+                const fb = document.getElementById('listeningT3Feedback');
+                fb.innerHTML = '⚠️ Please write your analysis.';
+                fb.className = 'fix-feedback incorrect';
+                fb.style.display = 'block';
+                return;
+            }
+            listeningTask3Done = await evaluateTaskRaw(text, 'listeningT3Feedback', 'listening_c', 5);
+            updateListeningCompletion();
+        });
+
+        // --- AI EVALUATION HELPER ---
+        async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
+            const feedback = document.getElementById(feedbackId);
+            const words = text.split(/\s+/).filter(w => w.length > 0).length;
+            if (words < minWords) {
+                feedback.innerHTML = '⚠️ Too brief. Please provide more detail.';
+                feedback.className = 'fix-feedback incorrect';
+                feedback.style.display = 'block';
+                return false;
+            }
+            feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
+            feedback.style.display = 'block';
+            const customPrompts = {
+                listening_a: "Identify the author's primary intent in the promotional script. Correct answer should state the intent is to sell or promote FastCharge technology.",
+                listening_c: "Identify two persuasive claims in the script that lack objective proof.",
+                reading_a: "List the three critical reading questions mentioned in the text.",
+                reading_b: "Apply the critical reading questions to a promotional text.",
+                reading_c: "Identify the author's purpose in the reading passage itself.",
+                writing_analysis: "Evaluate a 150-word editorial analysis covering main argument, purpose, assumption, and missing evidence."
+            };
+            const system_prompt = `You are an English communication trainer. Evaluate this response for the task: "${customPrompts[type]}". 
+IMPORTANT: Always address the user directly as "you" — NEVER use "the student", "they", or third-person references.
+Return JSON: {"correct": true/false, "evaluation": "Your response...", "improvement": "You could improve by..."}`;
+            try {
+                const response = await fetch('/learning/ai/evaluate/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                    body: JSON.stringify({ text, task_type: type, day_number: 15, level: 'advanced', system_prompt })
+                });
+                const res = await response.json();
+                if (res.success) {
+                    feedback.innerHTML = `<div><strong>${res.correct !== false ? '✅' : '❌'} Evaluation:</strong><br>${res.evaluation}</div><div style='margin-top:0.5rem'><strong>💡 Improvement:</strong><br>${res.improvement}</div>`;
+                    feedback.className = `fix-feedback ${res.correct !== false ? 'correct' : 'incorrect'}`;
+                    return res.correct !== false;
+                }
+            } catch (e) { feedback.innerHTML = '⚠️ Error.'; return false; }
+        }
+
+        async function evaluateTask(id, type, taskName, minWords = 5) {
+            const inputEl = document.getElementById(id + 'Input') || document.getElementById(id);
+            return await evaluateTaskRaw(inputEl.value.trim(), id + 'Feedback', type, minWords);
+        }
+
+        // ========== SPEAKING - 15 second minimum ==========
+        window.speakingCompleted = false;
+        let speakingRecorded = false, speakingValidated = false;
+
+        const sr = document.getElementById('speakingRecordBtn');
+        const ss = document.getElementById('speakingStopBtn');
+        const spa = document.getElementById('speakingPlaybackCard');
+        const sp = document.getElementById('speakingPlayback');
+        const srs = document.getElementById('speakingRecordingStatus');
+        const st = document.getElementById('speakingTimer');
+        const csb = document.getElementById('completeSpeakingBtn');
+
+        let mr = null, chunks = [], ir = false, ti = null, rs = 0;
+
+        function ft(s) { const m = Math.floor(s/60), sec = s%60; return m.toString().padStart(2,'0')+':'+sec.toString().padStart(2,'0'); }
+
+        if (sr) {
+            sr.addEventListener('click', async () => {
+                try {
+                    speakingValidated = false; speakingRecorded = false;
+                    if (csb && csb.textContent !== '✓ Completed') csb.disabled = true;
+                    if (spa) spa.style.display = 'none';
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    mr = new MediaRecorder(stream); chunks = [];
+                    mr.ondataavailable = e => { if (e.data.size > 0) chunks.push(e.data); };
+                    mr.onstop = () => {
+                        clearInterval(ti); ti = null;
+                        if (sp) sp.src = URL.createObjectURL(new Blob(chunks, { type: 'audio/webm' }));
+                        if (spa) {
+                            spa.style.display = 'block';
+                            const md = spa.querySelector('.playback-success-msg');
+                            if (rs >= 15) {
+                                speakingRecorded = true; speakingValidated = true;
+                                if (md) { md.innerHTML = '<span>✅</span> Recording saved! Listen for analytical depth.'; md.style.background = '#d1fae5'; md.style.color = '#065f46'; }
+                                if (csb && csb.textContent !== '✓ Completed') csb.disabled = false;
+                            } else {
+                                if (md) { md.innerHTML = '<span>⚠️</span> Too short! Please speak all sentences with proper pauses.'; md.style.background = '#fef9e3'; md.style.color = '#92400e'; }
+                            }
+                        }
+                        stream.getTracks().forEach(t => t.stop());
+                    };
+                    mr.start(); ir = true; rs = 0;
+                    if (st) st.textContent = ft(0);
+                    if (srs) srs.style.display = 'flex';
+                    ti = setInterval(() => { rs++; if (st) st.textContent = ft(rs); }, 1000);
+                    sr.style.display = 'none';
+                    if (ss) ss.style.display = 'inline-flex';
+                } catch (e) { console.error('Microphone error:', e); }
             });
-            document.getElementById('speakingStopBtn')?.addEventListener('click', () => {
-                mediaRecorder.stop();
-                document.getElementById('speakingRecordBtn').style.display = 'inline-flex';
-                document.getElementById('speakingStopBtn').style.display = 'none';
-                document.getElementById('speakingRecordingStatus').style.display = 'none';
+        }
+
+        if (ss) ss.addEventListener('click', () => { if (mr && ir) { mr.stop(); ir = false; sr.style.display = 'inline-flex'; ss.style.display = 'none'; if (srs) srs.style.display = 'none'; } });
+
+        if (csb) {
+            csb.addEventListener('click', () => {
+                if (!csb.disabled && speakingRecorded && speakingValidated) {
+                    window.speakingCompleted = true;
+                    completeActivity('chk2', 'completeSpeakingBtn', 'speaking');
+                } else if (!speakingRecorded) alert('⚠️ Record first. Speak all sentences with proper pauses.');
+                else if (!speakingValidated) alert('⚠️ Recording too short! Please speak all sentences.');
             });
+        }
 
-            // --- READING ---
-            let r1 = false, r2 = false, r3 = false;
-            function updateReading() { if (r1 && r2 && r3) document.getElementById('completeReadingBtn').disabled = false; }
-            document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => { r1 = await evaluateTask('readingT31', 'reading_a', 'Questions', 10); updateReading(); });
-            document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => { r2 = await evaluateTask('readingT32', 'reading_b', 'Application', 15); updateReading(); });
-            document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => { r3 = await evaluateTask('readingT33', 'reading_c', 'Spec Purpose', 5); updateReading(); });
+        // --- READING ---
+        let r1 = false, r2 = false, r3 = false;
+        function updateReading() { if (r1 && r2 && r3) document.getElementById('completeReadingBtn').disabled = false; }
+        document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => { r1 = await evaluateTask('readingT31', 'reading_a', 'Questions', 10); updateReading(); });
+        document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => { r2 = await evaluateTask('readingT32', 'reading_b', 'Application', 15); updateReading(); });
+        document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => { r3 = await evaluateTask('readingT33', 'reading_c', 'Spec Purpose', 5); updateReading(); });
 
-            // --- WRITING ---
-            document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
-                const done = await evaluateTaskRaw(document.getElementById('progressEmailBody').value.trim(), 'progressEmailBodyFeedback', 'writing_analysis', 100);
-                if (done) document.getElementById('completeWritingBtn').disabled = false;
-            });
+        // --- WRITING ---
+        document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
+            const done = await evaluateTaskRaw(document.getElementById('progressEmailBody').value.trim(), 'progressEmailBodyFeedback', 'writing_analysis', 100);
+            if (done) document.getElementById('completeWritingBtn').disabled = false;
+        });
 
-            document.getElementById('progressEmailBody')?.addEventListener('input', function () {
-                const words = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
-                document.getElementById('wordCount').innerText = words;
-            });
+        document.getElementById('progressEmailBody')?.addEventListener('input', function () {
+            document.getElementById('wordCount').innerText = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+        });
 
-            // --- HANDLERS ---
-            document.getElementById('completeListeningBtn')?.addEventListener('click', () => markActivityComplete('listening', 'chk1'));
-            document.getElementById('completeSpeakingBtn')?.addEventListener('click', () => markActivityComplete('speaking', 'chk2'));
-            document.getElementById('completeReadingBtn')?.addEventListener('click', () => markActivityComplete('reading', 'chk3'));
-            document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => markActivityComplete('vocabulary', 'chk4'));
-            document.getElementById('completeWritingBtn')?.addEventListener('click', () => markActivityComplete('writing', 'chk5'));
-            document.getElementById('dayCompleteBtn')?.addEventListener('click', completeDay);
-        
-    // Auto-save on input/change
-    document.querySelectorAll('input[type="text"], input[type="radio"], textarea, select').forEach(el => {
-        el.addEventListener('input', saveProgress);
-        el.addEventListener('change', saveProgress);
+        // --- COMPLETION BUTTONS ---
+        document.getElementById('completeListeningBtn')?.addEventListener('click', () => completeActivity('chk1', 'completeListeningBtn', 'listening'));
+        // completeSpeakingBtn already handled above
+        document.getElementById('completeReadingBtn')?.addEventListener('click', () => completeActivity('chk3', 'completeReadingBtn', 'reading'));
+        document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => completeActivity('chk4', 'completeVocabularyBtn', 'vocabulary'));
+        document.getElementById('completeWritingBtn')?.addEventListener('click', () => completeActivity('chk5', 'completeWritingBtn', 'writing'));
+        document.getElementById('dayCompleteBtn')?.addEventListener('click', () => { if (typeof completeDay === 'function') completeDay(); });
+
+        // ========== RESTORE ON LOAD ==========
+        setTimeout(function() {
+            const metaUserId = document.querySelector('meta[name="user-id"]')?.content || 'guest';
+            const storageKey = 'progress_' + metaUserId + '_advanced_day_15';
+            const saved = localStorage.getItem(storageKey);
+            if (!saved) return;
+            try {
+                const data = JSON.parse(saved);
+                if (data.completed) {
+                    const map = { 'listening':'chk1','speaking':'chk2','reading':'chk3','vocabulary':'chk4','writing':'chk5' };
+                    Object.keys(map).forEach(activity => {
+                        if (data.completed[activity]) {
+                            const chk = document.getElementById(map[activity]);
+                            if (chk) chk.checked = true;
+                            const btn = document.getElementById('complete' + activity.charAt(0).toUpperCase() + activity.slice(1) + 'Btn');
+                            if (btn) {
+                                btn.textContent = '✓ Completed'; btn.disabled = true;
+                                btn.classList.add('completed');
+                                btn.style.backgroundColor = '#9ca3af';
+                                btn.style.borderColor = '#9ca3af';
+                                btn.style.color = 'white';
+                            }
+                        }
+                    });
+                }
+                if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+            } catch(e) { console.warn('Day 15 restore failed:', e); }
+        }, 300);
     });
-
-    loadProgress();
-});
-    </script>
+</script>
+<script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 
 </html>

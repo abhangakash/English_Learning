@@ -10,6 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'learning/css/base.css' %}">
     <style>
+        .complete-activity-btn.completed,
+        .complete-activity-btn:disabled {
+            background-color: #9ca3af !important;
+            border-color: #9ca3af !important;
+            color: white !important;
+            cursor: not-allowed;
+        }
+
         .writing-textarea {
             width: 100%;
             padding: 1.2rem;
@@ -59,6 +67,37 @@
             margin-bottom: 0.75rem;
             color: #334155;
         }
+
+        /* Self-reflection checklist styling */
+        .self-check-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: #f1f5f9;
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .self-check-item:hover {
+            background: #e0f2fe;
+            border-color: #7dd3fc;
+        }
+
+        .self-check-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #10b981;
+        }
+
+                .self-check-item.checked {
+            background: #f1f5f9;
+            border-color: #e2e8f0;
+        }
     </style>
 </head>
 
@@ -67,10 +106,9 @@
         <!-- HERO SECTION -->
         <div class="lesson-hero">
             <div class="hero-content">
-                <div class="day-badge">Day 14 • Mid-Course Review • Advanced</div>
+                <div class="day-badge">Day 14 • Week 2 • Advanced</div>
                 <h1 class="hero-title">MID-COURSE REVIEW & SELF-ASSESSMENT</h1>
-                <div class="power-line">💬 "Progress is not linear — it is cumulative. Every day adds to your
-                    foundation."</div>
+                <div class="power-line">💬 "Progress is not linear — it is cumulative. Every day adds to your foundation."</div>
             </div>
         </div>
 
@@ -94,7 +132,7 @@
             <!-- 1. LISTENING ACTIVITY -->
             <div class="activity-card" id="listening-card">
                 <div class="card-header listening">
-                    <h2>🎧 1. Listening Activity · Self-Monitoring</h2>
+                    <h2>🎧 1. Listening Activity : Self-Monitoring</h2>
                 </div>
                 <div class="card-body">
                     <div class="task-box">
@@ -107,74 +145,66 @@
                         </div>
                     </div>
 
-                    <!-- 🔊 AUDIO PLAYER SECTION -->
                     <div class="audio-player-container" style="margin: 1.5rem 0;">
                         <audio id="listeningAudio14" controls style="width: 100%;">
-                            <source src="{% static 'learning/audio/Beginner/day14.mp3' %}" type="audio/mpeg">
+                            <source src="{% static 'learning/audio/Advanced/day14.mp3' %}" type="audio/mpeg">
                         </audio>
                     </div>
 
-                    <!-- 📝 LISTENING TEXT (Hidden until audio ends) -->
                     <div id="listeningTextSection" style="display: none;">
                         <div class="task-box">
                             <div class="task-header">
                                 <div class="title"><span>📝</span><span>Review Guidance</span></div>
                             </div>
                             <div class="task-content" style="font-style: italic; background: #fef9e3;">
-                                "Compare your Day 1 recording with today's. Listen for: (1) Vocabulary Range, (2)
-                                Deliberate Pauses, (3) Structural Complexity. The gap between these is your evidence of
-                                progress."
+                              In the last two weeks, the skill I have improved most is my confidence and clarity. The area I still need to develop is my control over complex sentence structures. My specific goal for the remaining 16 days is to speak more precisely with better structure and deliberate pauses.
                             </div>
                         </div>
                     </div>
 
-                    <!-- 🎯 TASKS (Hidden until audio ends) -->
                     <div id="postAudioListeningContent" style="display: none;">
                         <div class="listening-task-group" style="margin-top: 1.5rem;">
                             <div class="listening-task-area">
-                                <p>🎯 <strong>Task:</strong> Write a 3-sentence spoken self-assessment using the
-                                    provided frames.</p>
+                                <p>🎯 <strong>Task:</strong> Select your best and weakest recording from Days 1–13. Play them back to back. Then tick each box after honest reflection:</p>
 
-                                <textarea id="taskInput" class="grammar-input" rows="4"
-                                    placeholder="In the last two weeks, the skill I have improved most is... The area I still need to develop is... My specific goal for the remaining 16 days is..."></textarea>
-
-                                <button class="btn-outline" id="checkTaskBtn" style="margin-top: 0.8rem;">✓ Submit
-                                    Assessment</button>
-                                <div id="taskFeedback" class="fix-feedback"></div>
+                                <div class="self-check-item" id="checkItem1">
+                                    <input type="checkbox" id="selfChk1">
+                                    <label for="selfChk1" style="cursor:pointer;"><strong>(1)</strong> How has my vocabulary range changed?</label>
+                                </div>
+                                <div class="self-check-item" id="checkItem2">
+                                    <input type="checkbox" id="selfChk2">
+                                    <label for="selfChk2" style="cursor:pointer;"><strong>(2)</strong> Are my pauses more deliberate?</label>
+                                </div>
+                                <div class="self-check-item" id="checkItem3">
+                                    <input type="checkbox" id="selfChk3">
+                                    <label for="selfChk3" style="cursor:pointer;"><strong>(3)</strong> Are my sentences more structurally complex?</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="quiz-section"
-                            style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1.5rem;">
+                        <div class="quiz-section" style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1.5rem;">
                             <p><strong>🧠 Progress Diagnostic</strong></p>
 
                             <div class="quiz-question">
                                 <p><strong>1. Is your recent recording better than Day 1?</strong></p>
                                 <label class="quiz-option"><input type="radio" name="q1" value="Yes"> Yes</label>
-                                <label class="quiz-option"><input type="radio" name="q1" value="Needs more work"> Needs
-                                    more work</label>
+                                <label class="quiz-option"><input type="radio" name="q1" value="Needs more work"> Needs more work</label>
                             </div>
 
                             <div class="quiz-question">
                                 <p><strong>2. Which area shows the most improvement?</strong></p>
-                                <label class="quiz-option"><input type="radio" name="q2" value="Vocabulary">
-                                    Vocabulary</label>
-                                <label class="quiz-option"><input type="radio" name="q2" value="Structure">
-                                    Structure</label>
-                                <label class="quiz-option"><input type="radio" name="q2" value="Confidence">
-                                    Confidence</label>
-                                <label class="quiz-option"><input type="radio" name="q2" value="Grammar">
-                                    Grammar</label>
+                                <label class="quiz-option"><input type="radio" name="q2" value="Vocabulary"> Vocabulary</label>
+                                <label class="quiz-option"><input type="radio" name="q2" value="Structure"> Structure</label>
+                                <label class="quiz-option"><input type="radio" name="q2" value="Confidence"> Confidence</label>
+                                <label class="quiz-option"><input type="radio" name="q2" value="Grammar"> Grammar</label>
                             </div>
 
-                            <button class="btn-outline" id="checkListeningWorkBtn" style="margin-top: 0.5rem;">✓ Check
-                                My Choices</button>
+                            <button class="btn-outline" id="checkListeningWorkBtn" style="margin-top: 0.5rem;">✓ Check My Answers</button>
                             <div id="listeningQuizFeedback" class="quiz-feedback"></div>
                         </div>
 
                         <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
-                            <button class="complete-activity-btn" id="completeListeningBtn" disabled
-                                data-checklist="chk1">✓ Mark Listening as Complete</button>
+                            <button class="complete-activity-btn" id="completeListeningBtn" disabled data-checklist="chk1">✓ Mark Listening as Complete</button>
                         </div>
                     </div>
                 </div>
@@ -183,51 +213,39 @@
             <!-- 2. SPEAKING ACTIVITY -->
             <div class="activity-card" id="speaking-card">
                 <div class="card-header speaking">
-                    <h2>🗣️ 2. Speaking Activity · The Growth Debrief</h2>
+                    <h2>🗣️ 2. Speaking Activity : The Growth Debrief</h2>
                 </div>
                 <div class="card-body">
                     <div class="speaking-unified-box">
                         <div class="speaking-task-header">
-                            <div class="task-title">
-                                <span>🎯</span>
-                                <span>Task</span>
-                            </div>
-                            <p class="task-description">
-                                Deliver a 90-second self-assessment speech using these frames. Focus on tone, clarity,
-                                and pacing.
-                            </p>
+                            <div class="task-title"><span>🎯</span><span>Task</span></div>
+                            <p class="task-description">Deliver a 90-second self-assessment speech using these frames. Focus on tone, clarity, and pacing.</p>
                         </div>
 
                         <div class="speaking-sentences-list">
                             <div class="speaking-sentence-item">
                                 <div class="sentence-number-badge">1</div>
-                                <div class="sentence-text-content">
-                                    "Over the past two weeks, I have noticeably improved in [specific area]."
-                                </div>
+                                <div class="sentence-text-content">"Over the past two weeks, I have noticeably improved in [specific area]."</div>
                             </div>
                             <div class="speaking-sentence-item">
                                 <div class="sentence-number-badge">2</div>
-                                <div class="sentence-text-content">
-                                    "The technique that has helped me most is [e.g. shadowing / structured writing]."
-                                </div>
+                                <div class="sentence-text-content">"The technique that has helped me most is [e.g. shadowing / structured writing / vocabulary cards]."</div>
                             </div>
                             <div class="speaking-sentence-item">
                                 <div class="sentence-number-badge">3</div>
-                                <div class="sentence-text-content">
-                                    "My weakest area remains [specific area], and I am addressing it by [action]."
-                                </div>
+                                <div class="sentence-text-content">"My weakest area remains [specific area], and I am addressing it by [action]."</div>
+                            </div>
+                            <div class="speaking-sentence-item">
+                                <div class="sentence-number-badge">4</div>
+                                <div class="sentence-text-content">"My measurable goal for the next 16 days is [specific, achievable outcome]."</div>
                             </div>
                         </div>
 
                         <div class="speaking-recording-section">
-                            <div class="recording-header">
-                                <span>🎙️</span>
-                                <h4>Record Your 90-Second Debrief</h4>
-                            </div>
+                            <div class="recording-header"><span>🎙️</span><h4>Record Your 90-Second Debrief</h4></div>
                             <div class="recording-controls-group">
                                 <button id="speakingRecordBtn" class="speaking-record-btn">Start Recording</button>
-                                <button id="speakingStopBtn" class="speaking-stop-btn" style="display: none;">Stop
-                                    Recording</button>
+                                <button id="speakingStopBtn" class="speaking-stop-btn" style="display: none;">Stop Recording</button>
                             </div>
                             <div id="speakingRecordingStatus" class="recording-status-indicator" style="display: none;">
                                 <div class="recording-dot-live"></div>
@@ -235,24 +253,20 @@
                             </div>
                             <div id="speakingPlaybackCard" class="speaking-playback-area" style="display: none;">
                                 <audio id="speakingPlayback" controls></audio>
-                                <div class="playback-success-msg"><span>✅</span> Recording saved! Listen for confidence
-                                    and clarity.</div>
+                                <div class="playback-success-msg"><span>✅</span> Recording saved! Listen for confidence and clarity.</div>
                             </div>
                         </div>
                     </div>
 
                     <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
-                        <button class="complete-activity-btn" id="completeSpeakingBtn" disabled data-checklist="chk2">✓
-                            Mark Speaking as Complete</button>
+                        <button class="complete-activity-btn" id="completeSpeakingBtn" disabled data-checklist="chk2">✓ Mark Speaking as Complete</button>
                     </div>
                 </div>
             </div>
 
             <!-- 3. READING ACTIVITY -->
             <div class="activity-card" id="reading-card">
-                <div class="card-header reading">
-                    <h2>📖 3. Reading · Diagnostic Assessment</h2>
-                </div>
+                <div class="card-header reading"><h2>📖 3. Reading : Diagnostic Assessment</h2></div>
                 <div class="card-body">
                     <div class="task-box" style="margin-bottom: 1.5rem;">
                         <div class="task-content">
@@ -270,153 +284,46 @@
 
                     <div class="listening-task-group">
                         <div class="listening-task-area">
-                            <p>(a) What is the difference between self-assessment and self-criticism?</p>
-                            <textarea id="readingT31" class="grammar-input" rows="2"
-                                placeholder="Explain the difference..."></textarea>
+                            <p>1️⃣ What is the difference between self-assessment and self-criticism?</p>
+                            <textarea id="readingT31" class="grammar-input" rows="2" placeholder="Explain the difference..."></textarea>
                             <button class="btn-outline" id="checkReadingT31Btn">✓ Check Answer</button>
                             <div id="readingT31Feedback" class="fix-feedback"></div>
                         </div>
 
                         <div class="listening-task-area">
-                            <p>(b) What does the author say is the most useful self-assessment tool?</p>
-                            <textarea id="readingT32" class="grammar-input" rows="2"
-                                placeholder="Identify the tool..."></textarea>
+                            <p>2️⃣ What does the author say is the most useful self-assessment tool?</p>
+                            <textarea id="readingT32" class="grammar-input" rows="2" placeholder="Identify the tool..."></textarea>
                             <button class="btn-outline" id="checkReadingT32Btn">✓ Check Answer</button>
                             <div id="readingT32Feedback" class="fix-feedback"></div>
                         </div>
 
                         <div class="listening-task-area">
-                            <p>(c) Write your three most important self-improvement targets for Days 15–30.</p>
-                            <textarea id="readingT33" class="grammar-input" rows="2"
-                                placeholder="My targets are..."></textarea>
+                            <p>3️⃣ Write your three most important self-improvement targets for Days 15–30.</p>
+                            <textarea id="readingT33" class="grammar-input" rows="2" placeholder="My targets are..."></textarea>
                             <button class="btn-outline" id="checkReadingT33Btn">✓ Check Answer</button>
                             <div id="readingT33Feedback" class="fix-feedback"></div>
                         </div>
                     </div>
 
                     <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
-                        <button class="complete-activity-btn" id="completeReadingBtn" disabled data-checklist="chk3">✓
-                            Mark Reading as Complete</button>
+                        <button class="complete-activity-btn" id="completeReadingBtn" disabled data-checklist="chk3">✓ Mark Reading as Complete</button>
                     </div>
                 </div>
             </div>
 
-            <!-- 4. VOCABULARY ACTIVITY -->
-            <div class="activity-card" id="vocabulary-card">
-                <div class="card-header vocabulary">
-                    <h2>📘 4. Vocabulary of the Day</h2>
-                </div>
-                <div class="card-body">
-                    <div class="vocab-table-container">
-                        <table class="vocab-table">
-                            <thead>
-                                <tr>
-                                    <th>🔊</th>
-                                    <th>✅</th>
-                                    <th>Word</th>
-                                    <th>Pronunciation</th>
-                                    <th>Meaning</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="audio-cell"><button class="vocab-audio-btn" data-word="Diagnostic"
-                                            data-checkid="check-diagnostic">🔊</button></td>
-                                    <td id="check-diagnostic">⬜</td>
-                                    <td><strong>Diagnostic</strong></td>
-                                    <td><code>/ˌdaɪ.əɡˈnɒs.tɪk/</code></td>
-                                    <td>Identifying the nature of a problem</td>
-                                </tr>
-                                <tr>
-                                    <td class="audio-cell"><button class="vocab-audio-btn" data-word="Coherence"
-                                            data-checkid="check-coherence">🔊</button></td>
-                                    <td id="check-coherence">⬜</td>
-                                    <td><strong>Coherence</strong></td>
-                                    <td><code>/kəʊˈhɪər.əns/</code></td>
-                                    <td>Logical and consistent connection of ideas</td>
-                                </tr>
-                                <tr>
-                                    <td class="audio-cell"><button class="vocab-audio-btn" data-word="Trajectory"
-                                            data-checkid="check-trajectory">🔊</button></td>
-                                    <td id="check-trajectory">⬜</td>
-                                    <td><strong>Trajectory</strong></td>
-                                    <td><code>/trəˈdʒek.tər.i/</code></td>
-                                    <td>The path or progress of development</td>
-                                </tr>
-                                <tr>
-                                    <td class="audio-cell"><button class="vocab-audio-btn" data-word="Tenacious"
-                                            data-checkid="check-tenacious">🔊</button></td>
-                                    <td id="check-tenacious">⬜</td>
-                                    <td><strong>Tenacious</strong></td>
-                                    <td><code>/tɪˈneɪ.shəs/</code></td>
-                                    <td>Persistent and determined</td>
-                                </tr>
-                                <tr>
-                                    <td class="audio-cell"><button class="vocab-audio-btn" data-word="Benchmark"
-                                            data-checkid="check-benchmark">🔊</button></td>
-                                    <td id="check-benchmark">⬜</td>
-                                    <td><strong>Benchmark</strong></td>
-                                    <td><code>/ˈbentʃ.mɑːk/</code></td>
-                                    <td>A standard point for comparison</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="power-word-section">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #854d0e;">
-                            <span>🔥</span><span>POWER WORD: TENACIOUS</span>
-                        </div>
-                        <p><strong>Meaning:</strong> Persistent and determined in holding on to a goal</p>
-                        <p><strong>Usage:</strong> "Tenacious learners do not stop at difficulty — they recalibrate and
-                            continue."</p>
-                    </div>
-
-                    <div class="power-word-section" style="border-left-color: #22c55e;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #166534;">
-                            <span>💬</span><span>IDIOM: "Take stock of"</span>
-                        </div>
-                        <p><strong>Meaning:</strong> Carefully consider your current situation or progress</p>
-                        <p><strong>Example:</strong> "At the midpoint of the course, it is worth taking stock of how far
-                            you have come."</p>
-                    </div>
-
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
-                        <button class="complete-activity-btn" id="completeVocabularyBtn" disabled
-                            data-checklist="chk4">✓ Mark Vocabulary as Complete</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. GRAMMAR HACK -->
-            <div class="grammar-section" id="grammar-card">
-                <h3 style="margin: 0 0 1rem 0;">🧠 Grammar Hack: Review Your Most Common Errors</h3>
-                <div class="grammar-rule">
-                    <p>Return to your grammar tips from Days 1–13. List the three errors you most frequently make.</p>
-                </div>
-                <div class="grammar-rule">
-                    <p><strong>Strategy:</strong> Write each correction five times today. Say each corrected sentence
-                        aloud twice. Commit to applying these from Day 15 onwards.</p>
-                </div>
-            </div>
-
-            <!-- 6. WRITING ACTIVITY -->
+            <!-- 4. WRITING ACTIVITY -->
             <div class="activity-card" id="writing-card">
-                <div class="card-header writing">
-                    <h2>✍️ 5. Writing Activity · Learning Reflection</h2>
-                </div>
+                <div class="card-header writing"><h2>✍️ 4. Writing Activity : Learning Reflection</h2></div>
                 <div class="card-body">
                     <div class="writing-tip-box">
                         <p><strong>💡 Writing Tip:</strong> Reflective writing is most powerful when it includes
                             <strong>specific evidence</strong>. Instead of 'my writing has improved', write 'my Day 10
-                            argument used three types of evidence, compared to Day 1 where I only stated opinions'.
+                            argument used three types of evidence, compared to Day 1 where I only stated opinions'.Specificity demonstrates genuine self-awareness.
                         </p>
                     </div>
 
                     <div class="task-box">
-                        <div class="task-header">
-                            <div class="title"><span>🎯</span><span>The Task</span></div>
-                        </div>
+                        <div class="task-header"><div class="title"><span>🎯</span><span>The Task</span></div></div>
                         <div class="task-content">
                             Write a 200-word reflection on your learning in the first two weeks. Structure it: (1)
                             Improvements, (2) Areas for work, (3) Measurable focus for Days 15-30.
@@ -424,40 +331,71 @@
                     </div>
 
                     <div class="writing-prompt">
-                        <textarea id="progressEmailBody" class="writing-textarea"
-                            placeholder="Start your reflection here..."></textarea>
-                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
-                            count: <span id="wordCount">0</span> / ~200</div>
+                        <textarea id="progressEmailBody" class="writing-textarea" placeholder="Start your reflection here..."></textarea>
+                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word count: <span id="wordCount">0</span> / ~200</div>
                     </div>
 
-                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check My
-                        Reflection</button>
+                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check My Answer</button>
                     <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
 
                     <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
-                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
-                            Mark Writing as Complete</button>
+                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓ Mark Writing as Complete</button>
                     </div>
                 </div>
             </div>
 
+            <!-- 5. VOCABULARY ACTIVITY -->
+            <div class="activity-card" id="vocabulary-card">
+                <div class="card-header vocabulary"><h2>📘 5. Vocabulary of the Day</h2></div>
+                <div class="card-body">
+                    <div class="vocab-table-container">
+                        <table class="vocab-table">
+                            <thead><tr><th>🔊</th><th>✅</th><th>Word</th><th>Pronunciation</th><th>Meaning</th></tr></thead>
+                            <tbody>
+                                <tr><td class="audio-cell"><button class="vocab-audio-btn" data-word="Diagnostic" data-checkid="check-diagnostic">🔊</button></td><td id="check-diagnostic">⬜</td><td><strong>Diagnostic</strong></td><td><code>/ˌdaɪ.əɡˈnɒs.tɪk/</code></td><td>Identifying the nature of a problem</td></tr>
+                                <tr><td class="audio-cell"><button class="vocab-audio-btn" data-word="Coherence" data-checkid="check-coherence">🔊</button></td><td id="check-coherence">⬜</td><td><strong>Coherence</strong></td><td><code>/kəʊˈhɪər.əns/</code></td><td>Logical and consistent connection of ideas</td></tr>
+                                <tr><td class="audio-cell"><button class="vocab-audio-btn" data-word="Trajectory" data-checkid="check-trajectory">🔊</button></td><td id="check-trajectory">⬜</td><td><strong>Trajectory</strong></td><td><code>/trəˈdʒek.tər.i/</code></td><td>The path or progress of development</td></tr>
+                                <tr><td class="audio-cell"><button class="vocab-audio-btn" data-word="Tenacious" data-checkid="check-tenacious">🔊</button></td><td id="check-tenacious">⬜</td><td><strong>Tenacious</strong></td><td><code>/tɪˈneɪ.shəs/</code></td><td>Persistent and determined</td></tr>
+                                <tr><td class="audio-cell"><button class="vocab-audio-btn" data-word="Benchmark" data-checkid="check-benchmark">🔊</button></td><td id="check-benchmark">⬜</td><td><strong>Benchmark</strong></td><td><code>/ˈbentʃ.mɑːk/</code></td><td>A standard point for comparison</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="power-word-section">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #854d0e;"><span>🔥</span><span>POWER WORD: TENACIOUS (teh-NAY-shus)</span></div>
+                        <p><strong>Meaning:</strong> Persistent and determined in holding on to a goal</p>
+                        <p><strong>Usage:</strong> "Tenacious learners do not stop at difficulty — they recalibrate and continue."</p>
+                    </div>
+
+                    <div class="idiom-section">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #166534;"><span>💬</span><span>IDIOM: "Take stock of"</span></div>
+                        <p><strong>Meaning:</strong> Carefully consider your current situation or progress</p>
+                        <p><strong>Example:</strong> "At the midpoint of the course, it is worth taking stock of how far you have come."</p>
+                    </div>
+
+                    <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
+                        <button class="complete-activity-btn" id="completeVocabularyBtn" disabled data-checklist="chk4">✓ Mark Vocabulary as Complete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. GRAMMAR HACK -->
+            <div class="grammar-section" id="grammar-card">
+                <h3 style="margin: 0 0 1rem 0;">🧠 Grammar Hack: Review Your Most Common Errors</h3>
+                <div class="grammar-rule"><p>Return to your grammar tips from Days 1–13. Identify the three errors you most frequently make.</p></div>
+                <div class="grammar-rule"><p><strong>Strategy:</strong> Write each correction five times today. Say each corrected sentence aloud twice. Commit to applying all three corrections every time you write or speak from Day 15 onwards.</p></div>
+            </div>
+
             <!-- CHECKLIST -->
             <div class="activity-card">
-                <div class="card-header vocabulary">
-                    <h2>✅ DAY 14 COMPLETION CHECKLIST</h2>
-                </div>
+                <div class="card-header vocabulary"><h2>✅ DAY 14 COMPLETION CHECKLIST</h2></div>
                 <div class="card-body">
                     <ul class="checklist">
-                        <li><input type="checkbox" id="chk1" disabled><label> Compared Day 1 recording with a recent
-                                recording</label></li>
-                        <li><input type="checkbox" id="chk2" disabled><label> Delivered the 90-second growth debrief
-                                speech</label></li>
-                        <li><input type="checkbox" id="chk3" disabled><label> Wrote three self-improvement targets for
-                                Days 15–30</label></li>
-                        <li><input type="checkbox" id="chk4" disabled><label> Used 'Tenacious' in speaking and
-                                writing</label></li>
-                        <li><input type="checkbox" id="chk5" disabled><label> Wrote the 200-word learning
-                                reflection</label></li>
+                        <li><input type="checkbox" id="chk1" disabled><label> Compared Day 1 recording with a recent recording</label></li>
+                        <li><input type="checkbox" id="chk2" disabled><label> Delivered the 90-second growth debrief speech</label></li>
+                        <li><input type="checkbox" id="chk3" disabled><label> Wrote three self-improvement targets for Days 15–30</label></li>
+                        <li><input type="checkbox" id="chk4" disabled><label> Used 'Tenacious' in speaking and writing</label></li>
+                        <li><input type="checkbox" id="chk5" disabled><label> Wrote the 200-word learning reflection</label></li>
                     </ul>
                     <div style="text-align:right;"><span class="badge" id="progressCounter">0/5 completed</span></div>
                     <div style="display:flex; justify-content:center; margin-top:1rem;">
@@ -465,7 +403,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -473,224 +410,284 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="{% static 'learning/js/main.js' %}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize Day
-            if (typeof initializeDay === 'function') {
-                initializeDay(14, 'advanced', {
-                    vocabularyWords: ['Diagnostic', 'Coherence', 'Trajectory', 'Tenacious', 'Benchmark']
-                });
-            }
-
-            // --- 1. LISTENING ---
-            let taskDone = false, quizDone = false;
-
-            // Audio Reveal Logic (Local since we renamed ID to avoid main.js conflict)
-            const audio = document.getElementById('listeningAudio14');
-            if (audio) {
-                audio.addEventListener('ended', function () {
-                    document.getElementById('listeningTextSection').style.display = 'block';
-                    document.getElementById('postAudioListeningContent').style.display = 'block';
-                });
-            }
-
-            function updateListeningCompletion() {
-                if (taskDone && quizDone) {
-                    const btn = document.getElementById('completeListeningBtn');
-                    btn.disabled = false;
-                    btn.classList.add('ready');
-                }
-            }
-
-            document.getElementById('checkTaskBtn')?.addEventListener('click', async () => {
-                const text = document.getElementById('taskInput').value.trim();
-                if (!text) {
-                    const fb = document.getElementById('taskFeedback');
-                    fb.innerHTML = '⚠️ Please write your self-assessment before submitting.';
-                    fb.className = 'fix-feedback incorrect';
-                    fb.style.display = 'block';
-                    return;
-                }
-                taskDone = await evaluateTaskRaw(text, 'taskFeedback', 'listening_analysis', 15);
-                updateListeningCompletion();
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize Day
+        if (typeof initializeDay === 'function') {
+            initializeDay(14, 'advanced', {
+                vocabularyWords: ['Diagnostic', 'Coherence', 'Trajectory', 'Tenacious', 'Benchmark']
             });
+        }
 
-            document.getElementById('checkListeningWorkBtn')?.addEventListener('click', function () {
-                const q1 = document.querySelector('input[name="q1"]:checked');
-                const q2 = document.querySelector('input[name="q2"]:checked');
-                const fb = document.getElementById('listeningQuizFeedback');
+        // ========== HELPER: Mark activity as complete (MUST BE FIRST) ==========
+        function completeActivity(checklistId, buttonId, activityName) {
+            const chk = document.getElementById(checklistId);
+            if (chk && !chk.checked) chk.checked = true;
+            const btn = document.getElementById(buttonId);
+            if (btn) {
+                btn.textContent = '✓ Completed';
+                btn.disabled = true;
+                btn.classList.add('completed');
+                btn.style.backgroundColor = '#9ca3af';
+                btn.style.borderColor = '#9ca3af';
+                btn.style.color = 'white';
+            }
+            if (activityName && typeof activityCompleted !== 'undefined') {
+                activityCompleted[activityName] = true;
+            }
+            if (activityName === 'speaking') window.speakingCompleted = true;
+            if (activityName === 'reading') window.readingCompleted = true;
+            if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+            if (typeof saveProgress === 'function') saveProgress();
+        }
 
-                if (!q1 || !q2) {
-                    fb.innerHTML = '⚠️ Please answer both quiz questions.';
-                    fb.className = 'quiz-feedback incorrect';
-                    fb.style.display = 'block';
-                    return;
-                }
+        // --- 1. LISTENING ---
+        let quizDone = false;
+        let allChecked = false;
 
-                // Any selection in the diagnostic is accepted for progress check
-                const isCorrect = q1.value === 'Yes';
+        const audio = document.getElementById('listeningAudio14');
+        if (audio) {
+            audio.addEventListener('ended', function () {
+                document.getElementById('listeningTextSection').style.display = 'block';
+                document.getElementById('postAudioListeningContent').style.display = 'block';
+            });
+        }
 
-                if (isCorrect) {
-                    fb.innerHTML = '✅ Progress confirmed! Acknowledging your growth is essential for advanced fluency.';
-                    fb.className = 'quiz-feedback correct';
-                    quizDone = true;
-                } else {
-                    fb.innerHTML = '❌ Honest assessment. Focus on your target area to close the gap in the next 16 days.';
-                    fb.className = 'quiz-feedback incorrect';
-                    quizDone = false;
-                }
+        function updateCheckboxStates() {
+            const chk1 = document.getElementById('selfChk1');
+            const chk2 = document.getElementById('selfChk2');
+            const chk3 = document.getElementById('selfChk3');
+            
+            if (chk1.checked) document.getElementById('checkItem1').classList.add('checked');
+            else document.getElementById('checkItem1').classList.remove('checked');
+            
+            if (chk2.checked) document.getElementById('checkItem2').classList.add('checked');
+            else document.getElementById('checkItem2').classList.remove('checked');
+            
+            if (chk3.checked) document.getElementById('checkItem3').classList.add('checked');
+            else document.getElementById('checkItem3').classList.remove('checked');
+            
+            allChecked = chk1.checked && chk2.checked && chk3.checked;
+            updateListeningCompletion();
+        }
 
+        document.getElementById('selfChk1')?.addEventListener('change', updateCheckboxStates);
+        document.getElementById('selfChk2')?.addEventListener('change', updateCheckboxStates);
+        document.getElementById('selfChk3')?.addEventListener('change', updateCheckboxStates);
+
+        function updateListeningCompletion() {
+            const btn = document.getElementById('completeListeningBtn');
+            btn.disabled = !(allChecked && quizDone);
+        }
+
+        document.getElementById('checkListeningWorkBtn')?.addEventListener('click', function () {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const fb = document.getElementById('listeningQuizFeedback');
+
+            if (!q1 || !q2) {
+                fb.innerHTML = '⚠️ Please answer both quiz questions.';
+                fb.className = 'quiz-feedback incorrect';
                 fb.style.display = 'block';
-                updateListeningCompletion();
-            });
-
-            document.getElementById('completeListeningBtn')?.addEventListener('click', function () {
-                markActivityComplete('listening', 'chk1');
-            });
-
-            // --- AI EVALUATION HELPER ---
-            async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
-                const feedback = document.getElementById(feedbackId);
-                const words = text.split(/\s+/).filter(w => w.length > 0).length;
-
-                if (words < minWords) {
-                    feedback.innerHTML = `⚠️ Too brief. Please provide more detail for a thorough assessment.`;
-                    feedback.className = 'fix-feedback incorrect';
-                    feedback.style.display = 'block';
-                    return false;
-                }
-
-                feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
-                feedback.className = 'fix-feedback';
-                feedback.style.display = 'block';
-
-                const customPrompts = {
-                    listening_analysis: "Evaluate a 3-sentence self-assessment. Correct answers must use these frames: 'In the last two weeks, the skill I have improved most is...', 'The area I still need to develop is...', and 'My specific goal for the remaining 16 days is...'.",
-                    reading_a: "Explain the difference between diagnostic self-assessment and self-criticism based on the text. Correct answer should state that assessment is about measuring against a benchmark for growth, while criticism is often unproductive and negative.",
-                    reading_b: "Identify the tool mentioned in the text for objective self-assessment. Correct answer is 'recording yourself' or 'voice recording'.",
-                    reading_c: "List three specific improvement targets for the next 16 days. Correct answer should be specific, measurable goals based on the student's own needs.",
-                    reflection_writing: "Write a 200-word reflection on learning progress. Must include specific evidence (e.g., comparing Day 1 to Day 10) and a measurable focus for Days 15-30."
-                };
-
-                const system_prompt = `Evaluate the following response as an English communication trainer.
-                
-                Original Task: "${customPrompts[type]}"
-
-                Provide a strict, professional evaluation in this format:
-                ✅ Evaluation:
-                2-4 sentences assessing how well the response meets the task requirements. Comment on content selection, structure, clarity, relevance, and adherence to the instructions.
-
-                💡 Improvement:
-                Give one specific, practical suggestion that would make the response stronger. Focus only on the single most important improvement.
-
-                Do not mention scores, grades, ratings, or word count. Keep the feedback concise, direct, and teacher-like.
-
-                Return ONLY a JSON object:
-                {
-                    "correct": true/false,
-                    "evaluation": "The evaluation text...",
-                    "improvement": "The improvement suggestion..."
-                }`;
-
-                try {
-                    const response = await fetch('/learning/ai/evaluate/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
-                        body: JSON.stringify({ text, task_type: type, day_number: 14, level: 'advanced', system_prompt })
-                    });
-                    const res = await response.json();
-                    if (res.success) {
-                        const isCorrect = res.correct !== false;
-                        const statusEmoji = isCorrect ? '✅' : '❌';
-
-                        feedback.innerHTML = `
-                            <div style="margin-bottom: 0.8rem;">
-                                <strong>${statusEmoji} Evaluation:</strong><br>
-                                <span style="font-size: 0.95rem; line-height: 1.5;">${res.evaluation}</span>
-                            </div>
-                            <div style="border-top: 1px solid #e2e8f0; padding-top: 0.8rem;">
-                                <strong>💡 Improvement:</strong><br>
-                                <span style="font-size: 0.95rem; line-height: 1.5;">${res.improvement}</span>
-                            </div>
-                        `;
-                        feedback.className = `fix-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-                        return isCorrect;
-                    }
-                    return false;
-                } catch (e) {
-                    feedback.innerHTML = '⚠️ Error connecting to AI.';
-                    feedback.className = 'fix-feedback incorrect';
-                    return false;
-                }
+                return;
             }
 
-            async function evaluateTask(id, type, taskName, minWords = 5) {
-                const inputEl = document.getElementById(id + 'Input') || document.getElementById(id);
-                return await evaluateTaskRaw(inputEl.value.trim(), id + 'Feedback', type, minWords);
+            let feedbackMsg = '';
+            if (q1.value === 'Yes') {
+                feedbackMsg = '✅ Excellent! Your recording shows clear progress from Day 1 — that growth is real and earned.';
+            } else {
+                feedbackMsg = ' Your recent recording still needs work compared to Day 1. Revisit the areas where you felt stronger earlier and apply those techniques again.';
             }
-
-            // --- READING ---
-            let r1 = false, r2 = false, r3 = false;
-            function updateReading() { if (r1 && r2 && r3) document.getElementById('completeReadingBtn').disabled = false; }
-
-            document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => {
-                r1 = await evaluateTask('readingT31', 'reading_a', 'Self-assessment vs Criticism', 5);
-                updateReading();
-            });
-            document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => {
-                r2 = await evaluateTask('readingT32', 'reading_b', 'Recording Tool', 2);
-                updateReading();
-            });
-            document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => {
-                r3 = await evaluateTask('readingT33', 'reading_c', 'Targets', 10);
-                updateReading();
-            });
-
-            // --- WRITING ---
-            document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
-                const done = await evaluateTaskRaw(document.getElementById('progressEmailBody').value.trim(), 'progressEmailBodyFeedback', 'reflection_writing', 100);
-                if (done) document.getElementById('completeWritingBtn').disabled = false;
-            });
-
-            document.getElementById('progressEmailBody')?.addEventListener('input', function () {
-                const words = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
-                document.getElementById('wordCount').innerText = words;
-            });
-
-            // --- SPEAKING ---
-            let mediaRecorder, chunks = [];
-            document.getElementById('speakingRecordBtn')?.addEventListener('click', async () => {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
-                chunks = [];
-                mediaRecorder.ondataavailable = e => chunks.push(e.data);
-                mediaRecorder.onstop = () => {
-                    const blob = new Blob(chunks, { type: 'audio/webm' });
-                    document.getElementById('speakingPlayback').src = URL.createObjectURL(blob);
-                    document.getElementById('speakingPlaybackCard').style.display = 'block';
-                    document.getElementById('completeSpeakingBtn').disabled = false;
-                    stream.getTracks().forEach(t => t.stop());
-                };
-                mediaRecorder.start();
-                document.getElementById('speakingRecordBtn').style.display = 'none';
-                document.getElementById('speakingStopBtn').style.display = 'inline-flex';
-                document.getElementById('speakingRecordingStatus').style.display = 'flex';
-            });
-            document.getElementById('speakingStopBtn')?.addEventListener('click', () => {
-                mediaRecorder.stop();
-                document.getElementById('speakingRecordBtn').style.display = 'inline-flex';
-                document.getElementById('speakingStopBtn').style.display = 'none';
-                document.getElementById('speakingRecordingStatus').style.display = 'none';
-            });
-
-            // --- HANDLERS ---
-            document.getElementById('completeListeningBtn')?.addEventListener('click', () => markActivityComplete('listening', 'chk1'));
-            document.getElementById('completeSpeakingBtn')?.addEventListener('click', () => markActivityComplete('speaking', 'chk2'));
-            document.getElementById('completeReadingBtn')?.addEventListener('click', () => markActivityComplete('reading', 'chk3'));
-            document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => markActivityComplete('vocabulary', 'chk4'));
-            document.getElementById('completeWritingBtn')?.addEventListener('click', () => markActivityComplete('writing', 'chk5'));
-            document.getElementById('dayCompleteBtn')?.addEventListener('click', completeDay);
+            feedbackMsg += '<br><br>Your <strong>' + q2.value.toLowerCase() + '</strong> has shown the most improvement — keep building on that strength.';
+            
+            fb.innerHTML = feedbackMsg;
+            fb.className = 'quiz-feedback correct';
+            quizDone = true;
+            fb.style.display = 'block';
+            updateListeningCompletion();
         });
-    </script>
-</body>
 
+        // --- AI EVALUATION HELPER ---
+        async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
+            const feedback = document.getElementById(feedbackId);
+            const words = text.split(/\s+/).filter(w => w.length > 0).length;
+
+            if (words < minWords) {
+                feedback.innerHTML = '⚠️ Too brief. Please provide more detail.';
+                feedback.className = 'fix-feedback incorrect';
+                feedback.style.display = 'block';
+                return false;
+            }
+
+            feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
+            feedback.className = 'fix-feedback';
+            feedback.style.display = 'block';
+
+            const customPrompts = {
+                reading_a: "Explain the difference between diagnostic self-assessment and self-criticism based on the text.",
+                reading_b: "Identify the tool mentioned in the text for objective self-assessment. Correct answer is 'recording yourself' or 'voice recording'.",
+                reading_c: "List three specific improvement targets for the next 16 days.",
+                reflection_writing: "Write a 200-word reflection on learning progress. Must include specific evidence and a measurable focus for Days 15-30."
+            };
+
+            const system_prompt = `Evaluate the following response as an English communication trainer.
+            
+            Original Task: "${customPrompts[type]}"
+
+            Provide a strict, professional evaluation in this format:
+            ✅ Evaluation:
+            2-4 sentences assessing how well the response meets the task requirements.
+
+            💡 Improvement:
+            Give one specific, practical suggestion.
+
+            Do not mention scores, grades, ratings, or word count.
+            IMPORTANT: Always address the user as "you" — NEVER say "the student" or "they".
+
+            Return ONLY a JSON object:
+            {"correct":true/false,"evaluation":"...","improvement":"..."}`;
+
+            try {
+                const response = await fetch('/learning/ai/evaluate/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                    body: JSON.stringify({ text, task_type: type, day_number: 14, level: 'advanced', system_prompt })
+                });
+                const res = await response.json();
+                if (res.success) {
+                    const isCorrect = res.correct !== false;
+                    feedback.innerHTML = `<strong>${isCorrect ? '✅' : '❌'} Evaluation:</strong><br>${res.evaluation}<br><br><strong>💡 Improvement:</strong><br>${res.improvement}`;
+                    feedback.className = `fix-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                    return isCorrect;
+                }
+                return false;
+            } catch (e) {
+                feedback.innerHTML = '⚠️ Error connecting to server.';
+                feedback.className = 'fix-feedback incorrect';
+                return false;
+            }
+        }
+
+        async function evaluateTask(id, type, minWords = 5) {
+            const inputEl = document.getElementById(id + 'Input') || document.getElementById(id);
+            return await evaluateTaskRaw(inputEl.value.trim(), id + 'Feedback', type, minWords);
+        }
+
+        // --- READING ---
+        let r1 = false, r2 = false, r3 = false;
+        function updateReading() { if (r1 && r2 && r3) document.getElementById('completeReadingBtn').disabled = false; }
+        document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => { r1 = await evaluateTask('readingT31', 'reading_a', 5); updateReading(); });
+        document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => { r2 = await evaluateTask('readingT32', 'reading_b', 2); updateReading(); });
+        document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => { r3 = await evaluateTask('readingT33', 'reading_c', 10); updateReading(); });
+
+        // --- WRITING ---
+        document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
+            const done = await evaluateTaskRaw(document.getElementById('progressEmailBody').value.trim(), 'progressEmailBodyFeedback', 'reflection_writing', 100);
+            if (done) document.getElementById('completeWritingBtn').disabled = false;
+        });
+        document.getElementById('progressEmailBody')?.addEventListener('input', function () {
+            document.getElementById('wordCount').innerText = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+        });
+
+        // ========== SPEAKING - 15 second minimum ==========
+        window.speakingCompleted = false;
+        let speakingRecorded = false, speakingValidated = false;
+        
+        const sr = document.getElementById('speakingRecordBtn');
+        const ss = document.getElementById('speakingStopBtn');
+        const spa = document.getElementById('speakingPlaybackCard');
+        const sp = document.getElementById('speakingPlayback');
+        const srs = document.getElementById('speakingRecordingStatus');
+        const st = document.getElementById('speakingTimer');
+        const csb = document.getElementById('completeSpeakingBtn');
+        
+        let mr = null, chunks = [], ir = false, ti = null, rs = 0;
+        
+        function ft(s) { const m = Math.floor(s/60), sec = s%60; return m.toString().padStart(2,'0')+':'+sec.toString().padStart(2,'0'); }
+        
+        if (sr) {
+            sr.addEventListener('click', async () => {
+                try {
+                    speakingValidated = false; speakingRecorded = false;
+                    if (csb && csb.textContent !== '✓ Completed') csb.disabled = true;
+                    if (spa) spa.style.display = 'none';
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    mr = new MediaRecorder(stream); chunks = [];
+                    mr.ondataavailable = e => { if (e.data.size > 0) chunks.push(e.data); };
+                    mr.onstop = () => {
+                        clearInterval(ti); ti = null;
+                        if (sp) sp.src = URL.createObjectURL(new Blob(chunks, { type: 'audio/webm' }));
+                        if (spa) {
+                            spa.style.display = 'block';
+                            const md = spa.querySelector('.playback-success-msg');
+                            if (rs >= 15) {
+                                speakingRecorded = true; speakingValidated = true;
+                                if (md) { md.innerHTML = '<span>✅</span> Recording saved! Listen for confidence and clarity.'; md.style.background = '#d1fae5'; md.style.color = '#065f46'; }
+                                if (csb && csb.textContent !== '✓ Completed') csb.disabled = false;
+                            } else {
+                                if (md) { md.innerHTML = '<span>⚠️</span> Too short! Please speak all sentences with proper pauses.'; md.style.background = '#fef9e3'; md.style.color = '#92400e'; }
+                            }
+                        }
+                        stream.getTracks().forEach(t => t.stop());
+                    };
+                    mr.start(); ir = true; rs = 0;
+                    if (st) st.textContent = ft(0);
+                    if (srs) srs.style.display = 'flex';
+                    ti = setInterval(() => { rs++; if (st) st.textContent = ft(rs); }, 1000);
+                    sr.style.display = 'none';
+                    if (ss) ss.style.display = 'inline-flex';
+                } catch (e) { console.error('Microphone error:', e); }
+            });
+        }
+        
+        if (ss) ss.addEventListener('click', () => { if (mr && ir) { mr.stop(); ir = false; sr.style.display = 'inline-flex'; ss.style.display = 'none'; if (srs) srs.style.display = 'none'; } });
+        
+        if (csb) {
+            csb.addEventListener('click', () => {
+                if (!csb.disabled && speakingRecorded && speakingValidated) {
+                    window.speakingCompleted = true;
+                    completeActivity('chk2', 'completeSpeakingBtn', 'speaking');
+                } else if (!speakingRecorded) alert('⚠️ Record first. Speak all sentences with proper pauses.');
+                else if (!speakingValidated) alert('⚠️ Recording too short! Minimum 15 seconds required.');
+            });
+        }
+
+        // --- COMPLETION BUTTONS ---
+        document.getElementById('completeListeningBtn')?.addEventListener('click', () => completeActivity('chk1', 'completeListeningBtn', 'listening'));
+        document.getElementById('completeReadingBtn')?.addEventListener('click', () => completeActivity('chk3', 'completeReadingBtn', 'reading'));
+        document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => completeActivity('chk4', 'completeVocabularyBtn', 'vocabulary'));
+        document.getElementById('completeWritingBtn')?.addEventListener('click', () => completeActivity('chk5', 'completeWritingBtn', 'writing'));
+        document.getElementById('dayCompleteBtn')?.addEventListener('click', () => { if (typeof completeDay === 'function') completeDay(); });
+
+        // ========== RESTORE ON LOAD ==========
+        setTimeout(function() {
+            const metaUserId = document.querySelector('meta[name="user-id"]')?.content || 'guest';
+            const storageKey = 'progress_' + metaUserId + '_advanced_day_14';
+            const saved = localStorage.getItem(storageKey);
+            if (!saved) return;
+            try {
+                const data = JSON.parse(saved);
+                if (data.completed) {
+                    const map = { 'listening':'chk1','speaking':'chk2','reading':'chk3','vocabulary':'chk4','writing':'chk5' };
+                    Object.keys(map).forEach(activity => {
+                        if (data.completed[activity]) {
+                            const chk = document.getElementById(map[activity]);
+                            if (chk) chk.checked = true;
+                            const btn = document.getElementById('complete' + activity.charAt(0).toUpperCase() + activity.slice(1) + 'Btn');
+                            if (btn) {
+                                btn.textContent = '✓ Completed'; btn.disabled = true;
+                                btn.classList.add('completed');
+                                btn.style.backgroundColor = '#9ca3af';
+                                btn.style.borderColor = '#9ca3af';
+                                btn.style.color = 'white';
+                            }
+                        }
+                    });
+                }
+                if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+            } catch(e) { console.warn('Day 14 restore failed:', e); }
+        }, 300);
+    });
+</script>
+<script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
+</body>
 </html>

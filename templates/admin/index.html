@@ -1,0 +1,23 @@
+{% extends "admin/index.html" %}
+{% load i18n %}
+
+{% block content %}
+<div id="content-main">
+    <!-- Premium Analytics Dashboard Shortcut -->
+    <div style="background: linear-gradient(135deg, #4e73df 0%, #224abe 100%); padding: 30px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 20px rgba(78, 115, 223, 0.2); display: flex; justify-content: space-between; align-items: center; color: white;">
+        <div>
+            <h2 style="color: white; margin: 0; font-size: 1.5rem; font-weight: 800;">
+                <i class="fas fa-chart-line"></i> Advanced Analytics Hub
+            </h2>
+            <p style="margin: 10px 0 0 0; opacity: 0.9; font-size: 0.95rem;">
+                View student performance, dropout risks, and level transitions in real-time.
+            </p>
+        </div>
+        <a href="/admin/learning/learneranalyticssummary/dashboard/" style="background: white; color: #4e73df; padding: 12px 25px; border-radius: 10px; font-weight: 800; text-decoration: none; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            OPEN DASHBOARD
+        </a>
+    </div>
+
+    {{ block.super }}
+</div>
+{% endblock %}

@@ -22,6 +22,9 @@
 
 {% block userlinks %}
     {% if user.is_staff %}
+        <a href="/admin/learning/learneranalyticssummary/dashboard/" style="font-weight: bold; color: #4e73df;">
+            <i class="fas fa-chart-line"></i> Analytics Dashboard
+        </a> /
         {{ block.super }}
     {% else %}
         <!-- Custom links for non-staff users -->

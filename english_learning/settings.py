@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'home_page',
     'captcha',
     'learning',
+    'cloudinary',
+
 ]
 
 MIDDLEWARE = [
@@ -96,6 +98,7 @@ DATABASES = {
         'PORT': '5432',
         'OPTIONS': {
             'sslmode': 'require',
+            "options": "-c statement_timeout=0"
         },
     }
 }
@@ -178,3 +181,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.ngrok-free.app",
     "https://*.ngrok-free.dev",
 ]
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dddd5z1fk',
+    'API_KEY': '275733348281325',
+    'API_SECRET': '8piDH7X1cGBqyAULhSa_lYYUT1k',
+}

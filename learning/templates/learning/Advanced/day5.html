@@ -80,9 +80,9 @@
             <div class="activity-card" id="speaking-card"><div class="card-header speaking"><h2>🗣️ 2. Speaking Activity : The Inference Response</h2></div><div class="card-body">
                 <div class="speaking-unified-box"><div class="speaking-task-header"><div class="task-title"><span>🎯</span><span>Task</span></div><p class="task-description">Practise responding to implied messages with these advanced acknowledgement phrases.</p></div>
                 <div class="speaking-sentences-list">
-                    <div class="speaking-sentence-item"><div class="sentence-number-badge">1</div><div class="sentence-text-content">"If I am reading your concern correctly, you would prefer a more conservative timeline — is that right?"</div></div>
-                    <div class="speaking-sentence-item"><div class="sentence-number-badge">2</div><div class="sentence-text-content">"It sounds like there may be some reservations about the current approach. Could you share more?"</div></div>
-                    <div class="speaking-sentence-item"><div class="sentence-number-badge">3</div><div class="sentence-text-content">"I sense that budget constraints might be a factor here. Would that be accurate?"</div></div>
+                    <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">1</div><div class="sentence-text-content">If I am reading your concern correctly, you would prefer a more conservative timeline — is that right?"</p></div></div>
+                    <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">2</div><div class="sentence-text-content">"It sounds like there may be some reservations about the current approach. Could you share more?"</p></div></div>
+                    <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">3</div><div class="sentence-text-content">"I sense that budget constraints might be a factor here. Would that be accurate?"</p></div></div>
                 </div>
                 <div class="speaking-recording-section"><div class="recording-header"><span>🎙️</span><h4>Your Recording </h4></div><div class="recording-controls-group"><button id="speakingRecordBtn" class="speaking-record-btn">Start Recording</button><button id="speakingStopBtn" class="speaking-stop-btn" style="display:none;">Stop Recording</button></div><div id="speakingRecordingStatus" class="recording-status-indicator" style="display:none;"><div class="recording-dot-live"></div><span class="recording-timer-display" id="speakingTimer">00:00</span><span class="recording-hint">Recording... speak all 3 sentences</span></div><div id="speakingPlaybackArea" class="speaking-playback-area" style="display:none;"><audio id="speakingPlayback" controls></audio><div class="playback-success-msg">Listen back to check your tone.</div></div></div></div>
                 <div class="speaking-complete-wrapper"><button class="complete-activity-btn" id="completeSpeakingBtn" disabled>✓ Mark Speaking as Complete</button></div>
@@ -130,7 +130,7 @@
             </div>
 
             <!-- CHECKLIST -->
-            <div class="activity-card"><div class="card-header vocabulary"><h2>✅ DAY 5 COMPLETION CHECKLIST</h2></div><div class="card-body"><ul class="checklist"><li><input type="checkbox" id="chk1" disabled><label> Identified implied meaning in the listening script</label></li><li><input type="checkbox" id="chk2" disabled><label> Practised three inference response phrases</label></li><li><input type="checkbox" id="chk3" disabled><label> Named the three listening layers from the reading</label></li><li><input type="checkbox" id="chk4" disabled><label> Corrected 'doubt' misuse errors</label></li><li><input type="checkbox" id="chk5" disabled><label> Listened to all vocabulary words</label></li><li><input type="checkbox" id="chk6" disabled><label> Wrote the 100-word inference analysis</label></li></ul><div style="text-align:right;margin:1rem 0;"><span class="badge" id="progressCounter">0/6 completed</span></div><div style="display:flex;justify-content:center;"><button class="day-complete-btn" id="dayCompleteBtn" disabled>🏆 Complete Day 5</button></div></div></div>
+            <div class="activity-card"><div class="card-header vocabulary"><h2>✅ DAY 5 COMPLETION CHECKLIST</h2></div><div class="card-body"><ul class="checklist"><li><input type="checkbox" id="chk1" disabled><label> Identified implied meaning in the listening script</label></li><li><input type="checkbox" id="chk2" disabled><label> Practised three inference response phrases</label></li><li><input type="checkbox" id="chk3" disabled><label> Named the three listening layers from the reading</label></li><li><input type="checkbox" id="chk4" disabled><label> Corrected 'doubt' misuse errors</label></li><li><input type="checkbox" id="chk5" disabled><label> Used 'Perspicacious' in a written sentence</label></li><li><input type="checkbox" id="chk6" disabled><label> Wrote the 100-word inference analysis</label></li></ul><div style="text-align:right;margin:1rem 0;"><span class="badge" id="progressCounter">0/6 completed</span></div><div style="display:flex;justify-content:center;"><button class="day-complete-btn" id="dayCompleteBtn" disabled> Complete Day 5</button></div></div></div>
         </div>
     </div>
 
@@ -570,5 +570,6 @@ document.addEventListener('change', e => { if (e.target.type === 'radio') savePr
     setTimeout(restoreCompletedButtons, 500);
 });
     </script>
+    <script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 </html>

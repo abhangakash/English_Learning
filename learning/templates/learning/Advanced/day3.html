@@ -50,9 +50,9 @@
             <div class="activity-card" id="speaking-card"><div class="card-header speaking"><h2>🗣️ 2. Speaking Activity : The Diplomatic Pushback</h2></div><div class="card-body">
                 <div class="speaking-unified-box"><div class="speaking-task-header"><div class="task-title"><span>🎯</span><span>Task</span></div><p class="task-description">Practise these professional disagreement expressions without sounding confrontational.</p></div>
                 <div class="speaking-sentences-list">
-                    <div class="speaking-sentence-item"><div class="sentence-number-badge">1</div><div class="sentence-text-content">"I appreciate the proposal. However, I have a few concerns I would like to address before we proceed."</div></div>
-                    <div class="speaking-sentence-item"><div class="sentence-number-badge">2</div><div class="sentence-text-content">"While I understand your position, I believe we can find a middle ground that works for both teams."</div></div>
-                    <div class="speaking-sentence-item"><div class="sentence-number-badge">3</div><div class="sentence-text-content">"That is an interesting perspective. Could we perhaps consider an alternative that addresses our constraints?"</div></div>
+                    <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">1</div><div class="sentence-text-content">"I appreciate the proposal. However, I have a few concerns I would like to address before we proceed."</p></div></div>
+                    <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">2</div><div class="sentence-text-content">"While I understand your position, I believe we can find a middle ground that works for both teams."</p></div></div>
+                    <div class="speaking-sentence-item"><p style="margin-left:0.5rem;"></p><div class="sentence-number-badge">3</div><div class="sentence-text-content">"That is an interesting perspective. Could we perhaps consider an alternative that addresses our constraints?"</p></div></div>
                 </div>
                 <div class="speaking-recording-section"><div class="recording-header"><span>🎙️</span><h4>Your Recording</h4></div><div class="recording-controls-group"><button id="speakingRecordBtn" class="speaking-record-btn">Start Recording</button><button id="speakingStopBtn" class="speaking-stop-btn" style="display:none;">Stop Recording</button></div><div id="speakingRecordingStatus" class="recording-status-indicator" style="display:none;"><div class="recording-dot-live"></div><span class="recording-timer-display" id="speakingTimer">00:00</span><span class="recording-hint">Recording... speak all 3 sentences</span></div><div id="speakingPlaybackArea" class="speaking-playback-area" style="display:none;"><audio id="speakingPlayback" controls></audio><div class="playback-success-msg">Listen back to check your diplomatic tone.</div></div></div></div>
                 <div class="speaking-complete-wrapper"><button class="complete-activity-btn" id="completeSpeakingBtn" disabled>✓ Mark Speaking as Complete</button></div>
@@ -70,7 +70,7 @@
 
             <!-- WRITING -->
             <div class="activity-card writing-card" id="writing-card"><div class="card-header writing"><h2>✍️ 4. Writing Activity : Negotiation Email</h2></div><div class="card-body">
-                <div class="writing-prompt-box"><h3>Write a 130-Word Professional Email</h3><p>Write a professional email to a vendor requesting a deadline extension using:</p><ul style="margin-left:1.5rem;margin-top:0.5rem;line-height:1.8;color:#475569;"><li><strong>Hedging language</strong> (would, might, could, perhaps)</li><li>At least <strong>2 vocabulary words</strong> from today</li><li>A <strong>collaborative closing statement</strong></li></ul><div class="writing-tip"><strong>💡 Writing Tip:</strong> Start with the purpose directly: 'I am writing regarding...' — never 'I hope this mail finds you well'.</div></div>
+                <div class="writing-prompt-box"><h3>Write a 130-Word Professional Email</h3><p>Write a professional email to a vendor requesting a deadline extension using:</p><ul style="margin-left:1.5rem;margin-top:0.5rem;line-height:1.8;color:#475569;"><li><strong>Hedging language</strong> (would, might, could, perhaps)</li><li>At least <strong>2 vocabulary words</strong> from today</li><li>A <strong>collaborative closing statement</strong></li></ul><div class="writing-tip"><strong>💡 Writing Tip:</strong> Never start a professional email with 'I hope this mail finds you well' — it is overused. Start with the purpose directly: 'I am writing regarding...'</div></div>
                 <textarea id="writingEssay" class="essay-textarea" rows="6" placeholder="Write your 130-word professional email here..."></textarea>
                 <div class="word-counter">Words: <span id="wordCount">0</span> / <span>130</span> <span id="wordCountWarning" style="display:none;margin-left:0.5rem;" class="word-count-neutral">Aim for ~130 words</span></div>
                 <div id="referenceAnswerContainer" style="display:none;"></div>
@@ -107,11 +107,11 @@
                     <li><input type="checkbox" id="chk2" disabled><label> Practised three diplomatic pushback statements</label></li>
                     <li><input type="checkbox" id="chk3" disabled><label> Rewrote a direct demand diplomatically</label></li>
                     <li><input type="checkbox" id="chk4" disabled><label> Replaced 'Kindly' with modern professional alternatives</label></li>
-                    <li><input type="checkbox" id="chk5" disabled><label> Listened to all vocabulary words</label></li>
+                    <li><input type="checkbox" id="chk5" disabled><label> Used 'Sagacious' in a sentence</label></li>
                     <li><input type="checkbox" id="chk6" disabled><label> Wrote the 130-word negotiation email</label></li>
                 </ul>
                 <div style="text-align:right;margin:1rem 0;"><span class="badge" id="progressCounter">0/6 completed</span></div>
-                <div style="display:flex;justify-content:center;"><button class="day-complete-btn" id="dayCompleteBtn" disabled>🏆 Complete Day 3</button></div>
+                <div style="display:flex;justify-content:center;"><button class="day-complete-btn" id="dayCompleteBtn" disabled> Complete Day 3</button></div>
             </div></div>
         </div>
     </div>
@@ -394,16 +394,309 @@ document.getElementById('completeReadingBtn')?.addEventListener('click', () => {
         document.getElementById('resetGrammarBtn')?.addEventListener('click', () => { ['grammar1','grammar2','grammar3'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; const fb = document.getElementById(id+'Feedback'); if (fb) { fb.innerHTML = ''; fb.className = 'fix-feedback'; fb.style.display = 'none'; } }); grammarAllCorrect = false; if (grammarCompleteBtn && grammarCompleteBtn.textContent !== '✓ Completed') grammarCompleteBtn.disabled = true; });
         if (grammarCompleteBtn) grammarCompleteBtn.addEventListener('click', () => { if (grammarAllCorrect) markActivityComplete('grammar', 'chk4'); });
 
-        // ========== WRITING ==========
-        const writingEssay = document.getElementById('writingEssay'), wcs = document.getElementById('wordCount'), wcw = document.getElementById('wordCountWarning'); let writingPassed = false; const refContainer = document.getElementById('referenceAnswerContainer');
-        if (writingEssay) writingEssay.addEventListener('input', function() { const wc = this.value.trim() ? this.value.trim().split(/\s+/).length : 0; wcs.textContent = wc; if (wc < 110) { wcs.classList.add('under'); wcw.style.display = 'inline'; } else { wcs.classList.remove('under'); wcw.style.display = 'none'; } });
-        document.getElementById('checkWritingBtn')?.addEventListener('click', () => { const text = writingEssay.value.trim(), fb = document.getElementById('writingFeedback'); refContainer.style.display = 'none'; refContainer.innerHTML = ''; if (!text) { fb.innerHTML = '⚠️ Please write your email.'; fb.className = 'fix-feedback empty'; fb.style.display = 'block'; writingPassed = false; } else if (text.split(/\s+/).length < 60) { fb.innerHTML = '⚠️ Write a complete email (~130 words).'; fb.className = 'fix-feedback empty'; fb.style.display = 'block'; writingPassed = false; } else if (isGibberish(text)) { fb.innerHTML = '⚠️ Please write meaningful sentences.'; fb.className = 'fix-feedback empty'; fb.style.display = 'block'; writingPassed = false; } else { const lt = text.toLowerCase(); const hedgeWords = ['would','might','could','perhaps','possibly','may','suggest','propose','consider','appreciate']; const hwFound = hedgeWords.filter(h => lt.includes(h)).length; const vw = ['diplomatic','reciprocal','conciliate','leverage','counterpart','sagacious']; let vc = 0; vw.forEach(w => { if (lt.includes(w)) vc++; }); const hasCollab = /\b(together|collaborate|work together|mutual|partnership|both|shared|look forward)\b/.test(lt); const wc = text.split(/\s+/).length; const allMet = hwFound >= 2 && vc >= 2 && hasCollab && wc >= 110;
-            if (allMet) { fb.innerHTML = '✅ Excellent!'; fb.className = 'fix-feedback correct'; fb.style.display = 'block'; writingPassed = true; refContainer.style.display = 'block'; refContainer.innerHTML = '<div class="reference-answer-box"><h4>📖 Reference Answer</h4><div class="ref-text">Subject: Request for Deadline Extension — Project Alpha<br><br>Dear Mr. Sharma,<br><br>I am writing regarding the submission timeline for Project Alpha. <span class="highlight-hedge">We would appreciate it if we could extend the deadline by two weeks.</span> This <span class="highlight-hedge">might allow</span> us to ensure all quality checks are completed. Our team has been working in a <span class="highlight-vocab">reciprocal</span> spirit with your team. <span class="highlight-hedge">Perhaps we could discuss</span> this over a brief call. I look forward to continuing our <span class="highlight-vocab">sagacious</span> collaboration.</div><div class="legend"><span><span class="legend-dot hedge"></span> Hedging</span><span><span class="legend-dot vocab"></span> Vocabulary</span></div></div>'; } else { let m = []; if (hwFound < 2) m.push('Use more hedging language (would, might, could, perhaps)'); if (vc < 2) m.push('Use at least 2 vocabulary words'); if (!hasCollab) m.push('Add a collaborative closing statement'); if (wc < 110) m.push('Reach ~130 words'); fb.innerHTML = '⚠️ Fix:<br>• ' + m.join('<br>• '); fb.className = 'fix-feedback almost'; fb.style.display = 'block'; writingPassed = false; } } const cwb = document.getElementById('completeWritingBtn'); if (cwb && cwb.textContent !== '✓ Completed') cwb.disabled = !writingPassed; });
-        document.getElementById('completeWritingBtn')?.addEventListener('click', () => { if (writingPassed) markActivityComplete('writing', 'chk6'); else alert('⚠️ Complete the writing task first.'); });
+// ========== WRITING ACTIVITY (AI Evaluation + Local Fallback) ==========
+const writingEssay = document.getElementById('writingEssay');
+const wordCountSpan = document.getElementById('wordCount');
+const wordCountWarning = document.getElementById('wordCountWarning');
+const refContainer = document.getElementById('referenceAnswerContainer');
+let writingPassed = false;
 
-        // Auto-save on input changes
-        document.addEventListener('input', e => { if (['INPUT','TEXTAREA'].includes(e.target.tagName)) saveProgressToCache(); });
-        document.addEventListener('change', e => { if (e.target.type === 'radio') saveProgressToCache(); });
+// WORD COUNTER - Fixed to properly update
+if (writingEssay) {
+    writingEssay.addEventListener('input', function() {
+        // Get text and count words properly
+        const text = this.value.trim();
+        const words = text ? text.split(/\s+/).filter(function(w) { 
+            return w.length > 0; 
+        }).length : 0;
+        
+        // Update the word count display
+        if (wordCountSpan) {
+            wordCountSpan.textContent = words;
+        }
+        
+        
+        // Save progress when user types
+        saveProgressToCache();
+    });
+    
+    // Initialize word count on page load
+    setTimeout(function() {
+        writingEssay.dispatchEvent(new Event('input'));
+    }, 100);
+}
+
+// Reference answer HTML - ONLY shown when local validation passes
+function showReferenceAnswer() {
+    if (refContainer) {
+        refContainer.style.display = 'block';
+        refContainer.innerHTML = `
+            <div class="reference-answer-box">
+                <h4>📖 Reference Answer</h4>
+                <div class="ref-text">
+                    Subject: Request for Deadline Extension — Project Alpha<br><br>
+                    Dear Mr. Sharma,<br><br>
+                    I am writing regarding the submission timeline for Project Alpha. 
+                    <span class="highlight-hedge">We would appreciate it if we could extend the deadline by two weeks.</span> 
+                    This <span class="highlight-hedge">might allow</span> us to ensure all quality checks are completed. 
+                    Our team has been working in a <span class="highlight-vocab">reciprocal</span> spirit with your team. 
+                    <span class="highlight-hedge">Perhaps we could discuss</span> this over a brief call. 
+                    I look forward to continuing our <span class="highlight-vocab">sagacious</span> collaboration.<br><br>
+                    Best regards,<br>
+                    [Your Name]
+                </div>
+                <div class="legend">
+                    <span><span class="legend-dot hedge"></span> Hedging Language</span>
+                    <span><span class="legend-dot vocab"></span> Day 3 Vocabulary</span>
+                </div>
+            </div>
+        `;
+    }
+}
+
+// LOCAL FALLBACK VALIDATION - Only used when AI fails
+function localValidateWriting(text, words, feedback) {
+    const lt = text.toLowerCase();
+    
+    // Check hedging language (2+ required)
+    const hedgeWords = ['would', 'might', 'could', 'perhaps', 'possibly', 'may', 'suggest', 'propose', 'consider', 'appreciate', 'inclined', 'explore'];
+    const hwFound = hedgeWords.filter(function(h) { return lt.includes(h); }).length;
+    
+    // Check vocabulary (2+ required)
+    const vw = ['diplomatic', 'reciprocal', 'conciliate', 'leverage', 'counterpart', 'sagacious'];
+    let vc = 0;
+    vw.forEach(function(w) { if (lt.includes(w)) vc++; });
+    
+    // Check collaborative closing
+    const hasCollab = /\b(together|collaborate|work together|mutual|partnership|both|shared|look forward|cooperate|joint)\b/.test(lt);
+    
+    // Check professional opening (not "I hope this mail finds you well")
+    const badOpening = /i hope this (mail|email) finds you well/i.test(text.trim().substring(0, 100));
+    
+    // Check email structure
+    const hasSubject = /\b(subject|regarding|re:)\b/i.test(text);
+    const hasGreeting = /\b(dear|hello|hi)\b/i.test(text);
+    
+    let issues = [];
+    if (hwFound < 2) issues.push('Use at least 2 hedging words (would, might, could, perhaps, suggest, appreciate)');
+    if (vc < 2) issues.push('Use at least 2 vocabulary words (diplomatic, reciprocal, conciliate, leverage, counterpart, sagacious)');
+    if (!hasCollab) issues.push('Add a collaborative closing statement (look forward to working together, mutual benefit, etc.)');
+    if (badOpening) issues.push('Start with the purpose directly, not "I hope this mail finds you well"');
+    if (!hasSubject && !hasGreeting) issues.push('Include email structure: subject line and greeting');
+    if (words < 110) issues.push('Reach ~130 words (currently: ' + words + ' words)');
+    
+    const allMet = hwFound >= 2 && vc >= 2 && hasCollab && !badOpening && words >= 110;
+    
+    if (allMet) {
+        feedback.innerHTML = `
+            ✅ <strong>Excellent!</strong> Your negotiation email meets all requirements.<br><br>
+            <em style="font-size:0.8rem;color:#10b981;">✅ Hedging language ✓ | Vocabulary ✓ | Collaborative closing ✓ | Professional tone ✓</em><br><br>
+        `;
+        feedback.className = 'fix-feedback correct';
+        feedback.style.display = 'block';
+        // SHOW reference answer ONLY for local validation pass
+        showReferenceAnswer();
+        return true;
+    } else {
+        feedback.innerHTML = `
+            <strong>⚠️ Almost there!</strong> Here's what to fix:<br>
+            <div style="margin-top:0.5rem;">• ${issues.join('<br>• ')}</div><br>
+        `;
+        feedback.className = 'fix-feedback almost';
+        feedback.style.display = 'block';
+        return false;
+    }
+}
+
+// AI EVALUATION FUNCTION
+async function evaluateWriting() {
+    const inputEl = document.getElementById('writingEssay');
+    if (!inputEl) return false;
+    const text = inputEl.value.trim();
+    const feedback = document.getElementById('writingFeedback');
+    const words = text.split(/\s+/).filter(function(w) { return w.length > 0; }).length;
+    
+    // Hide reference answer initially
+    if (refContainer) {
+        refContainer.style.display = 'none';
+        refContainer.innerHTML = '';
+    }
+    
+    // Empty check
+    if (text === "") {
+        feedback.innerHTML = '⚠️ Please write your negotiation email.';
+        feedback.className = 'fix-feedback empty';
+        feedback.style.display = 'block';
+        return false;
+    }
+    
+    // Word count check
+    if (words < 60) {
+        feedback.innerHTML = '<strong>⚠️ Too short!</strong> You wrote ' + words + ' words. Write a complete email of about 130 words with hedging language and vocabulary.';
+        feedback.className = 'fix-feedback empty';
+        feedback.style.display = 'block';
+        return false;
+    }
+    
+    // Show evaluating status
+    feedback.innerHTML = '<span style="display:inline-block;animation:pulse 1.5s infinite;">⏳</span> Analyzing your email... ';
+    feedback.className = 'fix-feedback hint-box';
+    feedback.style.display = 'block';
+    
+    const customPrompt = `You are an Advanced English instructor evaluating a professional negotiation email.
+Day 3 - The Art of Professional Negotiation Language.
+
+TASK: Write a 130-word professional email to a vendor requesting a deadline extension.
+
+REQUIREMENTS:
+1. Hedging language (would, might, could, perhaps, suggest, propose, consider, appreciate) - at least 2
+2. At least 2 vocabulary words from: Diplomatic, Reciprocal, Conciliate, Leverage, Counterpart, Sagacious
+3. A collaborative closing statement (look forward to, mutual benefit, partnership, together)
+4. Professional email structure (subject, greeting, body, closing)
+5. Start with purpose: "I am writing regarding..." NOT "I hope this mail finds you well"
+
+EVALUATION RULES:
+- Check if the email is professionally structured
+- Check for hedging language usage (at least 2 different hedging words)
+- Check for vocabulary integration (at least 2 vocabulary words used correctly)
+- Check for collaborative closing
+- Check for Indian English patterns to avoid ("kindly", "do the needful", "revert back")
+- Check tone: diplomatic but clear, not aggressive or passive
+
+SCORING:
+- 85-100: All requirements met, professional tone, well-structured, vocabulary used correctly
+- 60-84: Most requirements met, good attempt but missing 1-2 elements
+- 40-59: Some requirements met, needs significant improvement
+- 0-39: Few requirements met, poor structure or tone
+
+FEEDBACK RULES (CRITICAL - MUST FOLLOW):
+1. Start with specific praise: "Good use of..." or "I like how you..."
+2. Point out EXACTLY what's missing: "You need to add..." or "Replace 'kindly' with..."
+3. Give a CONCRETE example the student can copy-paste
+4. If vocabulary is missing, suggest: "Try using 'reciprocal' like this: '...in a reciprocal arrangement...'"
+5. Keep feedback to 3-4 sentences, direct and actionable
+6. Address the student as "you"
+7. DO NOT mention "reference answer" or "local validation" in your feedback
+
+FEEDBACK EXAMPLES (Use this style):
+GOOD: "Good use of hedging with 'would appreciate'! Your email needs 1 more vocabulary word. Try adding 'leverage': 'We could leverage our existing relationship to find a solution.' Also, add a collaborative closing like 'I look forward to our continued partnership.'"
+
+GOOD: "I like your professional tone. However, you're missing hedging language. Replace direct requests with softened versions. Example: Instead of 'We need more time,' write 'We would benefit from an additional two weeks if possible.'"
+
+BAD (NEVER USE):
+- "Needs improvement" (too vague)
+- "Good job!" (not specific enough)
+- "Lacks professionalism" (not helpful)
+- "Check the reference answer" (don't mention reference)
+
+Return ONLY a JSON object: 
+{
+  "score": 0-100,
+  "correct": true/false,
+  "feedback": "3-4 sentences: specific praise + exact missing elements + concrete fix example",
+  "suggestion": "One complete sentence the student can directly use in their email"
+}`;
+
+    try {
+        const response = await fetch('/learning/ai/evaluate/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({
+                text: text,
+                task_type: 'negotiation_email',
+                day_number: 3,
+                level: 'advanced',
+                system_prompt: customPrompt
+            })
+        });
+        
+        const res = await response.json();
+        
+        if (res.success) {
+            // AI WORKED - Show AI feedback, DO NOT show reference answer
+            const isCorrect = res.correct !== false && res.score >= 60;
+            const statusIcon = isCorrect ? '✅' : '⚠️';
+            const statusClass = isCorrect ? 'correct' : 'almost';
+            
+            let feedbackHTML = '';
+            feedbackHTML += statusIcon + ' <strong> Feedback</strong><br>';
+            feedbackHTML += '<div style="margin-top:0.5rem;">' + res.feedback + '</div><br>';
+            feedbackHTML += '💡 <strong>Suggestion:</strong> <em>"' + res.suggestion + '"</em>';
+            
+            if (words < 110) {
+                feedbackHTML += '<br><br><em style="font-size:0.8rem;color:#64748b;">📝 Word count: ' + words + '/130 - Aim for about 130 words for a complete email.</em>';
+            }
+            
+            feedback.innerHTML = feedbackHTML;
+            feedback.className = 'fix-feedback ' + statusClass;
+            feedback.style.display = 'block';
+            
+            // DO NOT show reference answer when AI works
+            if (refContainer) {
+                refContainer.style.display = 'none';
+            }
+            
+            if (isCorrect && words >= 110) {
+                return true;
+            }
+            return false;
+        } else {
+            // AI FAILED - Use local validation with reference answer
+            console.log('AI evaluation failed, using local validation');
+            return localValidateWriting(text, words, feedback);
+        }
+    } catch (e) {
+        // NETWORK ERROR - Use local validation with reference answer
+        console.error('AI evaluation error:', e);
+        return localValidateWriting(text, words, feedback);
+    }
+}
+
+// Check Writing Button
+document.getElementById('checkWritingBtn')?.addEventListener('click', async function () {
+    const btn = document.getElementById('checkWritingBtn');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '⏳ Checking...';
+    
+    writingPassed = await evaluateWriting();
+    
+    btn.disabled = false;
+    btn.textContent = originalText;
+    
+    const completeBtn = document.getElementById('completeWritingBtn');
+    if (completeBtn && completeBtn.textContent !== '✓ Completed') {
+        completeBtn.disabled = !writingPassed;
+    }
+});
+
+// Complete Writing Button
+document.getElementById('completeWritingBtn')?.addEventListener('click', () => {
+    if (writingPassed) {
+        markActivityComplete('writing', 'chk6');
+    } else {
+        alert('⚠️ Please complete the writing task successfully first. Use the feedback to improve your email.');
+    }
+});
+
+// Add getCookie function if not already present
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 
         // ========== DOMCONTENTLOADED ==========
         document.addEventListener('DOMContentLoaded', function() {
@@ -425,5 +718,6 @@ document.getElementById('completeReadingBtn')?.addEventListener('click', () => {
             setTimeout(restoreCompletedButtons, 100);
         });
     </script>
+    <script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 </html>

@@ -11,6 +11,21 @@
     <link rel="stylesheet" href="{% static 'learning/css/base.css' %}">
     <style>
         /* Internal CSS for the writing report email section */
+        /* Gray completed button */
+        .complete-activity-btn.completed,
+        .complete-activity-btn:disabled {
+            background-color: #9ca3af !important;
+            border-color: #9ca3af !important;
+            color: white !important;
+            cursor: not-allowed;
+        }
+
+        .day-complete-btn:disabled {
+            background-color: #9ca3af !important;
+            border-color: #9ca3af !important;
+            color: white !important;
+            cursor: not-allowed;
+        }
         .writing-textarea {
             width: 100%;
             padding: 1.2rem;
@@ -68,7 +83,7 @@
     <div class="lesson-container">
         <div class="lesson-hero">
             <div class="hero-content">
-                <div class="day-badge">Day 11 • Advanced • Professional Communication</div>
+                <div class="day-badge">Day 11 • Week 2 • Advanced </div>
                 <h1 class="hero-title">PROFESSIONAL EMAIL & REPORT LANGUAGE</h1>
                 <div class="power-line">💬 "Your email is your handshake in a world you cannot see."</div>
             </div>
@@ -96,7 +111,7 @@
             <!-- 1. LISTENING ACTIVITY -->
             <div class="activity-card" id="listening-card">
                 <div class="card-header listening">
-                    <h2>🎧 1. Listening Activity · Email Register</h2>
+                    <h2>🎧 1. Listening Activity : Email Register</h2>
                 </div>
                 <div class="card-body">
                     <div class="task-box">
@@ -109,7 +124,7 @@
 
                     <!-- Audio exactly like Day 21-30 -->
                     <audio id="listeningAudioLocal" controls>
-                        <source src="{% static 'learning/audio/Beginner/day11.mp3' %}" type="audio/mpeg">
+                        <source src="{% static 'learning/audio/Advanced/day11.mp3' %}" type="audio/mpeg">
                     </audio>
 
                     <!-- HIDDEN CONTENT UNTIL AUDIO ENDS - Standard IDs from main.js -->
@@ -182,7 +197,7 @@
                                     needful'</label>
                             </div>
                             <button class="btn-outline" id="checkListeningWorkBtnLocal" style="margin-top: 0.5rem;">✓ Check
-                                Quiz Answers</button>
+                                Answers</button>
                             <div id="listeningQuizFeedback" class="quiz-feedback"></div>
                         </div>
 
@@ -198,7 +213,7 @@
             <!-- 2. SPEAKING ACTIVITY -->
             <div class="activity-card" id="speaking-card">
                 <div class="card-header speaking">
-                    <h2>🗣️ 2. Speaking Activity · Email Read-Aloud</h2>
+                    <h2>🗣️ 2. Speaking Activity : Email Read-Aloud</h2>
                 </div>
                 <div class="card-body">
                     <div class="speaking-unified-box">
@@ -277,7 +292,7 @@
             <!-- 3. READING ACTIVITY -->
             <div class="activity-card" id="reading-card">
                 <div class="card-header reading">
-                    <h2>📖 3. Reading Activity · The Email Document</h2>
+                    <h2>📖 3. Reading Activity : The Email Document</h2>
                 </div>
                 <div class="card-body">
                     <div class="interactive-passage">
@@ -292,7 +307,7 @@
                     </div>
 
                     <div class="writing-prompt">
-                        <p><strong>TASK 1: What does the author compare a professional email to — a conversation or a
+                        <p><strong>1️⃣   What does the author compare a professional email to — a conversation or a
                                 document? Why?</strong></p>
                         <textarea id="readingT31" class="grammar-input" rows="2"
                             placeholder="Type your answer..."></textarea>
@@ -301,7 +316,7 @@
                     </div>
 
                     <div class="writing-prompt">
-                        <p><strong>TASK 2: Improve this subject line: 'RE: The thing we discussed'</strong></p>
+                        <p><strong><span>2️⃣</span>  Improve this subject line: 'RE: The thing we discussed'</strong></p>
                         <textarea id="readingT32" class="grammar-input" rows="1"
                             placeholder="Type improved subject line..."></textarea>
                         <button class="btn-outline" id="checkReadingT32Btn">✓ Check Answer</button>
@@ -309,7 +324,7 @@
                     </div>
 
                     <div class="writing-prompt">
-                        <p><strong>TASK 3: Rewrite this email opening professionally: 'Hi, hope you are well. Just
+                        <p><strong><span>3️⃣</span> Rewrite this email opening professionally: 'Hi, hope you are well. Just
                                 wanted to
                                 check something quick.'</strong></p>
                         <textarea id="readingT33" class="grammar-input" rows="2"
@@ -324,11 +339,55 @@
                     </div>
                 </div>
             </div>
+              <!-- 6. WRITING ACTIVITY -->
+            <div class="activity-card" id="writing-card">
+                <div class="card-header writing">
+                    <h2>✍️ 4. Writing Activity : Progress Report Email</h2>
+                </div>
+                <div class="card-body">
+                    <div class="writing-tip-box">
+                        <p><strong>💡 Writing Tip:</strong> Use bullet points sparingly in professional emails — they
+                            signal a list of items, not a coherent update. Write in flowing paragraphs for context, and
+                            use bullets only for clearly enumerable items such as action items or deliverables.</p>
+                    </div>
 
+                    <div class="task-box">
+                        <div class="task-header">
+                            <div class="title"><span>🎯</span><span>The Task</span></div>
+                        </div>
+                        <div class="task-content">
+                            Write a formal progress report email (150 words) covering:
+                            <ol style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                                <li>Work completed this week</li>
+                                <li>Current project status</li>
+                                <li>Planned next steps</li>
+                                <li>One risk with mitigation</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="writing-prompt">
+                        <label style="margin-bottom: 0.5rem; display: block; font-weight: 600;"> Your Progress Report
+                            Email:</label>
+                        <textarea id="progressEmailBody" class="writing-textarea"
+                            placeholder="Dear [Name], I am writing to provide a progress update..."></textarea>
+                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
+                            count: <span id="wordCount">0</span> / ~150</div>
+                    </div>
+
+                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check Answer</button>
+                    <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
+
+                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
+                            Mark Writing as Complete</button>
+                    </div>
+                </div>
+            </div>
             <!-- 4. VOCABULARY ACTIVITY -->
             <div class="activity-card" id="vocabulary-card">
                 <div class="card-header vocabulary">
-                    <h2>📘 4. Vocabulary of the Day</h2>
+                    <h2>📘 5. Vocabulary of the Day</h2>
                 </div>
                 <div class="card-body">
                     <div class="vocab-table-container">
@@ -378,7 +437,7 @@
                                 <tr>
                                     <td class="audio-cell"><button class="vocab-audio-btn" data-word="Expedite"
                                             data-checkid="check-expedite">🔊</button></td>
-                                    <td id="check-acknowledge">⬜</td>
+                                    <td id="check-expedite">⬜</td>
                                     <td><strong>Expedite</strong></td>
                                     <td><code>/ˈek.spɪ.daɪt/</code></td>
                                     <td>To make something happen sooner</td>
@@ -402,16 +461,16 @@
                     <div class="power-word-section">
                         <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #854d0e;">
                             <span>🔥</span><span>POWER WORD: CONCISE (kun-SISE)</span>
-                        </div>
+                        </div><br>
                         <p><strong>Meaning:</strong> Giving a lot of information clearly in few words</p>
                         <p><strong>Usage:</strong> "A concise report saves decision-makers valuable time and earns their
                             respect."</p>
                     </div>
 
-                    <div class="power-word-section" style="border-left-color: #22c55e;">
+                    <div class="idiom-section">
                         <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #166534;">
                             <span>💡</span><span>IDIOM: "Touch base"</span>
-                        </div>
+                        </div><br>
                         <p><strong>Meaning:</strong> Make brief contact to check on progress</p>
                         <p><strong>Example:</strong> "I'll touch base with the vendor on Monday to confirm the delivery
                             schedule."</p>
@@ -429,8 +488,7 @@
                 <h3 style="margin: 0 0 1rem 0;">🧠 Grammar Hack: Avoid 'I Am Doing the Needful'</h3>
 
                 <div class="grammar-rule">
-                    <p>This phrase is unintelligible in global professional English. Replace it with specific,
-                        action-oriented language.</p>
+                    <p>Avoid 'I Am Doing the Needful': This phrase is unintelligible in global professional English.<br> Replace it with specific, action-oriented language.</p>
                 </div>
 
                 <div class="grammar-rule">
@@ -446,52 +504,6 @@
                 <div class="grammar-rule">
                     <p><strong>Rule:</strong> Every action statement should specify the exact action, not a vague task.
                     </p>
-                </div>
-            </div>
-
-            <!-- 6. WRITING ACTIVITY -->
-            <div class="activity-card" id="writing-card">
-                <div class="card-header writing">
-                    <h2>✍️ 5. Writing Activity · Progress Report Email</h2>
-                </div>
-                <div class="card-body">
-                    <div class="writing-tip-box">
-                        <p><strong>💡 Writing Tip:</strong> Use bullet points sparingly in professional emails — they
-                            signal a list of items, not a coherent update. Write in flowing paragraphs for context, and
-                            use bullets only for clearly enumerable items such as action items or deliverables.</p>
-                    </div>
-
-                    <div class="task-box">
-                        <div class="task-header">
-                            <div class="title"><span>🎯</span><span>The Task</span></div>
-                        </div>
-                        <div class="task-content">
-                            Write a formal progress report email (150 words) covering:
-                            <ol style="margin-top: 0.5rem; margin-left: 1.5rem;">
-                                <li>Work completed this week</li>
-                                <li>Current project status</li>
-                                <li>Planned next steps</li>
-                                <li>One risk with mitigation</li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <div class="writing-prompt">
-                        <label style="margin-bottom: 0.5rem; display: block; font-weight: 600;">📧 Your Progress Report
-                            Email:</label>
-                        <textarea id="progressEmailBody" class="writing-textarea"
-                            placeholder="Dear [Name], I am writing to provide a progress update..."></textarea>
-                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
-                            count: <span id="wordCount">0</span> / ~150</div>
-                    </div>
-
-                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check My Email</button>
-                    <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
-
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
-                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
-                            Mark Writing as Complete</button>
-                    </div>
                 </div>
             </div>
 
@@ -689,48 +701,127 @@
                 }
             }
 
-            // --- 2. SPEAKING ACTIVITY ---
-            const speakRecordBtn = document.getElementById('speakingRecordBtn');
-            const speakStopBtn = document.getElementById('speakingStopBtn');
-            const speakPlaybackCard = document.getElementById('speakingPlaybackCard');
-            const speakPlaybackAudio = document.getElementById('speakingPlayback');
-            const completeSpeakingBtn = document.getElementById('completeSpeakingBtn');
-            let speakMediaRecorder, speakChunks = [], speakIsRecording = false;
+            // --- 2. SPEAKING ACTIVITY (with validation) ---
+const speakRecordBtn = document.getElementById('speakingRecordBtn');
+const speakStopBtn = document.getElementById('speakingStopBtn');
+const speakPlaybackCard = document.getElementById('speakingPlaybackCard');
+const speakPlaybackAudio = document.getElementById('speakingPlayback');
+const completeSpeakingBtn = document.getElementById('completeSpeakingBtn');
+const speakingStatus = document.getElementById('speakingRecordingStatus');
+const speakingTimer = document.getElementById('speakingTimer');
 
-            if (speakRecordBtn) {
-                speakRecordBtn.addEventListener('click', async function () {
-                    try {
-                        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                        speakMediaRecorder = new MediaRecorder(stream);
-                        speakChunks = [];
-                        speakMediaRecorder.ondataavailable = e => speakChunks.push(e.data);
-                        speakMediaRecorder.onstop = () => {
-                            const blob = new Blob(speakChunks, { type: 'audio/webm' });
-                            if (speakPlaybackAudio) speakPlaybackAudio.src = URL.createObjectURL(blob);
-                            if (speakPlaybackCard) speakPlaybackCard.style.display = 'block';
-                            if (completeSpeakingBtn) completeSpeakingBtn.disabled = false;
-                            stream.getTracks().forEach(t => t.stop());
-                        };
-                        speakMediaRecorder.start();
-                        speakIsRecording = true;
-                        speakRecordBtn.style.display = 'none';
-                        if (speakStopBtn) speakStopBtn.style.display = 'inline-flex';
-                        document.getElementById('speakingRecordingStatus').style.display = 'flex';
-                    } catch (e) { console.error('Microphone error', e); }
-                });
+let speakMediaRecorder, speakChunks = [], speakIsRecording = false;
+let speakTimerInterval = null, speakSeconds = 0;
+let speakingValidated = false;
+
+function formatTime(s) {
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
+    return m.toString().padStart(2, '0') + ':' + sec.toString().padStart(2, '0');
+}
+
+if (speakRecordBtn) {
+    speakRecordBtn.addEventListener('click', async function () {
+        try {
+            // Reset validation
+            speakingValidated = false;
+            if (completeSpeakingBtn && completeSpeakingBtn.textContent !== '✓ Completed') {
+                completeSpeakingBtn.disabled = true;
             }
-            if (speakStopBtn) {
-                speakStopBtn.addEventListener('click', function () {
-                    if (speakMediaRecorder && speakIsRecording) {
-                        speakMediaRecorder.stop();
-                        speakIsRecording = false;
-                        speakRecordBtn.style.display = 'inline-flex';
-                        speakStopBtn.style.display = 'none';
-                        document.getElementById('speakingRecordingStatus').style.display = 'none';
+            if (speakPlaybackCard) speakPlaybackCard.style.display = 'none';
+            
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            speakMediaRecorder = new MediaRecorder(stream);
+            speakChunks = [];
+            
+            speakMediaRecorder.ondataavailable = e => {
+                if (e.data.size > 0) speakChunks.push(e.data);
+            };
+            
+            speakMediaRecorder.onstop = () => {
+                clearInterval(speakTimerInterval);
+                speakTimerInterval = null;
+                
+                const blob = new Blob(speakChunks, { type: 'audio/webm' });
+                if (speakPlaybackAudio) speakPlaybackAudio.src = URL.createObjectURL(blob);
+                if (speakPlaybackCard) speakPlaybackCard.style.display = 'block';
+                
+                // Update playback message based on duration
+                const msgEl = speakPlaybackCard.querySelector('.playback-success-msg');
+                if (speakSeconds >= 20) {
+                    // ✅ Valid recording
+                    speakingValidated = true;
+                    if (msgEl) {
+                        msgEl.innerHTML = '<span>✅</span> Recording saved! Listen back to check your tone and pace.';
+                        msgEl.style.background = '#d1fae5';
+                        msgEl.style.color = '#065f46';
                     }
-                });
-            }
+                    if (completeSpeakingBtn && completeSpeakingBtn.textContent !== '✓ Completed') {
+                        completeSpeakingBtn.disabled = false;
+                    }
+                } else {
+                    // ❌ Too short
+                    speakingValidated = false;
+                    if (msgEl) {
+                        msgEl.innerHTML = '<span>⚠️</span> Too short! Please speak all sentences. ';
+                        msgEl.style.background = '#fef9e3';
+                        msgEl.style.color = '#92400e';
+                    }
+                    if (completeSpeakingBtn && completeSpeakingBtn.textContent !== '✓ Completed') {
+                        completeSpeakingBtn.disabled = true;
+                    }
+                }
+                
+                stream.getTracks().forEach(t => t.stop());
+            };
+            
+            speakMediaRecorder.start();
+            speakIsRecording = true;
+            speakSeconds = 0;
+            
+            // Start timer
+            if (speakingTimer) speakingTimer.textContent = formatTime(0);
+            if (speakingStatus) speakingStatus.style.display = 'flex';
+            
+            speakTimerInterval = setInterval(() => {
+                speakSeconds++;
+                if (speakingTimer) speakingTimer.textContent = formatTime(speakSeconds);
+            }, 1000);
+            
+            speakRecordBtn.style.display = 'none';
+            if (speakStopBtn) speakStopBtn.style.display = 'inline-flex';
+            
+        } catch (e) { 
+            console.error('Microphone error', e); 
+        }
+    });
+}
 
+if (speakStopBtn) {
+    speakStopBtn.addEventListener('click', function () {
+        if (speakMediaRecorder && speakIsRecording) {
+            speakMediaRecorder.stop();
+            speakIsRecording = false;
+            speakRecordBtn.style.display = 'inline-flex';
+            speakStopBtn.style.display = 'none';
+            if (speakingStatus) speakingStatus.style.display = 'none';
+        }
+    });
+}
+
+// Complete Speaking Button - Check validation
+if (completeSpeakingBtn) {
+    completeSpeakingBtn.addEventListener('click', () => {
+        if (!completeSpeakingBtn.disabled && speakingValidated) {
+            window.speakingCompleted = true;
+            markActivityComplete('speaking', 'chk2');
+        } else if (!speakingValidated) {
+            alert('⚠️ Your recording is too short! Please speak all sentences. ');
+        } else {
+            alert('⚠️ Please complete the recording first.');
+        }
+    });
+}
             // --- 3. READING ACTIVITY ---
             let readingT1Done = false, readingT2Done = false, readingT3Done = false;
             const completeReadingBtn = document.getElementById('completeReadingBtn');
@@ -790,7 +881,9 @@
             document.getElementById('dayCompleteBtn')?.addEventListener('click', completeDay);
 
         });
+       
     </script>
+    <script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 
 </html>

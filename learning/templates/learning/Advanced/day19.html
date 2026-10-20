@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'learning/css/base.css' %}">
     <style>
+          .complete-activity-btn.completed,
+        .complete-activity-btn:disabled {
+            background-color: #9ca3af !important;
+            border-color: #9ca3af !important;
+            color: white !important;
+            cursor: not-allowed;
+        }
         .writing-textarea {
             width: 100%;
             padding: 1.2rem;
@@ -67,7 +74,7 @@
         <!-- HERO SECTION -->
         <div class="lesson-hero">
             <div class="hero-content">
-                <div class="day-badge">Day 19 • Engineering Vocabulary • Advanced</div>
+                <div class="day-badge">Day 19 • Week 3 • Advanced</div>
                 <h1 class="hero-title">VOCABULARY IN CONTEXT</h1>
                 <div class="power-line">💬 "A word without context is a tool without purpose."</div>
             </div>
@@ -90,7 +97,7 @@
             <!-- 1. LISTENING ACTIVITY -->
             <div class="activity-card" id="listening-card">
                 <div class="card-header listening">
-                    <h2>🎧 1. Listening Activity · Engineering Applications</h2>
+                    <h2>🎧 1. Listening Activity : Engineering Applications</h2>
                 </div>
                 <div class="card-body">
                     <div class="task-box">
@@ -105,7 +112,7 @@
                     <!-- 🔊 AUDIO PLAYER SECTION -->
                     <div class="audio-player-container" style="margin: 1.5rem 0;">
                         <audio id="listeningAudio19" controls style="width: 100%;">
-                            <source src="{% static 'learning/audio/Beginner/day19.mp3' %}" type="audio/mpeg">
+                            <source src="{% static 'learning/audio/Advanced/day19.mp3' %}" type="audio/mpeg">
                         </audio>
                     </div>
 
@@ -113,7 +120,7 @@
                     <div id="listeningTextSection" style="display: none;">
                         <div class="task-box">
                             <div class="task-header">
-                                <div class="title"><span>📝</span><span>Domain Meanings</span></div>
+                                <div class="title"><span>📝</span><span>Listening text</span></div>
                             </div>
                             <div class="task-content" style="font-style: italic; background: #fef9e3;">
                                 "In mechanical engineering, tolerance refers to the permissible deviation from a standard dimension. In electrical engineering, tolerance describes the range within which a component operates reliably. In project management, tolerance indicates the acceptable variance from planned cost or timeline. The word is the same. The domain changes the meaning."
@@ -124,21 +131,15 @@
                     <!-- 🎯 TASKS (Hidden until audio ends) -->
                     <div id="postAudioListeningContent" style="display: none;">
                         <div class="listening-task-group" style="margin-top: 1.5rem;">
-                            <!-- Task 1 -->
-                            <div class="listening-task-area">
-                                <p>🎯 <strong>Task 1:</strong> Identify how 'tolerance' functions differently in the three technical domains mentioned.</p>
-                                <textarea id="task1Input" class="grammar-input" rows="3"
-                                    placeholder="Mechanical: ... Electrical: ... Project Management: ..."></textarea>
-                                <button class="btn-outline" id="checkTask1Btn" style="margin-top: 0.8rem;">✓ Check Task 1</button>
-                                <div id="task1Feedback" class="fix-feedback"></div>
-                            </div>
-
+        
                             <!-- Task 2 -->
                             <div class="listening-task-area">
-                                <p>🎯 <strong>Task 2:</strong> Find one other engineering word that changes meaning across different disciplines (e.g. 'strain', 'stress', 'load').</p>
+                                <p><strong>🎯 Task </strong></p><br>
+                                <p><strong> 1 .</strong> Identify how 'tolerance' functions differently in the three technical domains mentioned.</p>
+                                <p><strong> 2 .</strong> Find one other engineering word that changes meaning across different disciplines (such as 'strain,' 'stress,' or 'load'), and explain how its meaning shifts across different engineering fields.</p>
                                 <textarea id="task2Input" class="grammar-input" rows="2"
-                                    placeholder="Enter the word and its different meanings..."></textarea>
-                                <button class="btn-outline" id="checkTask2Btn" style="margin-top: 0.8rem;">✓ Check Task 2</button>
+                                    placeholder="Write Your second task answer..."></textarea>
+                                <button class="btn-outline" id="checkTask2Btn" style="margin-top: 0.8rem;">✓ Check Answer</button>
                                 <div id="task2Feedback" class="fix-feedback"></div>
                             </div>
                         </div>
@@ -159,7 +160,7 @@
                                 <label class="quiz-option"><input type="radio" name="q2" value="B"> The domain or field</label>
                             </div>
 
-                            <button class="btn-outline" id="checkListeningWorkBtn" style="margin-top: 0.5rem;">✓ Check My Choices</button>
+                            <button class="btn-outline" id="checkListeningWorkBtn" style="margin-top: 0.5rem;">✓ Check Answer</button>
                             <div id="listeningQuizFeedback" class="quiz-feedback"></div>
                         </div>
 
@@ -174,7 +175,7 @@
             <!-- 2. SPEAKING ACTIVITY -->
             <div class="activity-card" id="speaking-card">
                 <div class="card-header speaking">
-                    <h2>🗣️ 2. Speaking Activity · The Domain Vocabulary Bridge</h2>
+                    <h2>🗣️ 2. Speaking Activity : The Domain Vocabulary Bridge</h2>
                 </div>
                 <div class="card-body">
                     <div class="speaking-unified-box">
@@ -242,7 +243,7 @@
             <!-- 3. READING ACTIVITY -->
             <div class="activity-card" id="reading-card">
                 <div class="card-header reading">
-                    <h2>📖 3. Reading · Vocabulary as a Precision Instrument</h2>
+                    <h2>📖 3. Reading : Vocabulary as a Precision Instrument</h2>
                 </div>
                 <div class="card-body">
                     <div class="task-box" style="margin-bottom: 1.5rem;">
@@ -253,7 +254,7 @@
 
                     <div class="listening-task-group">
                         <div class="listening-task-area">
-                            <p>(a) What does the author mean by calling technical vocabulary a 'precision instrument'?</p>
+                            <p>1️⃣ What does the author mean by calling technical vocabulary a 'precision instrument'?</p>
                             <textarea id="readingT31" class="grammar-input" rows="2"
                                 placeholder="Explain the concept..."></textarea>
                             <button class="btn-outline" id="checkReadingT31Btn">✓ Check Answer</button>
@@ -261,7 +262,7 @@
                         </div>
 
                         <div class="listening-task-area">
-                            <p>(b) What does the author recommend noting in a vocabulary notebook beyond the word itself?</p>
+                            <p>2️⃣ What does the author recommend noting in a vocabulary notebook beyond the word itself?</p>
                             <textarea id="readingT32" class="grammar-input" rows="2"
                                 placeholder="Identify the recommendations..."></textarea>
                             <button class="btn-outline" id="checkReadingT32Btn">✓ Check Answer</button>
@@ -269,7 +270,7 @@
                         </div>
 
                         <div class="listening-task-area">
-                            <p>(c) Define one technical term from your course with two collocations and a sentence.</p>
+                            <p>3️⃣ Define one technical term from your course with two collocations and a sentence.</p>
                             <textarea id="readingT33" class="grammar-input" rows="2"
                                 placeholder="Term: ... Definition: ... Collocations: ... Sentence: ..."></textarea>
                             <button class="btn-outline" id="checkReadingT33Btn">✓ Check Answer</button>
@@ -280,6 +281,41 @@
                     <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
                         <button class="complete-activity-btn" id="completeReadingBtn" disabled data-checklist="chk3">✓
                             Mark Reading as Complete</button>
+                    </div>
+                </div>
+            </div>
+            <!-- 6. WRITING ACTIVITY -->
+            <div class="activity-card" id="writing-card">
+                <div class="card-header writing">
+                    <h2>✍️ 5. Writing Activity : Contextual Mastery</h2>
+                </div>
+                <div class="card-body">
+                    <div class="writing-tip-box">
+                        <p><strong>💡 Writing Tip:</strong> The best way to test whether you have truly learned a word is to use it in a sentence where removing it would force you to use five other words to express the same idea. That is 'ownership'.</p>
+                    </div>
+
+                    <div class="task-box">
+                        <div class="task-header">
+                            <div class="title"><span>🎯</span><span>The Task</span></div>
+                        </div>
+                        <div class="task-content">
+                            Write five sentences, each using a vocabulary word from this course in a real engineering context (circuit design, construction, manufacturing, automation, etc.).
+                        </div>
+                    </div>
+
+                    <div class="writing-prompt">
+                        <textarea id="progressEmailBody" class="writing-textarea"
+                            placeholder="1. To mitigate the risk..."></textarea>
+                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
+                            count: <span id="wordCount">0</span> / ~100</div>
+                    </div>
+
+                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check Answer</button>
+                    <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
+
+                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
+                            Mark Writing as Complete</button>
                     </div>
                 </div>
             </div>
@@ -348,16 +384,16 @@
 
                     <div class="power-word-section">
                         <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #854d0e;">
-                            <span>🔥</span><span>POWER WORD: PRAGMATIC</span>
-                        </div>
+                            <span>🔥</span><span>POWER WORD: PRAGMATIC (prag-MAT-ik)</span>
+                        </div><br>
                         <p><strong>Meaning:</strong> Dealing with things sensibly and realistically</p>
                         <p><strong>Usage:</strong> "A pragmatic engineer finds the workable solution, not the ideal one."</p>
                     </div>
 
-                    <div class="power-word-section" style="border-left-color: #22c55e;">
+                    <div class="idiom-section">
                         <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #166534;">
                             <span>💬</span><span>IDIOM: "In the field"</span>
-                        </div>
+                        </div><br>
                         <p><strong>Meaning:</strong> In a real, practical environment (as opposed to theory)</p>
                         <p><strong>Example:</strong> "The prototype performed well in the lab, but real challenges only emerged in the field."</p>
                     </div>
@@ -373,49 +409,12 @@
             <div class="grammar-section" id="grammar-card">
                 <h3 style="margin: 0 0 1rem 0;">🧠 Grammar Hack: Avoid 'According to My Knowledge'</h3>
                 <div class="grammar-rule">
-                    <p>Directly state facts or use invitational phrases like 'To my knowledge' or 'Based on my understanding' to sound more professional.</p>
+                    <p>Avoid 'According to My Knowledge': This phrase is grammatically awkward and signals uncertainty in a way that reduces credibility</p>
                 </div>
                 <div class="grammar-rule">
-                    <p>❌ According to my knowledge, the boiling point is 100°C. → ✅ <strong>To my knowledge, the boiling point of water at sea level is 100°C.</strong></p>
-                    <p>❌ According to my understanding, the formula is... → ✅ <strong>Based on my understanding, the formula is...</strong></p>
+                    <p style="margin-bottom:0.5rem;">❌ According to my knowledge, the boiling point is 100°C. <br> ✅ <strong>To my knowledge, the boiling point of water at sea level is 100°C.</strong></p>
+                    <p style="margin-bottom:0.5rem;">❌ According to my understanding, the formula is... <br> ✅ <strong>Based on my understanding, the formula is...</strong></p>
                     <p>✅ Best phrase when uncertain: <strong>'If I recall correctly...'</strong> or <strong>'I believe... though I would like to confirm this.'</strong></p>
-                </div>
-            </div>
-
-            <!-- 6. WRITING ACTIVITY -->
-            <div class="activity-card" id="writing-card">
-                <div class="card-header writing">
-                    <h2>✍️ 5. Writing Activity · Contextual Mastery</h2>
-                </div>
-                <div class="card-body">
-                    <div class="writing-tip-box">
-                        <p><strong>💡 Writing Tip:</strong> The best way to test whether you have truly learned a word is to use it in a sentence where removing it would force you to use five other words to express the same idea. That is 'ownership'.</p>
-                    </div>
-
-                    <div class="task-box">
-                        <div class="task-header">
-                            <div class="title"><span>🎯</span><span>The Task</span></div>
-                        </div>
-                        <div class="task-content">
-                            Write five sentences, each using a vocabulary word from this course in a real engineering context (circuit design, construction, manufacturing, automation, etc.).
-                        </div>
-                    </div>
-
-                    <div class="writing-prompt">
-                        <textarea id="progressEmailBody" class="writing-textarea"
-                            placeholder="1. To mitigate the risk..."></textarea>
-                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
-                            count: <span id="wordCount">0</span> / ~100</div>
-                    </div>
-
-                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check My
-                        Sentences</button>
-                    <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
-
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
-                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
-                            Mark Writing as Complete</button>
-                    </div>
                 </div>
             </div>
 
@@ -445,307 +444,240 @@
     <!-- JS SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="{% static 'learning/js/main.js' %}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    // ==================== Local Storage Persistence ====================
-    const STORAGE_KEY = 'progress_advanced_day19';
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize Day
+        if (typeof initializeDay === 'function') {
+            initializeDay(19, 'advanced', {
+                vocabularyWords: ['Pragmatic', 'Mitigate', 'Redundancy', 'Tolerance', 'Transient']
+            });
+        }
 
-    function saveProgress() {
-        const data = {
-            inputs: {},
-            checkboxes: {},
-            activityCompleted: typeof activityCompleted !== 'undefined' ? { ...activityCompleted } : {}
-        };
-        document.querySelectorAll('input[type="text"], textarea').forEach(el => {
-            if (el.id) data.inputs[el.id] = el.value;
-        });
-        document.querySelectorAll('input[type="radio"]').forEach(el => {
-            if (el.name && el.checked) {
-                data.inputs[el.name] = el.value;
+        // ========== HELPER: Mark activity as complete ==========
+        function completeActivity(checklistId, buttonId, activityName) {
+            const chk = document.getElementById(checklistId);
+            if (chk && !chk.checked) chk.checked = true;
+            const btn = document.getElementById(buttonId);
+            if (btn) {
+                btn.textContent = '✓ Completed'; btn.disabled = true;
+                btn.classList.add('completed');
+                btn.style.backgroundColor = '#9ca3af'; btn.style.borderColor = '#9ca3af'; btn.style.color = 'white';
             }
-        });
-        document.querySelectorAll('select').forEach(el => {
-            if (el.id) data.inputs[el.id] = el.value;
-        });
-        document.querySelectorAll('input[type="checkbox"]').forEach(el => {
-            if (el.id) data.checkboxes[el.id] = el.checked;
-        });
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    }
+            if (activityName && typeof activityCompleted !== 'undefined') activityCompleted[activityName] = true;
+            if (activityName === 'speaking') window.speakingCompleted = true;
+            if (activityName === 'reading') window.readingCompleted = true;
+            if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+            if (typeof saveProgress === 'function') saveProgress();
+        }
 
-    function loadProgress() {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (!saved) return;
-        try {
-            const data = JSON.parse(saved);
-            if (data.inputs) {
-                Object.keys(data.inputs).forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.value = data.inputs[id];
-                        el.dispatchEvent(new Event('input'));
-                    } else {
-                        const radio = document.querySelector(`input[name="${id}"][value="${data.inputs[id]}"]`);
-                        if (radio) radio.checked = true;
-                    }
-                });
+        // --- 1. LISTENING ---
+        let task2Done = false, quizDone = false;
+
+        const audio = document.getElementById('listeningAudio19');
+        if (audio) {
+            audio.addEventListener('ended', function() {
+                document.getElementById('listeningTextSection').style.display = 'block';
+                document.getElementById('postAudioListeningContent').style.display = 'block';
+            });
+        }
+
+        function updateListeningCompletion() {
+            const btn = document.getElementById('completeListeningBtn');
+            btn.disabled = !(task2Done && quizDone);
+        }
+
+        document.getElementById('checkTask2Btn')?.addEventListener('click', async () => {
+            const text = document.getElementById('task2Input').value.trim();
+            if (!text) {
+                const fb = document.getElementById('task2Feedback');
+                fb.innerHTML = '⚠️ Please write your answer before checking.';
+                fb.className = 'fix-feedback incorrect';
+                fb.style.display = 'block';
+                return;
             }
-            if (data.checkboxes) {
-                Object.keys(data.checkboxes).forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) el.checked = data.checkboxes[id];
-                });
+            task2Done = await evaluateTaskRaw(text, 'task2Feedback', 'listening_b', 5);
+            updateListeningCompletion();
+        });
+
+        document.getElementById('checkListeningWorkBtn')?.addEventListener('click', function () {
+            const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+            const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+            const fb = document.getElementById('listeningQuizFeedback');
+
+            if (!q1 || !q2) {
+                fb.innerHTML = '⚠️ Please answer both quiz questions.';
+                fb.className = 'quiz-feedback incorrect';
+                fb.style.display = 'block';
+                return;
             }
-            if (data.activityCompleted && typeof activityCompleted !== 'undefined') {
-                Object.keys(data.activityCompleted).forEach(key => {
-                    activityCompleted[key] = data.activityCompleted[key];
-                });
+
+            const isCorrect = q1 === 'B' && q2 === 'B';
+            quizDone = isCorrect;
+
+            if (isCorrect) {
+                fb.innerHTML = '✅ Correct! Vocabulary meaning is determined by the domain of application.';
+                fb.className = 'quiz-feedback correct';
+            } else {
+                fb.innerHTML = '❌ Incorrect. Remember that the domain changes the meaning of the word.';
+                fb.className = 'quiz-feedback incorrect';
             }
-            
-            // Restore button states based on checkboxes
-            ['chk1', 'chk2', 'chk3', 'chk4', 'chk5', 'chk6'].forEach(chkId => {
-                const chk = document.getElementById(chkId);
-                if (chk && chk.checked) {
-                    // Heuristic for Advanced templates
-                    const buttons = Array.from(document.querySelectorAll('button.complete-activity-btn'));
-                    buttons.forEach(btn => {
-                        if (btn.id.toLowerCase().includes(chkId.replace('chk', '')) || 
-                            (btn.dataset.checklist === chkId)) {
-                             btn.disabled = true;
-                             btn.textContent = '✓ Completed';
-                             btn.classList.add('completed');
-                             btn.style.background = '#94a3b8';
-                             btn.style.opacity = '1';
+
+            fb.style.display = 'block';
+            updateListeningCompletion();
+        });
+
+        // --- AI EVALUATION HELPER ---
+        async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
+            const feedback = document.getElementById(feedbackId);
+            const words = text.split(/\s+/).filter(w => w.length > 0).length;
+
+            if (words < minWords) {
+                feedback.innerHTML = '⚠️ Too brief. Please provide more detail.';
+                feedback.className = 'fix-feedback incorrect';
+                feedback.style.display = 'block';
+                return false;
+            }
+
+            feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
+            feedback.className = 'fix-feedback';
+            feedback.style.display = 'block';
+
+            const customPrompts = {
+                listening_b: "Identify another engineering word (like stress, load, strain) that changes meaning across disciplines and explain the meanings clearly.",
+                reading_a: "Explain what the author means by calling technical vocabulary a 'precision instrument'.",
+                reading_b: "Identify the three elements the author recommends noting in a vocabulary notebook.",
+                reading_c: "Evaluate a technical term definition including two collocations and a complete sentence.",
+                writing_sentences: "Evaluate five engineering sentences using course vocabulary. Check for technical accuracy and professional phrasing."
+            };
+
+            const system_prompt = `You are a strict but encouraging English trainer teach user . Evaluate this response for the task: "${customPrompts[type]}".
+
+RULES FOR FEEDBACK:
+1. Evaluation: EXACTLY 1-2 short sentences. Tell the user specifically what is RIGHT or WRONG in their answer. Be direct.
+2. Improvement: EXACTLY 1 short sentence with a concrete correction or example they can use immediately.
+3. If the answer is completely wrong or off-topic, say so directly and give the correct answer as the improvement.
+4. ALWAYS address the user as "you" — NEVER say "the student" or "they".
+5. NO generic phrases like "good job" or "needs improvement". Be SPECIFIC.
+6. Keep total response under 80 words.
+
+EXAMPLES OF GOOD FEEDBACK:
+ "Your answer correctly identifies 'stress' as a word that changes meaning across mechanical and electrical engineering. You clearly explained the mechanical definition." → "Add the electrical engineering meaning: stress in electrical context refers to voltage overload, not physical force."
+ "Your answer does not address the question." → "You need to identify how tolerance functions in three domains: mechanical (dimension deviation), electrical (operating range), and project management (variance from plan)."
+ "You listed the three notebook elements correctly: context, collocations, and grammar." → "To strengthen this, give one example of a collocation like 'mitigate + risk' to show you understand the concept."
+
+Return ONLY JSON: {"correct":true/false,"evaluation":"1-2 specific sentences about your answer","improvement":"1 concrete sentence with correction or example"}`;
+            try {
+                const response = await fetch('/learning/ai/evaluate/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                    body: JSON.stringify({ text, task_type: type, day_number: 19, level: 'advanced', system_prompt })
+                });
+                const res = await response.json();
+                if (res.success) {
+                    const isCorrect = res.correct !== false;
+                    feedback.innerHTML = `<strong>${isCorrect ? '✅' : '❌'} Evaluation:</strong><br>${res.evaluation}<br><br><strong>💡 Improvement:</strong><br>${res.improvement}`;
+                    feedback.className = `fix-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                    return isCorrect;
+                }
+            } catch (e) { feedback.innerHTML = '⚠️ Error.'; }
+            return false;
+        }
+
+        async function evaluateTask(id, type, minWords = 5) {
+            const el = document.getElementById(id + 'Input') || document.getElementById(id);
+            return await evaluateTaskRaw(el.value.trim(), id + 'Feedback', type, minWords);
+        }
+
+        // --- READING ---
+        let r1 = false, r2 = false, r3 = false;
+        function updateReading() { if (r1 && r2 && r3) document.getElementById('completeReadingBtn').disabled = false; }
+        document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => { r1 = await evaluateTask('readingT31', 'reading_a', 5); updateReading(); });
+        document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => { r2 = await evaluateTask('readingT32', 'reading_b', 5); updateReading(); });
+        document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => { r3 = await evaluateTask('readingT33', 'reading_c', 10); updateReading(); });
+
+        // --- WRITING ---
+        document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
+            const done = await evaluateTaskRaw(document.getElementById('progressEmailBody').value.trim(), 'progressEmailBodyFeedback', 'writing_sentences', 30);
+            if (done) document.getElementById('completeWritingBtn').disabled = false;
+        });
+        document.getElementById('progressEmailBody')?.addEventListener('input', function () {
+            document.getElementById('wordCount').innerText = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+        });
+
+        // ========== SPEAKING - 15 second minimum ==========
+        window.speakingCompleted = false;
+        let speakingRecorded = false, speakingValidated = false;
+        const sr = document.getElementById('speakingRecordBtn'), ss = document.getElementById('speakingStopBtn'),
+              spa = document.getElementById('speakingPlaybackCard'), sp = document.getElementById('speakingPlayback'),
+              srs = document.getElementById('speakingRecordingStatus'), st = document.getElementById('speakingTimer'),
+              csb = document.getElementById('completeSpeakingBtn');
+        let mr = null, chunks = [], ir = false, ti = null, rs = 0;
+        function ft(s) { const m = Math.floor(s/60), sec = s%60; return m.toString().padStart(2,'0')+':'+sec.toString().padStart(2,'0'); }
+
+        if (sr) sr.addEventListener('click', async () => {
+            try {
+                speakingValidated = false; speakingRecorded = false;
+                if (csb && csb.textContent !== '✓ Completed') csb.disabled = true;
+                if (spa) spa.style.display = 'none'; if (sp) sp.src = '';
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mr = new MediaRecorder(stream); chunks = [];
+                mr.ondataavailable = e => { if (e.data.size > 0) chunks.push(e.data); };
+                mr.onstop = () => {
+                    clearInterval(ti); ti = null;
+                    if (sp) sp.src = URL.createObjectURL(new Blob(chunks, { type: 'audio/webm' }));
+                    if (spa) { spa.style.display = 'block'; const md = spa.querySelector('.playback-success-msg');
+                        if (rs >= 15) { speakingRecorded = true; speakingValidated = true;
+                            if (md) { md.innerHTML = '<span>✅</span> Recording saved!'; md.style.background = '#d1fae5'; md.style.color = '#065f46'; }
+                            if (csb && csb.textContent !== '✓ Completed') csb.disabled = false;
+                        } else {
+                            if (md) { md.innerHTML = '<span>⚠️</span> Too short! Please speak all sentences.'; md.style.background = '#fef9e3'; md.style.color = '#92400e'; }
+                        }
+                    } stream.getTracks().forEach(t => t.stop());
+                };
+                mr.start(); ir = true; rs = 0;
+                if (st) st.textContent = ft(0); if (srs) srs.style.display = 'flex';
+                ti = setInterval(() => { rs++; if (st) st.textContent = ft(rs); }, 1000);
+                sr.style.display = 'none'; if (ss) ss.style.display = 'inline-flex';
+            } catch (e) { alert('⚠️ Microphone access denied.'); }
+        });
+        if (ss) ss.addEventListener('click', () => { if (mr && ir) { mr.stop(); ir = false; sr.style.display = 'inline-flex'; ss.style.display = 'none'; if (srs) srs.style.display = 'none'; } });
+        if (csb) csb.addEventListener('click', () => {
+            if (!csb.disabled && speakingRecorded && speakingValidated) { window.speakingCompleted = true; completeActivity('chk2', 'completeSpeakingBtn', 'speaking'); }
+            else if (!speakingRecorded) alert('⚠️ Record first.');
+            else if (!speakingValidated) alert('⚠️ Recording too short! Please speak all sentences.');
+        });
+
+        // --- COMPLETION BUTTONS ---
+        document.getElementById('completeListeningBtn')?.addEventListener('click', () => completeActivity('chk1', 'completeListeningBtn', 'listening'));
+        document.getElementById('completeReadingBtn')?.addEventListener('click', () => completeActivity('chk3', 'completeReadingBtn', 'reading'));
+        document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => completeActivity('chk4', 'completeVocabularyBtn', 'vocabulary'));
+        document.getElementById('completeWritingBtn')?.addEventListener('click', () => completeActivity('chk5', 'completeWritingBtn', 'writing'));
+        document.getElementById('dayCompleteBtn')?.addEventListener('click', () => { if (typeof completeDay === 'function') completeDay(); });
+
+        // ========== RESTORE ON LOAD ==========
+        setTimeout(function() {
+            const metaUserId = document.querySelector('meta[name="user-id"]')?.content || 'guest';
+            const key = 'progress_' + metaUserId + '_advanced_day_19';
+            const saved = localStorage.getItem(key);
+            if (!saved) return;
+            try {
+                const data = JSON.parse(saved);
+                if (data.completed) {
+                    const map = { 'listening':'chk1','speaking':'chk2','reading':'chk3','vocabulary':'chk4','writing':'chk5' };
+                    Object.keys(map).forEach(act => {
+                        if (data.completed[act]) {
+                            const chk = document.getElementById(map[act]); if (chk) chk.checked = true;
+                            const btn = document.getElementById('complete' + act.charAt(0).toUpperCase() + act.slice(1) + 'Btn');
+                            if (btn) { btn.textContent = '✓ Completed'; btn.disabled = true; btn.classList.add('completed'); btn.style.backgroundColor = '#9ca3af'; btn.style.borderColor = '#9ca3af'; btn.style.color = 'white'; }
                         }
                     });
                 }
-            });
-
-            if (typeof updateProgressCounter === 'function') updateProgressCounter(); saveProgress();
-        } catch (e) { console.error("Error loading progress:", e); }
-    }
-
-            // Initialize Day
-            if (typeof initializeDay === 'function') {
-                initializeDay(19, 'advanced', {
-                    vocabularyWords: ['Pragmatic', 'Mitigate', 'Redundancy', 'Tolerance', 'Transient']
-                });
-            }
-
-            // --- 1. LISTENING ---
-            let task1Done = false, task2Done = false, quizDone = false;
-            
-            const audio = document.getElementById('listeningAudio19');
-            if (audio) {
-                audio.addEventListener('ended', function() {
-                    document.getElementById('listeningTextSection').style.display = 'block';
-                    document.getElementById('postAudioListeningContent').style.display = 'block';
-                });
-            }
-
-            function updateListeningCompletion() {
-                if (task1Done && task2Done && quizDone) {
-                    const btn = document.getElementById('completeListeningBtn');
-                    btn.disabled = false;
-                    btn.classList.add('ready');
-                }
-            }
-
-            document.getElementById('checkTask1Btn')?.addEventListener('click', async () => {
-                task1Done = await evaluateTask('task1', 'listening_a', 'Tolerance Analysis', 10);
-                updateListeningCompletion();
-            });
-
-            document.getElementById('checkTask2Btn')?.addEventListener('click', async () => {
-                task2Done = await evaluateTask('task2', 'listening_b', 'New Engineering Word', 5);
-                updateListeningCompletion();
-            });
-
-            document.getElementById('checkListeningWorkBtn')?.addEventListener('click', function () {
-                const q1 = document.querySelector('input[name="q1"]:checked')?.value;
-                const q2 = document.querySelector('input[name="q2"]:checked')?.value;
-                const fb = document.getElementById('listeningQuizFeedback');
-
-                if (!q1 || !q2) {
-                    fb.innerHTML = '⚠️ Please answer both quiz questions.';
-                    fb.className = 'quiz-feedback incorrect';
-                    fb.style.display = 'block';
-                    return;
-                }
-
-                const isCorrect = q1 === 'B' && q2 === 'B';
-
-                if (isCorrect) {
-                    fb.innerHTML = '✅ Correct! Vocabulary meaning is determined by the domain of application.';
-                    fb.className = 'quiz-feedback correct';
-                    quizDone = true;
-                } else {
-                    fb.innerHTML = '❌ Incorrect. Remember that the domain changes the meaning of the word.';
-                    fb.className = 'quiz-feedback incorrect';
-                    quizDone = false;
-                }
-
-                fb.style.display = 'block';
-                updateListeningCompletion();
-            });
-
-            document.getElementById('completeListeningBtn')?.addEventListener('click', function() {
-                markActivityComplete('listening', 'chk1');
-            });
-
-            // --- AI EVALUATION HELPER ---
-            async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
-                const feedback = document.getElementById(feedbackId);
-                const words = text.split(/\s+/).filter(w => w.length > 0).length;
-
-                if (words < minWords) {
-                    feedback.innerHTML = `⚠️ Too brief. Please provide more detail for a thorough assessment.`;
-                    feedback.className = 'fix-feedback incorrect';
-                    feedback.style.display = 'block';
-                    return false;
-                }
-
-                feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
-                feedback.className = 'fix-feedback';
-                feedback.style.display = 'block';
-
-                const customPrompts = {
-                    listening_a: "Analyze 'tolerance' across three domains based on the script. Correct: Mechanical = permissible dimension deviation; Electrical = range for reliable operation; Project Mgmt = acceptable variance from plan.",
-                    listening_b: "Identify another engineering word (like stress, load, strain, bridge) that changes meaning across disciplines and explain the meanings clearly.",
-                    reading_a: "Explain what the author means by calling technical vocabulary a 'precision instrument'. Correct answer: It allows for extreme conciseness and exactness that plain English cannot match.",
-                    reading_b: "Identify the three elements the author recommends noting in a vocabulary notebook. Correct answer: (1) sentence-level context, (2) collocations, and (3) grammatical behavior.",
-                    reading_c: "Evaluate a technical term definition including two collocations and a complete sentence in context.",
-                    writing_sentences: "Evaluate five engineering sentences using course vocabulary (Pragmatic, Mitigate, Redundancy, Tolerance, Transient). Check for technical accuracy and professional phrasing."
-                };
-
-                const system_prompt = `Evaluate the following response as an English communication trainer.
-                
-                Original Task: "${customPrompts[type]}"
-
-                Provide a strict, professional evaluation in this format:
-                ✅ Evaluation:
-                2-4 sentences assessing how well the response meets the task requirements. Comment on content selection, structure, clarity, relevance, and adherence to the instructions.
-
-                💡 Improvement:
-                Give one specific, practical suggestion that would make the response stronger. Focus only on the single most important improvement.
-
-                Do not mention scores, grades, ratings, or word count. Keep the feedback concise, direct, and teacher-like.
-
-                Return ONLY a JSON object:
-                {
-                    "correct": true/false,
-                    "evaluation": "The evaluation text...",
-                    "improvement": "The improvement suggestion..."
-                }`;
-
-                try {
-                    const response = await fetch('/learning/ai/evaluate/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
-                        body: JSON.stringify({ text, task_type: type, day_number: 19, level: 'advanced', system_prompt })
-                    });
-                    const res = await response.json();
-                    if (res.success) {
-                        const isCorrect = res.correct !== false;
-                        const statusEmoji = isCorrect ? '✅' : '❌';
-
-                        feedback.innerHTML = `
-                            <div style="margin-bottom: 0.8rem;">
-                                <strong>${statusEmoji} Evaluation:</strong><br>
-                                <span style="font-size: 0.95rem; line-height: 1.5;">${res.evaluation}</span>
-                            </div>
-                            <div style="border-top: 1px solid #e2e8f0; padding-top: 0.8rem;">
-                                <strong>💡 Improvement:</strong><br>
-                                <span style="font-size: 0.95rem; line-height: 1.5;">${res.improvement}</span>
-                            </div>
-                        `;
-                        feedback.className = `fix-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-                        return isCorrect;
-                    }
-                    return false;
-                } catch (e) {
-                    feedback.innerHTML = '⚠️ Error connecting to AI.';
-                    feedback.className = 'fix-feedback incorrect';
-                    return false;
-                }
-            }
-
-            async function evaluateTask(id, type, taskName, minWords = 5) {
-                const inputEl = document.getElementById(id + 'Input') || document.getElementById(id);
-                return await evaluateTaskRaw(inputEl.value.trim(), id + 'Feedback', type, minWords);
-            }
-
-            // --- READING ---
-            let r1 = false, r2 = false, r3 = false;
-            function updateReading() { if (r1 && r2 && r3) document.getElementById('completeReadingBtn').disabled = false; }
-
-            document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => {
-                r1 = await evaluateTask('readingT31', 'reading_a', 'Precision Instrument', 5);
-                updateReading();
-            });
-            document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => {
-                r2 = await evaluateTask('readingT32', 'reading_b', 'Notebook Elements', 5);
-                updateReading();
-            });
-            document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => {
-                r3 = await evaluateTask('readingT33', 'reading_c', 'Term Definition', 10);
-                updateReading();
-            });
-
-            // --- WRITING ---
-            document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
-                const done = await evaluateTaskRaw(document.getElementById('progressEmailBody').value.trim(), 'progressEmailBodyFeedback', 'writing_sentences', 30);
-                if (done) document.getElementById('completeWritingBtn').disabled = false;
-            });
-
-            document.getElementById('progressEmailBody')?.addEventListener('input', function () {
-                const words = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
-                document.getElementById('wordCount').innerText = words;
-            });
-
-            // --- SPEAKING ---
-            let mediaRecorder, chunks = [];
-            document.getElementById('speakingRecordBtn')?.addEventListener('click', async () => {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
-                chunks = [];
-                mediaRecorder.ondataavailable = e => chunks.push(e.data);
-                mediaRecorder.onstop = () => {
-                    const blob = new Blob(chunks, { type: 'audio/webm' });
-                    document.getElementById('speakingPlayback').src = URL.createObjectURL(blob);
-                    document.getElementById('speakingPlaybackCard').style.display = 'block';
-                    document.getElementById('completeSpeakingBtn').disabled = false;
-                    stream.getTracks().forEach(t => t.stop());
-                };
-                mediaRecorder.start();
-                document.getElementById('speakingRecordBtn').style.display = 'none';
-                document.getElementById('speakingStopBtn').style.display = 'inline-flex';
-                document.getElementById('speakingRecordingStatus').style.display = 'flex';
-            });
-            document.getElementById('speakingStopBtn')?.addEventListener('click', () => {
-                mediaRecorder.stop();
-                document.getElementById('speakingRecordBtn').style.display = 'inline-flex';
-                document.getElementById('speakingStopBtn').style.display = 'none';
-                document.getElementById('speakingRecordingStatus').style.display = 'none';
-            });
-
-            // --- HANDLERS ---
-            document.getElementById('completeListeningBtn')?.addEventListener('click', () => markActivityComplete('listening', 'chk1'));
-            document.getElementById('completeSpeakingBtn')?.addEventListener('click', () => markActivityComplete('speaking', 'chk2'));
-            document.getElementById('completeReadingBtn')?.addEventListener('click', () => markActivityComplete('reading', 'chk3'));
-            document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => markActivityComplete('vocabulary', 'chk4'));
-            document.getElementById('completeWritingBtn')?.addEventListener('click', () => markActivityComplete('writing', 'chk5'));
-            document.getElementById('dayCompleteBtn')?.addEventListener('click', completeDay);
-        
-    // Auto-save on input/change
-    document.querySelectorAll('input[type="text"], input[type="radio"], textarea, select').forEach(el => {
-        el.addEventListener('input', saveProgress);
-        el.addEventListener('change', saveProgress);
+                if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+            } catch(e) {}
+        }, 300);
     });
-
-    loadProgress();
-});
-    </script>
+</script>
+<script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 
 </html>

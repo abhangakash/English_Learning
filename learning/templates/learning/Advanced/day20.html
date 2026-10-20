@@ -10,70 +10,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'learning/css/base.css' %}">
     <style>
+        .complete-activity-btn.completed,
+        .complete-activity-btn:disabled {
+            background-color: #9ca3af !important;
+            border-color: #9ca3af !important;
+            color: white !important;
+            cursor: not-allowed;
+        }
         .writing-textarea {
-            width: 100%;
-            padding: 1.2rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            line-height: 1.6;
-            resize: vertical;
-            min-height: 250px;
-            background: #ffffff;
-            color: #1e293b;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
-            transition: all 0.3s ease;
+            width: 100%; padding: 1.2rem; border: 2px solid #e2e8f0; border-radius: 16px;
+            font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.6;
+            resize: vertical; min-height: 250px; background: #ffffff; color: #1e293b;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); transition: all 0.3s ease;
         }
-
-        .writing-textarea:focus {
-            outline: none;
-            border-color: #8b5cf6;
-            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.02);
-        }
-
-        .writing-tip-box {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-left: 4px solid #0ea5e9;
-            padding: 1.25rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-        }
-
-        .writing-tip-box p {
-            font-size: 0.95rem;
-            color: #0369a1;
-            line-height: 1.5;
-        }
-
-        .listening-task-area {
-            background: #f8fafc;
-            padding: 1.25rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            border: 1px solid #e2e8f0;
-        }
-
-        .listening-task-area p {
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #334155;
-        }
+        .writing-textarea:focus { outline: none; border-color: #8b5cf6; box-shadow: 0 0 0 4px rgba(139,92,246,0.1), inset 0 2px 4px rgba(0,0,0,0.02); }
+        .writing-tip-box { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-left: 4px solid #0ea5e9; padding: 1.25rem; border-radius: 12px; margin-bottom: 1.5rem; }
+        .writing-tip-box p { font-size: 0.95rem; color: #0369a1; line-height: 1.5; }
+        .listening-task-area { background: #f8fafc; padding: 1.25rem; border-radius: 12px; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; }
+        .listening-task-area p { font-weight: 600; margin-bottom: 0.75rem; color: #334155; }
     </style>
 </head>
 
 <body>
     <div class="lesson-container">
-        <!-- HERO SECTION -->
         <div class="lesson-hero">
             <div class="hero-content">
-                <div class="day-badge">Day 20 • Critical Thinking • Advanced</div>
-                <h1 class="hero-title">ARGUMENT ANALYSIS</h1>
+                <div class="day-badge">Day 20 • Week 3 • Advanced</div>
+                <h1 class="hero-title">CRITICAL THINKING THROUGH LANGUAGE — ARGUMENT ANALYSIS</h1>
                 <div class="power-line">💬 "Language is not just how you communicate — it is how you think."</div>
             </div>
         </div>
 
-        <!-- TIP OF THE DAY -->
         <div class="activity-card" style="margin-bottom: 2rem; border-left: 5px solid #7518e8;">
             <div class="card-body">
                 <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
@@ -81,614 +48,389 @@
                     <strong style="color: #7518e8; letter-spacing: 0.05em;">TIP OF THE DAY</strong>
                 </div>
                 <p style="color: #475569; line-height: 1.6;">
-                    Critical thinking is not about being negative — it is about being precise. When you analyse any argument, use the four-question filter: (1) What is the claim? (2) What is the evidence? (3) Is the evidence sufficient and credible? (4) What is missing? Apply these four questions to every professional proposal, report, or presentation you encounter this week.
+                    Critical thinking is not about being negative — it is about being precise. When you analyse any argument, use the four-question filter: (1) What is the claim? (2) What is the evidence? (3) Is the evidence sufficient and credible? (4) What is missing? <br>Apply these four questions to every professional proposal, report, or presentation you encounter this week.
                 </p>
             </div>
         </div>
 
         <div class="activities-grid">
-            <!-- 1. LISTENING ACTIVITY -->
+            <!-- 1. LISTENING -->
             <div class="activity-card" id="listening-card">
-                <div class="card-header listening">
-                    <h2>🎧 1. Listening Activity · Argument Evaluation</h2>
-                </div>
+                <div class="card-header listening"><h2>🎧 1. Listening Activity : Argument Evaluation</h2></div>
                 <div class="card-body">
-                    <div class="task-box">
-                        <div class="task-header">
-                            <div class="title"><span>🎯</span><span>Focus</span></div>
-                        </div>
-                        <div class="task-content">
-                            Argument Evaluation — detecting strong and weak reasoning in spoken arguments.
-                        </div>
-                    </div>
-
-                    <!-- 🔊 AUDIO PLAYER SECTION -->
+                    <div class="task-box"><div class="task-header"><div class="title"><span>🎯</span><span>Focus</span></div></div><div class="task-content">Argument Evaluation — detecting strong and weak reasoning in spoken arguments.</div></div>
                     <div class="audio-player-container" style="margin: 1.5rem 0;">
                         <audio id="listeningAudio20" controls style="width: 100%;">
-                            <source src="{% static 'learning/audio/Beginner/day20.mp3' %}" type="audio/mpeg">
+                            <source src="{% static 'learning/audio/Advanced/day20.mp3' %}" type="audio/mpeg">
                         </audio>
                     </div>
-
-                    <!-- 📝 LISTENING TEXT (Hidden until audio ends) -->
                     <div id="listeningTextSection" style="display: none;">
-                        <div class="task-box">
-                            <div class="task-header">
-                                <div class="title"><span>📝</span><span>The Argument</span></div>
-                            </div>
+                        <div class="task-box"><div class="task-header"><div class="title"><span>📝</span><span>The Argument</span></div></div>
                             <div class="task-content" style="font-style: italic; background: #fef9e3;">
                                 "LED lighting should be mandated in all new industrial facilities because it reduces energy consumption by up to 50%. Studies from European factories confirm this. Furthermore, the initial cost, while higher, is recovered within three years through operational savings. The environmental and economic case is clear."
                             </div>
                         </div>
                     </div>
-
-                    <!-- 🎯 TASKS (Hidden until audio ends) -->
                     <div id="postAudioListeningContent" style="display: none;">
                         <div class="listening-task-group" style="margin-top: 1.5rem;">
-                            <!-- Consolidated Task following Day 13 pattern -->
                             <div class="listening-task-area">
                                 <p>🎯 <strong>Task:</strong> Apply the four-question filter to evaluate this argument.</p>
-
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.4rem; color: #475569;">(1) What is the claim?</label>
-                                    <textarea id="taskClaim" class="grammar-input" rows="1" placeholder="Enter the main claim..."></textarea>
-                                </div>
-
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.4rem; color: #475569;">(2) What evidence is offered?</label>
-                                    <textarea id="taskEvidence" class="grammar-input" rows="1" placeholder="Enter supporting evidence..."></textarea>
-                                </div>
-
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.4rem; color: #475569;">(3) Is the evidence specific enough?</label>
-                                    <textarea id="taskSpecificity" class="grammar-input" rows="1" placeholder="Evaluate specificity..."></textarea>
-                                </div>
-
-                                <div style="margin-bottom: 1.5rem;">
-                                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.4rem; color: #475569;">(4) What is one weakness or missing piece?</label>
-                                    <textarea id="taskWeakness" class="grammar-input" rows="1" placeholder="Identify a gap..."></textarea>
-                                </div>
-
-                                <button class="btn-outline" id="checkListeningTaskBtn" style="margin-top: 0.8rem;">✓ Check My Analysis</button>
-                                <div id="taskFeedback" class="fix-feedback"></div>
-                            </div>
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="user-id" content="{{ request.user.id }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Day 20: Argument Analysis | English for Engineers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'learning/css/base.css' %}">
-    <style>
-        .writing-textarea {
-            width: 100%;
-            padding: 1.2rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            line-height: 1.6;
-            resize: vertical;
-            min-height: 250px;
-            background: #ffffff;
-            color: #1e293b;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
-            transition: all 0.3s ease;
-        }
-
-        .writing-textarea:focus {
-            outline: none;
-            border-color: #8b5cf6;
-            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.02);
-        }
-
-        .writing-tip-box {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-left: 4px solid #0ea5e9;
-            padding: 1.25rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-        }
-
-        .writing-tip-box p {
-            font-size: 0.95rem;
-            color: #0369a1;
-            line-height: 1.5;
-        }
-
-        .listening-task-area {
-            background: #f8fafc;
-            padding: 1.25rem;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            border: 1px solid #e2e8f0;
-        }
-
-        .listening-task-area p {
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #334155;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="lesson-container">
-        <!-- HERO SECTION -->
-        <div class="lesson-hero">
-            <div class="hero-content">
-                <div class="day-badge">Day 20 • Critical Thinking • Advanced</div>
-                <h1 class="hero-title">ARGUMENT ANALYSIS</h1>
-                <div class="power-line">💬 "Language is not just how you communicate — it is how you think."</div>
-            </div>
-        </div>
-
-        <!-- TIP OF THE DAY -->
-        <div class="activity-card" style="margin-bottom: 2rem; border-left: 5px solid #7518e8;">
-            <div class="card-body">
-                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
-                    <span style="font-size: 1.5rem;">💡</span>
-                    <strong style="color: #7518e8; letter-spacing: 0.05em;">TIP OF THE DAY</strong>
-                </div>
-                <p style="color: #475569; line-height: 1.6;">
-                    Critical thinking is not about being negative — it is about being precise. When you analyse any argument, use the four-question filter: (1) What is the claim? (2) What is the evidence? (3) Is the evidence sufficient and credible? (4) What is missing? Apply these four questions to every professional proposal, report, or presentation you encounter this week.
-                </p>
-            </div>
-        </div>
-
-        <div class="activities-grid">
-            <!-- 1. LISTENING ACTIVITY -->
-            <div class="activity-card" id="listening-card">
-                <div class="card-header listening">
-                    <h2>🎧 1. Listening Activity · Argument Evaluation</h2>
-                </div>
-                <div class="card-body">
-                    <div class="task-box">
-                        <div class="task-header">
-                            <div class="title"><span>🎯</span><span>Focus</span></div>
-                        </div>
-                        <div class="task-content">
-                            Argument Evaluation — detecting strong and weak reasoning in spoken arguments.
-                        </div>
-                    </div>
-
-                    <!-- 🔊 AUDIO PLAYER SECTION -->
-                    <div class="audio-player-container" style="margin: 1.5rem 0;">
-                        <audio id="listeningAudio20" controls style="width: 100%;">
-                            <source src="{% static 'learning/audio/Beginner/day20.mp3' %}" type="audio/mpeg">
-                        </audio>
-                    </div>
-
-                    <!-- 📝 LISTENING TEXT (Hidden until audio ends) -->
-                    <div id="listeningTextSection" style="display: none;">
-                        <div class="task-box">
-                            <div class="task-header">
-                                <div class="title"><span>📝</span><span>The Argument</span></div>
-                            </div>
-                            <div class="task-content" style="font-style: italic; background: #fef9e3;">
-                                "LED lighting should be mandated in all new industrial facilities because it reduces energy consumption by up to 50%. Studies from European factories confirm this. Furthermore, the initial cost, while higher, is recovered within three years through operational savings. The environmental and economic case is clear."
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 🎯 TASKS (Hidden until audio ends) -->
-                    <div id="postAudioListeningContent" style="display: none;">
-                        <div class="listening-task-group" style="margin-top: 1.5rem;">
-                            <!-- Consolidated Task following Day 13 pattern -->
-                            <div class="listening-task-area">
-                                <p>🎯 <strong>Task:</strong> Apply the four-question filter to evaluate this argument.</p>
-
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.4rem; color: #475569;">(1) What is the claim?</label>
-                                    <textarea id="taskClaim" class="grammar-input" rows="1" placeholder="Enter the main claim..."></textarea>
-                                </div>
-
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.4rem; color: #475569;">(2) What evidence is offered?</label>
-                                    <textarea id="taskEvidence" class="grammar-input" rows="1" placeholder="Enter supporting evidence..."></textarea>
-                                </div>
-
-                                <div style="margin-bottom: 1rem;">
-                                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.4rem; color: #475569;">(3) Is the evidence specific enough?</label>
-                                    <textarea id="taskSpecificity" class="grammar-input" rows="1" placeholder="Evaluate specificity..."></textarea>
-                                </div>
-
-                                <div style="margin-bottom: 1.5rem;">
-                                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.4rem; color: #475569;">(4) What is one weakness or missing piece?</label>
-                                    <textarea id="taskWeakness" class="grammar-input" rows="1" placeholder="Identify a gap..."></textarea>
-                                </div>
-
-                                <button class="btn-outline" id="checkListeningTaskBtn" style="margin-top: 0.8rem;">✓ Check My Analysis</button>
+                                <div style="margin-bottom: 1rem;"><label style="display:block;font-size:0.9rem;margin-bottom:0.4rem;color:#475569;">(1) What is the claim?</label><textarea id="taskClaim" class="grammar-input" rows="1" placeholder="Enter the main claim..."></textarea></div>
+                                <div style="margin-bottom: 1rem;"><label style="display:block;font-size:0.9rem;margin-bottom:0.4rem;color:#475569;">(2) What evidence is offered?</label><textarea id="taskEvidence" class="grammar-input" rows="1" placeholder="Enter supporting evidence..."></textarea></div>
+                                <div style="margin-bottom: 1rem;"><label style="display:block;font-size:0.9rem;margin-bottom:0.4rem;color:#475569;">(3) Is the evidence specific enough?</label><textarea id="taskSpecificity" class="grammar-input" rows="1" placeholder="Evaluate specificity..."></textarea></div>
+                                <div style="margin-bottom: 1.5rem;"><label style="display:block;font-size:0.9rem;margin-bottom:0.4rem;color:#475569;">(4) What is one weakness or missing piece?</label><textarea id="taskWeakness" class="grammar-input" rows="1" placeholder="Identify a gap..."></textarea></div>
+                                <button class="btn-outline" id="checkListeningTaskBtn" style="margin-top:0.8rem;">✓ Check Answer</button>
                                 <div id="taskFeedback" class="fix-feedback"></div>
                             </div>
                         </div>
-
-                        <div class="quiz-section"
-                            style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 1.5rem;">
+                        <div class="quiz-section" style="margin-top:2rem;border-top:1px solid #e2e8f0;padding-top:1.5rem;">
                             <p><strong>🧠 Reasoning Diagnostic</strong></p>
-
-                            <div class="quiz-question">
-                                <p><strong>1. Is the evidence offered specific or vague?</strong></p>
+                            <div class="quiz-question"><p><strong>1. Is the evidence offered specific or vague?</strong></p>
                                 <label class="quiz-option"><input type="radio" name="q1" value="Vague"> Vague ('studies')</label>
                                 <label class="quiz-option"><input type="radio" name="q1" value="Specific"> Highly specific</label>
                             </div>
-
-                            <div class="quiz-question">
-                                <p><strong>2. What is one primary weakness in this argument?</strong></p>
+                            <div class="quiz-question"><p><strong>2. What is one primary weakness in this argument?</strong></p>
                                 <label class="quiz-option"><input type="radio" name="q2" value="Topic"> The topic itself</label>
-                                <label class="quiz-option"><input type="radio" name="q2" value="Sources"> The evidence lacks specific sources/citations</label>
+                                <label class="quiz-option"><input type="radio" name="q2" value="Sources"> The evidence lacks specific sources</label>
                             </div>
-
-                            <button class="btn-outline" id="checkListeningWorkBtnLocal" style="margin-top: 0.5rem;">✓ Check My Choices</button>
+                            <button class="btn-outline" id="checkListeningWorkBtn" style="margin-top:0.5rem;">✓ Check Answer</button>
                             <div id="listeningQuizFeedback" class="quiz-feedback"></div>
                         </div>
-
-                        <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
-                            <button class="complete-activity-btn" id="completeListeningBtn" disabled
-                                data-checklist="chk1">✓ Mark Listening as Complete</button>
+                        <div style="display:flex;justify-content:flex-end;margin-top:2rem;">
+                            <button class="complete-activity-btn" id="completeListeningBtn" disabled data-checklist="chk1">✓ Mark Listening as Complete</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. SPEAKING ACTIVITY -->
+            <!-- 2. SPEAKING -->
             <div class="activity-card" id="speaking-card">
-                <div class="card-header speaking">
-                    <h2>🗣️ 2. Speaking Activity · The Critical Analysis Response</h2>
-                </div>
+                <div class="card-header speaking"><h2>🗣️ 2. Speaking Activity : The Critical Analysis Response</h2></div>
                 <div class="card-body">
                     <div class="speaking-unified-box">
-                        <div class="speaking-task-header">
-                            <div class="task-title">
-                                <span>🎯</span>
-                                <span>Task</span>
-                            </div>
-                            <p class="task-description">
-                                Practise delivering a balanced critical analysis using the provided sentence starters.
-                            </p>
-                        </div>
-
+                        <div class="speaking-task-header"><div class="task-title"><span>🎯</span><span>Task</span></div><p class="task-description">Practise delivering a balanced critical analysis using the provided sentence starters.</p></div>
                         <div class="speaking-sentences-list">
-                            <div class="speaking-sentence-item">
-                                <div class="sentence-number-badge">1</div>
-                                <div class="sentence-text-content">
-                                    "The argument's strongest point is operational savings because it directly supports the claim with a 3-year recovery data."
-                                </div>
-                            </div>
-                            <div class="speaking-sentence-item">
-                                <div class="sentence-number-badge">2</div>
-                                <div class="sentence-text-content">
-                                    "However, the argument is weakened by generic factory studies, which could be addressed by specific technical citations."
-                                </div>
-                            </div>
-                            <div class="speaking-sentence-item">
-                                <div class="sentence-number-badge">3</div>
-                                <div class="sentence-text-content">
-                                    "A counterargument worth considering is maintenance costs — which the author could pre-empt by sharing LED longevity data."
-                                </div>
-                            </div>
+                            <div class="speaking-sentence-item"><div class="sentence-number-badge">1</div><div class="sentence-text-content">"The argument's strongest point is [evidence/reasoning] because it directly supports the claim with [specific data]."</div></div>
+                            <div class="speaking-sentence-item"><div class="sentence-number-badge">2</div><div class="sentence-text-content">"However, the argument is weakened by [missing evidence/faulty assumption], which could be addressed by [specific addition]."</div></div>
+                            <div class="speaking-sentence-item"><div class="sentence-number-badge">3</div><div class="sentence-text-content">"A counterargument worth considering is [opposing view] — which the author could pre-empt by [specific strategy]."</div></div>
+                            <div class="speaking-sentence-item"><div class="sentence-number-badge">4</div><div class="sentence-text-content">"On balance, the argument is [convincing/partially convincing/unconvincing] because [one-sentence reason]."</div></div>
                         </div>
-
                         <div class="speaking-recording-section">
-                            <div class="recording-header">
-                                <span>🎙️</span>
-                                <h4>Record Your Balanced Critical Analysis</h4>
-                            </div>
+                            <div class="recording-header"><span>🎙️</span><h4>Record Your Balanced Critical Analysis</h4></div>
                             <div class="recording-controls-group">
                                 <button id="speakingRecordBtn" class="speaking-record-btn">Start Recording</button>
-                                <button id="speakingStopBtn" class="speaking-stop-btn" style="display: none;">Stop
-                                    Recording</button>
+                                <button id="speakingStopBtn" class="speaking-stop-btn" style="display:none;">Stop Recording</button>
                             </div>
-                            <div id="speakingRecordingStatus" class="recording-status-indicator" style="display: none;">
-                                <div class="recording-dot-live"></div>
-                                <span class="recording-timer-display" id="speakingTimer">00:00</span>
-                            </div>
-                            <div id="speakingPlaybackCard" class="speaking-playback-area" style="display: none;">
-                                <audio id="speakingPlayback" controls></audio>
-                                <div class="playback-success-msg"><span>✅</span> Recording saved! Listen for balance and logic.</div>
-                            </div>
+                            <div id="speakingRecordingStatus" class="recording-status-indicator" style="display:none;"><div class="recording-dot-live"></div><span class="recording-timer-display" id="speakingTimer">00:00</span></div>
+                            <div id="speakingPlaybackCard" class="speaking-playback-area" style="display:none;"><audio id="speakingPlayback" controls></audio><div class="playback-success-msg"><span>✅</span> Recording saved!</div></div>
                         </div>
                     </div>
-
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
-                        <button class="complete-activity-btn" id="completeSpeakingBtn" disabled data-checklist="chk2">✓
-                            Mark Speaking as Complete</button>
-                    </div>
+                    <div style="display:flex;justify-content:flex-end;margin-top:1rem;"><button class="complete-activity-btn" id="completeSpeakingBtn" disabled data-checklist="chk2">✓ Mark Speaking as Complete</button></div>
                 </div>
             </div>
 
-            <!-- 3. READING ACTIVITY -->
+            <!-- 3. READING -->
             <div class="activity-card" id="reading-card">
-                <div class="card-header reading">
-                    <h2>📖 3. Reading · Linguistic Awareness</h2>
-                </div>
+                <div class="card-header reading"><h2>📖 3. Reading : Linguistic Awareness</h2></div>
                 <div class="card-body">
-                    <div class="task-box" style="margin-bottom: 1.5rem;">
-                        <div class="task-content">
-                            <p>Critical thinking and language are inseparable. The words we use to describe a problem shape the solutions we consider. A factory described as 'having recurring maintenance issues' invites reactive solutions. The same factory described as 'operating without a preventive maintenance framework' invites systemic redesign. Advanced communicators choose the language that opens the most productive solution space. They recognise when others use language to close down possibilities, and they re-frame the problem. This linguistic awareness is not manipulation — it is leadership.</p>
-                        </div>
-                    </div>
-
+                    <div class="task-box" style="margin-bottom:1.5rem;"><div class="task-content"><p>Critical thinking and language are inseparable. The words we use to describe a problem shape the solutions we consider. A factory described as 'having recurring maintenance issues' invites reactive solutions. The same factory described as 'operating without a preventive maintenance framework' invites systemic redesign. Advanced communicators choose the language that opens the most productive solution space.</p></div></div>
                     <div class="listening-task-group">
-                        <div class="listening-task-area">
-                            <p>(a) Explain how the two descriptions of maintenance issues shape different responses.</p>
-                            <textarea id="readingT31" class="grammar-input" rows="2"
-                                placeholder="Explain the difference..."></textarea>
-                            <button class="btn-outline" id="checkReadingT31Btn">✓ Check Answer</button>
-                            <div id="readingT31Feedback" class="fix-feedback"></div>
-                        </div>
-
-                        <div class="listening-task-area">
-                            <p>(b) Give an example from your field where problem-language determines the solution.</p>
-                            <textarea id="readingT32" class="grammar-input" rows="2"
-                                placeholder="Field example..."></textarea>
-                            <button class="btn-outline" id="checkReadingT32Btn">✓ Check Answer</button>
-                            <div id="readingT32Feedback" class="fix-feedback"></div>
-                        </div>
-
-                        <div class="listening-task-area">
-                            <p>(c) Rewrite this limiting statement into a solution-oriented frame: 'Our project is always delayed.'</p>
-                            <textarea id="readingT33" class="grammar-input" rows="2"
-                                placeholder="Solution-oriented rewrite..."></textarea>
-                            <button class="btn-outline" id="checkReadingT33Btn">✓ Check Answer</button>
-                            <div id="readingT33Feedback" class="fix-feedback"></div>
-                        </div>
+                        <div class="listening-task-area"><p>1️⃣ Explain the difference between how 'recurring maintenance issues' and 'lacking a preventive maintenance framework' shape the response to a problem.</p><textarea id="readingT31" class="grammar-input" rows="2" placeholder="Explain the difference..."></textarea><button class="btn-outline" id="checkReadingT31Btn">✓ Check Answer</button><div id="readingT31Feedback" class="fix-feedback"></div></div>
+                        <div class="listening-task-area"><p>2️⃣ Give one example from your own engineering field where the language used to describe a problem determines the type of solution considered.</p><textarea id="readingT32" class="grammar-input" rows="2" placeholder="Field example..."></textarea><button class="btn-outline" id="checkReadingT32Btn">✓ Check Answer</button><div id="readingT32Feedback" class="fix-feedback"></div></div>
+                        <div class="listening-task-area"><p>3️⃣ Rewrite this limiting statement into a solution-oriented frame: 'Our project is always delayed.'</p><textarea id="readingT33" class="grammar-input" rows="2" placeholder="Solution-oriented rewrite..."></textarea><button class="btn-outline" id="checkReadingT33Btn">✓ Check Answer</button><div id="readingT33Feedback" class="fix-feedback"></div></div>
                     </div>
-
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
-                        <button class="complete-activity-btn" id="completeReadingBtn" disabled data-checklist="chk3">✓
-                            Mark Reading as Complete</button>
-                    </div>
+                    <div style="display:flex;justify-content:flex-end;margin-top:1rem;"><button class="complete-activity-btn" id="completeReadingBtn" disabled data-checklist="chk3">✓ Mark Reading as Complete</button></div>
                 </div>
             </div>
 
-            <!-- 4. VOCABULARY ACTIVITY -->
-            <div class="activity-card" id="vocabulary-card">
-                <div class="card-header vocabulary">
-                    <h2>📘 4. Vocabulary of the Day</h2>
-                </div>
-                <div class="card-body">
-                    <div class="vocab-table-container">
-                        <table class="vocab-table">
-                            <thead>
-                                <tr>
-                                    <th>🔊</th>
-                                    <th>✅</th>
-                                    <th>Word</th>
-                                    <th>Pronunciation</th>
-                                    <th>Meaning</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="audio-cell"><button class="vocab-audio-btn" data-word="Incisive"
-                                            data-checkid="check-incisive">🔊</button></td>
-                                    <td id="check-incisive">⬜</td>
-                                    <td><strong>Incisive</strong></td>
-                                    <td><code>/ɪnˈsaɪ.sɪv/</code></td>
-                                    <td>Intelligently analytical and clear-thinking</td>
-                                </tr>
-                                <tr>
-                                    <td class="audio-cell"><button class="vocab-audio-btn" data-word="Fallacy"
-                                            data-checkid="check-fallacy">🔊</button></td>
-                                    <td id="check-fallacy">⬜</td>
-                                    <td><strong>Fallacy</strong></td>
-                                    <td><code>/ˈfæl.ə.si/</code></td>
-                                    <td>A mistaken belief based on unsound reasoning</td>
-                                </tr>
-                                <tr>
-                                    <td class="audio-cell"><button class="vocab-audio-btn" data-word="Substantiate"
-                                            data-checkid="check-substantiate">🔊</button></td>
-                                    <td id="check-substantiate">⬜</td>
-                                    <td><strong>Substantiate</strong></td>
-                                    <td><code>/səbˈstæn.ʃi.eɪt/</code></td>
-                                    <td>To support with evidence</td>
-                                </tr>
-                                <tr>
-                                    <td class="audio-cell"><button class="vocab-audio-btn" data-word="Circumspect"
-                                            data-checkid="check-circumspect">🔊</button></td>
-                                    <td id="check-circumspect">⬜</td>
-                                    <td><strong>Circumspect</strong></td>
-                                    <td><code>/ˈsɜː.kəm.spekt/</code></td>
-                                    <td>Wary of potential consequences</td>
-                                </tr>
-                                <tr>
-                                    <td class="audio-cell"><button class="vocab-audio-btn" data-word="Infer"
-                                            data-checkid="check-infer">🔊</button></td>
-                                    <td id="check-infer">⬜</td>
-                                    <td><strong>Infer</strong></td>
-                                    <td><code>/ɪnˈfɜː/</code></td>
-                                    <td>To draw a conclusion from evidence</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="power-word-section">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #854d0e;">
-                            <span>🔥</span><span>POWER WORD: INCISIVE</span>
-                        </div>
-                        <p><strong>Meaning:</strong> Intelligently analytical and clear-thinking</p>
-                        <p><strong>Usage:</strong> "Her incisive analysis of the failure report saved the production timeline."</p>
-                    </div>
-
-                    <div class="power-word-section" style="border-left-color: #22c55e;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #166534;">
-                            <span>💬</span><span>IDIOM: "The bottom line"</span>
-                        </div>
-                        <p><strong>Meaning:</strong> The most important point or conclusion</p>
-                        <p><strong>Example:</strong> "The bottom line is that without additional funding, the project cannot be completed on time."</p>
-                    </div>
-
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
-                        <button class="complete-activity-btn" id="completeVocabularyBtn" disabled
-                            data-checklist="chk4">✓ Mark Vocabulary as Complete</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. GRAMMAR HACK -->
-            <div class="grammar-section" id="grammar-card">
-                <h3 style="margin: 0 0 1rem 0;">🧠 Grammar Hack: Avoid 'Obviously' and 'Clearly'</h3>
-                <div class="grammar-rule">
-                    <p>These words assume the reader agrees — which can be offensive if they do not. Replace them with the evidence that makes the point true.</p>
-                </div>
-                <div class="grammar-rule">
-                    <p>❌ Obviously, solar energy is the best solution. → ✅ <strong>Data from comparable installations indicates that solar energy delivers the highest ROI.</strong></p>
-                    <p>❌ Clearly, the project needs more time. → ✅ <strong>The current timeline does not allow for the three required regulatory approval stages.</strong></p>
-                </div>
-            </div>
-
-            <!-- 6. WRITING ACTIVITY -->
+            <!-- 4. WRITING -->
             <div class="activity-card" id="writing-card">
-                <div class="card-header writing">
-                    <h2>✍️ 5. Writing Activity · Critical Argument Analysis</h2>
-                </div>
+                <div class="card-header writing"><h2>✍️ 4. Writing Activity : Critical Argument Analysis</h2></div>
                 <div class="card-body">
-                    <div class="writing-tip-box">
-                        <p><strong>💡 Writing Tip:</strong> The most effective critical analysis responses acknowledge the strength of the argument before identifying its weakness. Demonstrate analytical maturity and fairness.</p>
-                    </div>
-
-                    <div class="task-box">
-                        <div class="task-header">
-                            <div class="title"><span>🎯</span><span>The Task</span></div>
-                        </div>
-                        <div class="task-content">
-                            Write 150 words analysing: (a) main claim, (b) evidence, (c) one weakness, and (d) a specific counterargument. Use the four-question critical thinking filter.
-                        </div>
-                    </div>
-
-                    <div class="writing-prompt">
-                        <textarea id="progressEmailBody" class="writing-textarea"
-                            placeholder="While this argument is compelling in its..."></textarea>
-                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
-                            count: <span id="wordCount">0</span> / ~150</div>
-                    </div>
-
-                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check My Analysis</button>
+                    <div class="writing-tip-box"><p><strong>💡 Writing Tip:</strong> The most effective critical analysis responses acknowledge the strength of the argument before identifying its weakness.</p></div>
+                    <div class="task-box"><div class="task-header"><div class="title"><span>🎯</span><span>The Task</span></div></div><div class="task-content">Write 150 words analysing: (a) main claim, (b) evidence, (c) one weakness, and (d) a specific counterargument.</div></div>
+                    <div class="writing-prompt"><textarea id="progressEmailBody" class="writing-textarea" placeholder="While this argument is compelling in its..."></textarea><div style="font-size:0.8rem;color:#64748b;text-align:right;margin-top:0.5rem;">Word count: <span id="wordCount">0</span> / ~150</div></div>
+                    <button class="btn-outline" id="checkWritingBtn" style="margin-top:1rem;">✓ Check Answer</button>
                     <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
+                    <div style="display:flex;justify-content:flex-end;margin-top:1.5rem;"><button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓ Mark Writing as Complete</button></div>
+                </div>
+            </div>
 
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
-                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
-                            Mark Writing as Complete</button>
-                    </div>
+            <!-- 5. VOCABULARY -->
+            <div class="activity-card" id="vocabulary-card">
+                <div class="card-header vocabulary"><h2>📘 5. Vocabulary of the Day</h2></div>
+                <div class="card-body">
+                    <div class="vocab-table-container"><table class="vocab-table"><thead><tr><th>🔊</th><th>✅</th><th>Word</th><th>Pronunciation</th><th>Meaning</th></tr></thead><tbody>
+                        <tr><td class="audio-cell"><button class="vocab-audio-btn" data-word="Incisive" data-checkid="check-incisive">🔊</button></td><td id="check-incisive">⬜</td><td><strong>Incisive</strong></td><td><code>/ɪnˈsaɪ.sɪv/</code></td><td>Intelligently analytical and clear-thinking</td></tr>
+                        <tr><td class="audio-cell"><button class="vocab-audio-btn" data-word="Fallacy" data-checkid="check-fallacy">🔊</button></td><td id="check-fallacy">⬜</td><td><strong>Fallacy</strong></td><td><code>/ˈfæl.ə.si/</code></td><td>A mistaken belief based on unsound reasoning</td></tr>
+                        <tr><td class="audio-cell"><button class="vocab-audio-btn" data-word="Substantiate" data-checkid="check-substantiate">🔊</button></td><td id="check-substantiate">⬜</td><td><strong>Substantiate</strong></td><td><code>/səbˈstæn.ʃi.eɪt/</code></td><td>To support with evidence</td></tr>
+                        <tr><td class="audio-cell"><button class="vocab-audio-btn" data-word="Circumspect" data-checkid="check-circumspect">🔊</button></td><td id="check-circumspect">⬜</td><td><strong>Circumspect</strong></td><td><code>/ˈsɜː.kəm.spekt/</code></td><td>Wary of potential consequences</td></tr>
+                        <tr><td class="audio-cell"><button class="vocab-audio-btn" data-word="Infer" data-checkid="check-infer">🔊</button></td><td id="check-infer">⬜</td><td><strong>Infer</strong></td><td><code>/ɪnˈfɜː/</code></td><td>To draw a conclusion from evidence</td></tr>
+                    </tbody></table></div>
+                    <div class="power-word-section"><div style="display:flex;align-items:center;gap:0.5rem;font-weight:700;color:#854d0e;"><span>🔥</span><span>POWER WORD: INCISIVE (in-SY-siv)</span></div><br><p><strong>Meaning:</strong> Intelligently analytical and clear-thinking</p><p><strong>Usage:</strong> "Her incisive analysis of the failure report saved the production timeline."</p></div>
+                    <div class="idiom-section"><div style="display:flex;align-items:center;gap:0.5rem;font-weight:700;color:#166534;"><span>💬</span><span>IDIOM: "The bottom line"</span></div><br><p><strong>Meaning:</strong> The most important point or conclusion</p><p><strong>Example:</strong> "The bottom line is that without additional funding, the project cannot be completed on time."</p></div>
+                    <div style="display:flex;justify-content:flex-end;margin-top:1rem;"><button class="complete-activity-btn" id="completeVocabularyBtn" disabled data-checklist="chk4">✓ Mark Vocabulary as Complete</button></div>
+                </div>
+            </div>
+
+           <!-- 5. GRAMMAR HACK -->
+            <div class="grammar-section" id="grammar-card">
+                <h3 style="margin: 0 0 1rem 0;">🧠 Grammar Hack: Avoid 'Obviously' and 'Clearly' in Arguments</h3>
+                <div class="grammar-rule">
+                    <p>These words assume the reader agrees — which can be offensive if they do not. They are also lazy: instead of proving something is obvious, prove that it is true.</p>
+                </div>
+                <div class="grammar-rule">
+                    <p style="margin-bottom:0.5rem;">❌ Obviously, solar energy is the best solution.<br> ✅ <strong>Data from comparable installations indicates that solar energy delivers the highest ROI in this climate.</strong></p>
+                    <p style="margin-bottom:0.5rem;">❌ Clearly, the project needs more time.<br> ✅ <strong>The current timeline does not allow for the three regulatory approval stages, each requiring a minimum of two weeks.</strong></p>
+                    <p><strong>Rule:</strong> Replace 'obviously/clearly' with the evidence that makes it obvious. Prove it, don't just claim it.</p>
                 </div>
             </div>
 
             <!-- CHECKLIST -->
-            <div class="activity-card">
-                <div class="card-header vocabulary">
-                    <h2>✅ DAY 20 COMPLETION CHECKLIST</h2>
-                </div>
-                <div class="card-body">
-                    <ul class="checklist">
-                        <li><input type="checkbox" id="chk1" disabled><label> Applied the four-question filter to the listening argument</label></li>
-                        <li><input type="checkbox" id="chk2" disabled><label> Delivered a critical analysis using four sentence starters</label></li>
-                        <li><input type="checkbox" id="chk3" disabled><label> Identified how language shapes problem-solving in the reading</label></li>
-                        <li><input type="checkbox" id="chk4" disabled><label> Used 'Incisive' in speaking and writing</label></li>
-                        <li><input type="checkbox" id="chk5" disabled><label> Wrote the 150-word critical argument analysis</label></li>
-                    </ul>
-                    <div style="text-align:right;"><span class="badge" id="progressCounter">0/5 completed</span></div>
-                    <div style="display:flex; justify-content:center; margin-top:1rem;">
-                        <button class="day-complete-btn" id="dayCompleteBtn" disabled> Complete Day 20</button>
-                    </div>
-                </div>
-            </div>
-
+            <div class="activity-card"><div class="card-header vocabulary"><h2>✅ DAY 20 COMPLETION CHECKLIST</h2></div>
+                <div class="card-body"><ul class="checklist">
+                    <li><input type="checkbox" id="chk1" disabled><label> Applied the four-question filter to the listening argument</label></li>
+                    <li><input type="checkbox" id="chk2" disabled><label> Delivered a critical analysis using sentence starters</label></li>
+                    <li><input type="checkbox" id="chk3" disabled><label> Identified how language shapes problem-solving</label></li>
+                    <li><input type="checkbox" id="chk4" disabled><label> Used 'Incisive' in speaking and writing</label></li>
+                    <li><input type="checkbox" id="chk5" disabled><label> Wrote the 150-word critical argument analysis</label></li>
+                </ul>
+                <div style="text-align:right;"><span class="badge" id="progressCounter">0/5 completed</span></div>
+                <div style="display:flex;justify-content:center;margin-top:1rem;"><button class="day-complete-btn" id="dayCompleteBtn" disabled> Complete Day 20</button></div>
+            </div></div>
         </div>
     </div>
 
-    <!-- JS SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="{% static 'learning/js/main.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof initializeDay === 'function') {
+                initializeDay(20, 'advanced', {
+                    vocabularyWords: ['Incisive', 'Fallacy', 'Substantiate', 'Circumspect', 'Infer']
+                });
+            }
+
+            function completeActivity(checklistId, buttonId, activityName) {
+                const chk = document.getElementById(checklistId);
+                if (chk && !chk.checked) chk.checked = true;
+                const btn = document.getElementById(buttonId);
+                if (btn) {
+                    btn.textContent = '✓ Completed'; btn.disabled = true;
+                    btn.classList.add('completed');
+                    btn.style.backgroundColor = '#9ca3af'; btn.style.borderColor = '#9ca3af'; btn.style.color = 'white';
+                }
+                if (activityName && typeof activityCompleted !== 'undefined') activityCompleted[activityName] = true;
+                if (activityName === 'speaking') window.speakingCompleted = true;
+                if (activityName === 'reading') window.readingCompleted = true;
+                if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+                if (typeof saveProgress === 'function') saveProgress();
+            }
+
+            // --- 1. LISTENING ---
+            let taskDone = false, quizDone = false;
+            const audio = document.getElementById('listeningAudio20');
+            if (audio) audio.addEventListener('ended', function () {
+                document.getElementById('listeningTextSection').style.display = 'block';
+                document.getElementById('postAudioListeningContent').style.display = 'block';
+            });
+
+            function updateListeningCompletion() {
+                document.getElementById('completeListeningBtn').disabled = !(taskDone && quizDone);
+            }
+
+            document.getElementById('checkListeningTaskBtn')?.addEventListener('click', async () => {
+    const c = document.getElementById('taskClaim').value.trim();
+    const e = document.getElementById('taskEvidence').value.trim();
+    const s = document.getElementById('taskSpecificity').value.trim();
+    const w = document.getElementById('taskWeakness').value.trim();
+    const fb = document.getElementById('taskFeedback');
+    
+    // Check each field individually
+    if (!c) {
+        fb.innerHTML = '⚠️ Please fill in (1) What is the claim?';
+        fb.className = 'fix-feedback incorrect';
+        fb.style.display = 'block';
+        document.getElementById('taskClaim').focus();
+        return;
+    }
+    if (!e) {
+        fb.innerHTML = '⚠️ Please fill in (2) What evidence is offered?';
+        fb.className = 'fix-feedback incorrect';
+        fb.style.display = 'block';
+        document.getElementById('taskEvidence').focus();
+        return;
+    }
+    if (!s) {
+        fb.innerHTML = '⚠️ Please fill in (3) Is the evidence specific enough?';
+        fb.className = 'fix-feedback incorrect';
+        fb.style.display = 'block';
+        document.getElementById('taskSpecificity').focus();
+        return;
+    }
+    if (!w) {
+        fb.innerHTML = '⚠️ Please fill in (4) What is one weakness or missing piece?';
+        fb.className = 'fix-feedback incorrect';
+        fb.style.display = 'block';
+        document.getElementById('taskWeakness').focus();
+        return;
+    }
+    
+    // Check minimum words for each (at least 3 words)
+    if (c.split(/\s+/).length < 3) {
+        fb.innerHTML = '⚠️ Your claim is too short. Write a complete sentence.';
+        fb.className = 'fix-feedback incorrect';
+        fb.style.display = 'block';
+        return;
+    }
+    if (e.split(/\s+/).length < 3) {
+        fb.innerHTML = '⚠️ Your evidence is too short. Write a complete sentence.';
+        fb.className = 'fix-feedback incorrect';
+        fb.style.display = 'block';
+        return;
+    }
+    
+    // All fields filled - now evaluate
+    const text = `Claim: ${c} | Evidence: ${e} | Specificity: ${s} | Weakness: ${w}`;
+    taskDone = await evaluateTaskRaw(text, 'taskFeedback', 'listening_analysis', 10);
+    updateListeningCompletion();
+});
+
+            document.getElementById('checkListeningWorkBtn')?.addEventListener('click', function () {
+                const q1 = document.querySelector('input[name="q1"]:checked')?.value;
+                const q2 = document.querySelector('input[name="q2"]:checked')?.value;
+                const fb = document.getElementById('listeningQuizFeedback');
+                if (!q1 || !q2) { fb.innerHTML = '⚠️ Please answer both.'; fb.className = 'quiz-feedback incorrect'; fb.style.display = 'block'; return; }
+                quizDone = q1 === 'Vague' && q2 === 'Sources';
+                fb.innerHTML = quizDone ? '✅ Correct! The evidence lacks specific citations.' : '❌ Incorrect. The evidence is vague and lacks sources.';
+                fb.className = quizDone ? 'quiz-feedback correct' : 'quiz-feedback incorrect';
+                fb.style.display = 'block';
+                updateListeningCompletion();
+            });
+
             // --- AI EVALUATION HELPER ---
             async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
                 const feedback = document.getElementById(feedbackId);
-                if (text.split(/\s+/).length < minWords) { feedback.innerHTML = '⚠️ Too brief.'; feedback.className = 'fix-feedback incorrect'; feedback.style.display = 'block'; return false; }
-                feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
-                feedback.className = 'fix-feedback';
-                feedback.style.display = 'block';
-                const customPrompts = {
-                    listening_analysis: "Evaluate analysis of the LED lighting argument using the 4-question filter. Correct: Claim = LED mandate; Evidence = 50% energy reduction/3yr recovery; Specificity = Vague ('studies' without citation); Weakness = Lack of specific source/potential bias.",
-                    reading_a: "Explain how describing maintenance as 'recurring issues' vs 'lacking a preventive framework' shapes responses. Correct: First leads to reactive fixing; second leads to systemic redesign.",
-                    reading_b: "Evaluate an engineering field example where problem-language determines the solution. Check for clear contrast between limiting and productive language.",
-                    reading_c: "Evaluate a solution-oriented rewrite of 'Our project is always delayed.' Rewrite should focus on process improvement (e.g., 'Our current scheduling framework requires optimization').",
-                    reflection_writing: "Evaluate 150-word critical analysis. Response must cover: (a) main claim, (b) evidence, (c) one weakness, and (d) specific counterargument using the four-question filter."
+                if (text.split(/\s+/).filter(w => w.length > 0).length < minWords) {
+                    feedback.innerHTML = '⚠️ Too brief.'; feedback.className = 'fix-feedback incorrect'; feedback.style.display = 'block'; return false;
+                }
+                feedback.innerHTML = '⏳ Evaluating...'; feedback.className = 'fix-feedback'; feedback.style.display = 'block';
+                const prompts = {
+                    listening_analysis: "Evaluate 4-question filter analysis. The user MUST answer all 4: (1) Claim: LED should be mandated in new industrial facilities, (2) Evidence: 50% energy reduction, 3yr recovery, European factory studies, (3) Specificity: The 'studies' are vague without specific citations or factory names, (4) Weakness: No specific sources cited, no maintenance cost data, potential bias. If ANY field is empty, vague, or incorrect, mark correct=false and explain what's missing.",
+                    reading_a: "Explain the difference between how 'recurring maintenance issues' and 'lacking a preventive maintenance framework' shape the response to a problem.",
+                    reading_b: "Evaluate a field example where problem-language determines solution.",
+                    reading_c: "Evaluate rewrite of 'Our project is always delayed' to solution-oriented frame.",
+                    writing_analysis: "Evaluate 150-word critical analysis covering main claim, evidence, weakness, and counterargument."
                 };
-                const system_prompt = `Evaluate as English communication trainer. Task: "${customPrompts[type]}". Return JSON: {"correct": true/false, "evaluation": "...", "improvement": "..."}`;
+                const sp = `You are a strict but encouraging English trainer like teacher. Evaluate: "${prompts[type]}".
+RULES: Evaluation: 1-2 short specific sentences about what's right/wrong. Improvement: 1-2 concrete sentence with correction like teacher. Always use "you". Return JSON: {"correct":true/false,"evaluation":"...","improvement":"..."}`;
                 try {
-                    const response = await fetch('/learning/ai/evaluate/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
-                        body: JSON.stringify({ text, task_type: type, day_number: 20, level: 'advanced', system_prompt })
-                    });
-                    const res = await response.json();
-                    if (res.success) {
-                        feedback.innerHTML = `<div><strong>${res.correct ? '✅' : '❌'} Evaluation:</strong><br>${res.evaluation}</div><div style='margin-top:0.5rem'><strong>💡 Improvement:</strong><br>${res.improvement}</div>`;
-                        feedback.className = `fix-feedback ${res.correct ? 'correct' : 'incorrect'}`;
-                        return res.correct;
+                    const r = await fetch('/learning/ai/evaluate/', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') }, body: JSON.stringify({ text, task_type: type, day_number: 20, level: 'advanced', system_prompt: sp }) });
+                    const d = await r.json();
+                    if (d.success) {
+                        const ok = d.correct !== false;
+                        feedback.innerHTML = `<strong>${ok ? '✅' : '❌'}</strong> ${d.evaluation}<br><br><strong>💡</strong> ${d.improvement}`;
+                        feedback.className = `fix-feedback ${ok ? 'correct' : 'incorrect'}`;
+                        return ok;
                     }
-                } catch (e) { feedback.innerHTML = '⚠️ Error.'; return false; }
+                } catch (e) { feedback.innerHTML = '⚠️ Error.'; }
+                return false;
             }
 
-            async function evaluateTask(id, type, taskName, minWords = 5) {
-                const val = document.getElementById(id + 'Input')?.value || document.getElementById(id).value;
-                return await evaluateTaskRaw(val.trim(), id + 'Feedback', type, minWords);
+            async function evaluateTask(id, type, minWords = 5) {
+                const el = document.getElementById(id + 'Input') || document.getElementById(id);
+                return await evaluateTaskRaw(el.value.trim(), id + 'Feedback', type, minWords);
             }
 
             // --- READING ---
             let r1 = false, r2 = false, r3 = false;
             function updateReading() { if (r1 && r2 && r3) document.getElementById('completeReadingBtn').disabled = false; }
-            document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => { r1 = await evaluateTask('readingT31', 'reading_a', 'Description Difference', 10); updateReading(); });
-            document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => { r2 = await evaluateTask('readingT32', 'reading_b', 'Field Example', 10); updateReading(); });
-            document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => { r3 = await evaluateTask('readingT33', 'reading_c', 'Rewrite', 10); updateReading(); });
+            document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => { r1 = await evaluateTask('readingT31', 'reading_a', 5); updateReading(); });
+            document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => { r2 = await evaluateTask('readingT32', 'reading_b', 5); updateReading(); });
+            document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => { r3 = await evaluateTask('readingT33', 'reading_c', 5); updateReading(); });
 
             // --- WRITING ---
             document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
-                const done = await evaluateTaskRaw(document.getElementById('progressEmailBody').value.trim(), 'progressEmailBodyFeedback', 'reflection_writing', 80);
-                if (done) document.getElementById('completeWritingBtn').disabled = false;
+                if (await evaluateTaskRaw(document.getElementById('progressEmailBody').value.trim(), 'progressEmailBodyFeedback', 'writing_analysis', 80))
+                    document.getElementById('completeWritingBtn').disabled = false;
             });
             document.getElementById('progressEmailBody')?.addEventListener('input', function () {
-                const words = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
-                document.getElementById('wordCount').innerText = words;
+                document.getElementById('wordCount').innerText = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
             });
 
-            // --- SPEAKING ---
-            let mediaRecorder, chunks = [];
-            document.getElementById('speakingRecordBtn')?.addEventListener('click', async () => {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
-                chunks = [];
-                mediaRecorder.ondataavailable = e => chunks.push(e.data);
-                mediaRecorder.onstop = () => {
-                    const blob = new Blob(chunks, { type: 'audio/webm' });
-                    document.getElementById('speakingPlayback').src = URL.createObjectURL(blob);
-                    document.getElementById('speakingPlaybackCard').style.display = 'block';
-                    document.getElementById('completeSpeakingBtn').disabled = false;
-                    stream.getTracks().forEach(t => t.stop());
-                };
-                mediaRecorder.start();
-                document.getElementById('speakingRecordBtn').style.display = 'none';
-                document.getElementById('speakingStopBtn').style.display = 'inline-flex';
-                document.getElementById('speakingRecordingStatus').style.display = 'flex';
+            // ========== SPEAKING - 20 second minimum ==========
+            window.speakingCompleted = false;
+            let speakingRecorded = false, speakingValidated = false;
+            const sr = document.getElementById('speakingRecordBtn'), ss = document.getElementById('speakingStopBtn'),
+                  spa = document.getElementById('speakingPlaybackCard'), sp = document.getElementById('speakingPlayback'),
+                  srs = document.getElementById('speakingRecordingStatus'), st = document.getElementById('speakingTimer'),
+                  csb = document.getElementById('completeSpeakingBtn');
+            let mr = null, chunks = [], ir = false, ti = null, rs = 0;
+            function ft(s) { const m = Math.floor(s/60), sec = s%60; return m.toString().padStart(2,'0')+':'+sec.toString().padStart(2,'0'); }
+
+            if (sr) sr.addEventListener('click', async () => {
+                try {
+                    speakingValidated = false; speakingRecorded = false;
+                    if (csb && csb.textContent !== '✓ Completed') csb.disabled = true;
+                    if (spa) spa.style.display = 'none'; if (sp) sp.src = '';
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    mr = new MediaRecorder(stream); chunks = [];
+                    mr.ondataavailable = e => { if (e.data.size > 0) chunks.push(e.data); };
+                    mr.onstop = () => {
+                        clearInterval(ti); ti = null;
+                        if (sp) sp.src = URL.createObjectURL(new Blob(chunks, { type: 'audio/webm' }));
+                        if (spa) { spa.style.display = 'block'; const md = spa.querySelector('.playback-success-msg');
+                            if (rs >= 20) { speakingRecorded = true; speakingValidated = true;
+                                if (md) { md.innerHTML = '<span>✅</span> Recording saved!'; md.style.background = '#d1fae5'; md.style.color = '#065f46'; }
+                                if (csb && csb.textContent !== '✓ Completed') csb.disabled = false;
+                            } else {
+                                if (md) { md.innerHTML = '<span>⚠️</span> Too short! Please speak all sentences.'; md.style.background = '#fef9e3'; md.style.color = '#92400e'; }
+                            }
+                        } stream.getTracks().forEach(t => t.stop());
+                    };
+                    mr.start(); ir = true; rs = 0;
+                    if (st) st.textContent = ft(0); if (srs) srs.style.display = 'flex';
+                    ti = setInterval(() => { rs++; if (st) st.textContent = ft(rs); }, 1000);
+                    sr.style.display = 'none'; if (ss) ss.style.display = 'inline-flex';
+                } catch (e) { alert('⚠️ Microphone access denied.'); }
             });
-            document.getElementById('speakingStopBtn')?.addEventListener('click', () => {
-                mediaRecorder.stop();
-                document.getElementById('speakingRecordBtn').style.display = 'inline-flex';
-                document.getElementById('speakingStopBtn').style.display = 'none';
-                document.getElementById('speakingRecordingStatus').style.display = 'none';
+            if (ss) ss.addEventListener('click', () => { if (mr && ir) { mr.stop(); ir = false; sr.style.display = 'inline-flex'; ss.style.display = 'none'; if (srs) srs.style.display = 'none'; } });
+            if (csb) csb.addEventListener('click', () => {
+                if (!csb.disabled && speakingRecorded && speakingValidated) { window.speakingCompleted = true; completeActivity('chk2', 'completeSpeakingBtn', 'speaking'); }
+                else if (!speakingRecorded) alert('⚠️ Record first.');
+                else if (!speakingValidated) alert('⚠️ Recording too short! Please speak all sentences.');
             });
 
-            // --- HANDLERS ---
-            document.getElementById('completeListeningBtn')?.addEventListener('click', () => markActivityComplete('listening', 'chk1'));
-            document.getElementById('completeSpeakingBtn')?.addEventListener('click', () => markActivityComplete('speaking', 'chk2'));
-            document.getElementById('completeReadingBtn')?.addEventListener('click', () => markActivityComplete('reading', 'chk3'));
-            document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => markActivityComplete('vocabulary', 'chk4'));
-            document.getElementById('completeWritingBtn')?.addEventListener('click', () => markActivityComplete('writing', 'chk5'));
-            document.getElementById('dayCompleteBtn')?.addEventListener('click', completeDay);
+            // --- COMPLETION BUTTONS ---
+            document.getElementById('completeListeningBtn')?.addEventListener('click', () => completeActivity('chk1', 'completeListeningBtn', 'listening'));
+            document.getElementById('completeReadingBtn')?.addEventListener('click', () => completeActivity('chk3', 'completeReadingBtn', 'reading'));
+            document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => completeActivity('chk4', 'completeVocabularyBtn', 'vocabulary'));
+            document.getElementById('completeWritingBtn')?.addEventListener('click', () => completeActivity('chk5', 'completeWritingBtn', 'writing'));
+            document.getElementById('dayCompleteBtn')?.addEventListener('click', () => { if (typeof completeDay === 'function') completeDay(); });
+
+            // ========== RESTORE ON LOAD ==========
+            setTimeout(function() {
+                const metaUserId = document.querySelector('meta[name="user-id"]')?.content || 'guest';
+                const key = 'progress_' + metaUserId + '_advanced_day_20';
+                const saved = localStorage.getItem(key);
+                if (!saved) return;
+                try {
+                    const data = JSON.parse(saved);
+                    if (data.completed) {
+                        const map = { 'listening':'chk1','speaking':'chk2','reading':'chk3','vocabulary':'chk4','writing':'chk5' };
+                        Object.keys(map).forEach(act => {
+                            if (data.completed[act]) {
+                                const chk = document.getElementById(map[act]); if (chk) chk.checked = true;
+                                const btn = document.getElementById('complete' + act.charAt(0).toUpperCase() + act.slice(1) + 'Btn');
+                                if (btn) { btn.textContent = '✓ Completed'; btn.disabled = true; btn.classList.add('completed'); btn.style.backgroundColor = '#9ca3af'; btn.style.borderColor = '#9ca3af'; btn.style.color = 'white'; }
+                            }
+                        });
+                    }
+                    if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+                } catch(e) {}
+            }, 300);
         });
     </script>
+    <script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 </html>

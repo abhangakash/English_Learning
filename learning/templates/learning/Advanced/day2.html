@@ -42,7 +42,7 @@
                 <div class="card-header listening"><h2>🎧 1. Listening Activity : Clause Layering</h2></div>
                 <div class="card-body">
                     <div class="task-box"><div class="task-header"><div class="title"><span>🎯</span><span>Focus</span></div></div><div class="task-content">Clause Layering — notice how skilled speakers build meaning across multiple clauses.</div></div>
-                    <div class="audio-player"><audio id="listeningAudio" controls><source src="{% static 'learning/audio/advanced/day2.mp3' %}" type="audio/mpeg"></audio></div>
+                    <div class="audio-player"><audio id="listeningAudio" controls><source src="{% static 'learning/audio/Advanced/day2.mp3' %}" type="audio/mpeg"></audio></div>
                     <div id="postAudioListeningContent" style="display:none;">
                         <div class="task-box"><div class="task-header"><div class="title"><span>📝</span><span>Listening Script</span></div></div><div class="task-content" style="font-style:italic;background:#fef9e3;">"The project, which was originally scheduled for six months, has been completed in four — not because we rushed, but because we planned meticulously from day one."</div></div>
                         <div class="task-box"><div class="task-header"><div class="title"><span>🎯</span><span>Task</span></div></div><div class="task-content">Listen for the <strong>relative clause</strong> and the <strong>reason clause</strong>. Identify where each pause occurs.<br><br><em style="color:#64748b;font-size:0.85rem;">NOTE : "which…" gives extra info (pause around it); "because…" gives the real reason (pause before it).</em></div></div>
@@ -56,8 +56,8 @@
             <!-- 2. SPEAKING ACTIVITY -->
             <div class="activity-card" id="speaking-card"><div class="card-header speaking"><h2>🗣️ 2. Speaking Activity : The Layered Explanation</h2></div><div class="card-body">
                 <div class="task-box"><div class="task-header"><div class="title"><span>🎯</span><span>Task</span></div></div><div class="task-content">Convert these <strong>simple sentences</strong> into complex ones by adding <strong>relative, reason, and condition clauses</strong>.<br>Use at least one: <strong>relative (which/who/that), reason (because/since), condition (if)</strong>.</div></div>
-                <div class="speaking-sentence-card"><div class="simple">Simple: <strong>"The system failed."</strong></div><div class="recording-controls" style="margin:0;"><button class="record-btn sentence1RecordBtn">🎙️ Record</button><button class="record-btn sentence1StopBtn" style="background:#64748b;display:none;">⏹️ Stop</button></div><div class="sentence1PlaybackCard" style="display:none;margin-top:0.5rem;"><audio class="sentence1Playback" controls style="width:100%;"></audio></div><div class="sentence1Feedback fix-feedback"></div></div>
-                <div class="speaking-sentence-card"><div class="simple">Simple: <strong>"He got promoted."</strong></div><div class="recording-controls" style="margin:0;"><button class="record-btn sentence2RecordBtn">🎙️ Record</button><button class="record-btn sentence2StopBtn" style="background:#64748b;display:none;">⏹️ Stop</button></div><div class="sentence2PlaybackCard" style="display:none;margin-top:0.5rem;"><audio class="sentence2Playback" controls style="width:100%;"></audio></div><div class="sentence2Feedback fix-feedback"></div></div>
+                <div class="speaking-sentence-card"><div class="simple">Simple: <strong>"The system failed."</strong></div><div class="recording-controls" style="margin:0;"><button class="record-btn sentence1RecordBtn"> Record</button><button class="record-btn sentence1StopBtn" style="background:#64748b;display:none;">⏹️ Stop</button></div><div class="sentence1PlaybackCard" style="display:none;margin-top:0.5rem;"><audio class="sentence1Playback" controls style="width:100%;"></audio></div><div class="sentence1Feedback fix-feedback"></div></div>
+                <div class="speaking-sentence-card"><div class="simple">Simple: <strong>"He got promoted."</strong></div><div class="recording-controls" style="margin:0;"><button class="record-btn sentence2RecordBtn"> Record</button><button class="record-btn sentence2StopBtn" style="background:#64748b;display:none;">⏹️ Stop</button></div><div class="sentence2PlaybackCard" style="display:none;margin-top:0.5rem;"><audio class="sentence2Playback" controls style="width:100%;"></audio></div><div class="sentence2Feedback fix-feedback"></div></div>
                 <div class="speaking-complete-wrapper"><button class="complete-activity-btn" id="completeSpeakingBtn" disabled>✓ Mark Speaking as Complete</button></div>
             </div></div>
 
@@ -66,7 +66,7 @@
                 <div class="reading-passage"><strong>Passage :</strong><br>The ability to construct complex sentences is not merely a grammatical skill — it is a thinking skill. When you chain clauses together logically, you force yourself to understand the relationships between ideas: cause and effect, condition and consequence, contrast and concession. Advanced communicators do not speak in fragments. They build arguments the way engineers build structures: with joints, load-bearing elements, and a clear purpose for every component.</div>
                 <div class="task-box" style="margin-top:1rem;"><div class="task-header"><div class="title"><span>1️⃣</span><span>Identify the Metaphor</span></div></div><div class="task-content"><p style="margin-bottom:0.5rem;">What does the author compare communication to?</p><input type="text" id="metaphorInput" class="grammar-input" placeholder="Communication is compared to..."><div id="metaphorFeedback" class="fix-feedback"></div></div></div>
                 <div class="task-box" style="margin-top:1rem;"><div class="task-header"><div class="title"><span>2️⃣</span><span>List the Three Relationships</span></div></div><div class="task-content"><p style="margin-bottom:0.5rem;">Write the three relationships between ideas mentioned in the passage.</p><input type="text" id="relationshipsInput" class="grammar-input" placeholder="e.g. cause and effect....."><div id="relationshipsFeedback" class="fix-feedback"></div></div></div>
-                <div class="task-box" style="margin-top:1rem;"><div class="task-header"><div class="title"><span>3️⃣</span><span>Write a Contrast Sentence</span></div></div><div class="task-content"><p style="margin-bottom:0.5rem;">Write one sentence using a <strong>'contrast' relationship</strong> (but/however/yet) from your engineering field:</p><input type="text" id="contrastInput" class="grammar-input" placeholder="Write your answer."><div id="contrastFeedback" class="fix-feedback"></div></div></div>
+                <div class="task-box" style="margin-top:1rem;"><div class="task-header"><div class="title"><span>3️⃣</span><span>Write a Contrast Sentence</span></div></div><div class="task-content"><p style="margin-bottom:0.5rem;">Write one sentence using a <strong>'contrast' relationship</strong> from your engineering field:</p><input type="text" id="contrastInput" class="grammar-input" placeholder="Write your answer."><div id="contrastFeedback" class="fix-feedback"></div></div></div>
                 <button class="btn-outline" id="checkReadingBtn" style="margin-top:1rem;">✓ Check Answers</button>
                 <div style="display:flex;justify-content:flex-end;margin-top:1rem;"><button class="complete-activity-btn" id="completeReadingBtn" disabled>✓ Mark Reading as Complete</button></div>
             </div></div>
@@ -114,7 +114,7 @@
                     <li><input type="checkbox" id="chk6" disabled><label> Wrote the 150-word technical explanation </label></li>
                 </ul>
                 <div style="text-align:right;margin:1rem 0;"><span class="badge" id="progressCounter">0/6 completed</span></div>
-                <div style="display:flex;justify-content:center;"><button class="day-complete-btn" id="dayCompleteBtn" disabled>🏆 Complete Day 2</button></div>
+                <div style="display:flex;justify-content:center;"><button class="day-complete-btn" id="dayCompleteBtn" disabled> Complete Day 2</button></div>
             </div></div>
         </div>
     </div>
@@ -334,26 +334,367 @@
         });
         document.getElementById('completeReadingBtn')?.addEventListener('click', () => { if (rtDone.t1 && rtDone.t2 && rtDone.t3) markActivityComplete('reading', 'chk3'); else alert('⚠️ Complete all reading tasks correctly first.'); });
 
-        // ========== WRITING ==========
-        const writingEssay = document.getElementById('writingEssay'), wcs = document.getElementById('wordCount'), wcw = document.getElementById('wordCountWarning');
-        let writingPassed = false; const refContainer = document.getElementById('referenceAnswerContainer');
-        if (writingEssay) writingEssay.addEventListener('input', function() { const wc = this.value.trim() ? this.value.trim().split(/\s+/).length : 0; wcs.textContent = wc; if (wc < 120) { wcs.classList.add('under'); wcw.style.display = 'inline'; } else { wcs.classList.remove('under'); wcw.style.display = 'none'; } });
-        document.getElementById('checkWritingBtn')?.addEventListener('click', () => {
-            const text = writingEssay.value.trim(), fb = document.getElementById('writingFeedback');
-            refContainer.style.display = 'none'; refContainer.innerHTML = '';
-            if (!text) { fb.innerHTML = '⚠️ Please write your paragraph.'; fb.className = 'fix-feedback empty'; fb.style.display = 'block'; writingPassed = false; }
-            else if (text.split(/\s+/).length < 60) { fb.innerHTML = '⚠️ Write a complete paragraph (~150 words).'; fb.className = 'fix-feedback empty'; fb.style.display = 'block'; writingPassed = false; }
-            else if (isGibberish(text)) { fb.innerHTML = '⚠️ Please write meaningful sentences.'; fb.className = 'fix-feedback empty'; fb.style.display = 'block'; writingPassed = false; }
-            else {
-                const lt = text.toLowerCase(), rc = (lt.match(/\b(which|who|that|whose|where)\b/g) || []).length, hr = /\b(because|since)\b/.test(lt), hc = /\b(although|even though|though)\b/.test(lt), wc = text.split(/\s+/).length;
-                const allMet = rc >= 2 && hr && hc && wc >= 120;
-                if (allMet) { fb.innerHTML = '✅ Excellent!'; fb.className = 'fix-feedback correct'; fb.style.display = 'block'; writingPassed = true; refContainer.style.display = 'block'; refContainer.innerHTML = '<div class="reference-answer-box"><h4>📖 Reference Answer</h4><div class="ref-text">A heat exchanger, <span class="highlight-clause">which transfers thermal energy between fluids</span>, operates on a simple principle. <span class="highlight-clause">Because the fluids never mix</span>, contamination is impossible. <span class="highlight-clause">Although this system is efficient</span>, engineers must account for thermal expansion <span class="highlight-clause">which can cause structural stress</span>.</div><div class="legend"><span><span class="legend-dot clause"></span> Clauses</span><span><span class="legend-dot vocab"></span> Vocabulary</span></div></div>'; }
-                else { let m = []; if (rc < 2) m.push('Use 2+ relative clauses (which/who/that)'); if (!hr) m.push('Add a reason clause (because/since)'); if (!hc) m.push('Add a concession clause (although/even though)'); if (wc < 120) m.push('Reach ~150 words'); fb.innerHTML = '⚠️ Fix:<br>• ' + m.join('<br>• '); fb.className = 'fix-feedback almost'; fb.style.display = 'block'; writingPassed = false; }
-            }
-            const cwb = document.getElementById('completeWritingBtn'); if (cwb && cwb.textContent !== '✓ Completed') cwb.disabled = !writingPassed;
-        });
-        document.getElementById('completeWritingBtn')?.addEventListener('click', () => { if (writingPassed) markActivityComplete('writing', 'chk6'); else alert('⚠️ Complete the writing task first.'); });
+       // ========== WRITING ACTIVITY (AI Evaluation + Local Fallback) ==========
+const writingEssay = document.getElementById('writingEssay');
+const wordCountSpan = document.getElementById('wordCount');
+const wordCountWarning = document.getElementById('wordCountWarning');
+const refContainer = document.getElementById('referenceAnswerContainer');
+let writingPassed = false;
 
+// WORD COUNTER - Just updates the number, NO right-side warnings
+if (writingEssay) {
+    writingEssay.addEventListener('input', function() {
+        const text = this.value.trim();
+        const words = text ? text.split(/\s+/).filter(function(w) { 
+            return w.length > 0; 
+        }).length : 0;
+        
+        // Update word count number only
+        if (wordCountSpan) {
+            wordCountSpan.textContent = words;
+            
+            // Color the number based on progress
+            if (words === 0) {
+                wordCountSpan.style.color = '#94a3b8'; // Gray
+            } else if (words < 100) {
+                wordCountSpan.style.color = '#ef4444'; // Red - too short
+            } else if (words < 120) {
+                wordCountSpan.style.color = '#f59e0b'; // Orange - almost
+            } else if (words <= 180) {
+                wordCountSpan.style.color = '#10b981'; // Green - perfect
+            } else {
+                wordCountSpan.style.color = '#3b82f6'; // Blue - over
+            }
+        }
+        
+        // ALWAYS hide the right-side warning
+        if (wordCountWarning) {
+            wordCountWarning.style.display = 'none';
+        }
+        
+        saveProgressToCache();
+    });
+    
+    // Initialize on page load
+    setTimeout(function() {
+        writingEssay.dispatchEvent(new Event('input'));
+    }, 100);
+}
+
+// Helper function to get word count warning message
+function getWordCountMessage(words) {
+    if (words === 0) {
+        return '';
+    } else if (words < 50) {
+        return 'Write more... (' + words + '/150 words)';
+    } else if (words < 100) {
+        return (150 - words) + ' more words needed to reach 150';
+    } else if (words < 120) {
+        return 'Almost there! Only ' + (150 - words) + ' words to go';
+    } else if (words <= 180) {
+        return ''; // Perfect range, no message
+    } else {
+        return (words - 150) + ' words over the 150 target';
+    }
+}
+
+// Reference answer - ONLY shown when local validation passes
+function showReferenceAnswer() {
+    if (refContainer) {
+        refContainer.style.display = 'block';
+        refContainer.innerHTML = `
+            <div class="reference-answer-box">
+                <h4>📖 Reference Answer - Technical Explanation</h4>
+                <div class="ref-text">
+                    A <strong>heat exchanger</strong>, <span class="highlight-clause">which transfers thermal energy between two fluids without mixing them</span>, 
+                    operates on a fundamental thermodynamic principle. 
+                    <span class="highlight-clause">Because hot fluid naturally flows toward colder regions</span>, 
+                    the system requires no external power source for basic operation. Engineers design these devices with 
+                    <span class="highlight-vocab">meticulous</span> attention to surface area, 
+                    <span class="highlight-clause">which directly affects heat transfer efficiency</span>. 
+                    <span class="highlight-clause">Although the concept appears simple</span>, 
+                    real-world applications demand <span class="highlight-vocab">coherent</span> integration of multiple subsystems, 
+                    each with its own thermal properties. The <span class="highlight-vocab">nuance</span> lies in balancing 
+                    flow rates and temperature gradients to <span class="highlight-vocab">substantiate</span> the design calculations.
+                </div>
+                <div class="legend">
+                    <span><span class="legend-dot clause"></span> Relative/Reason/Concession Clauses</span>
+                    <span><span class="legend-dot vocab"></span> Day 2 Vocabulary</span>
+                </div>
+            </div>
+        `;
+    }
+}
+
+// LOCAL FALLBACK VALIDATION - Only used when AI fails
+function localValidateWriting(text, words, feedback) {
+    const lt = text.toLowerCase();
+    
+    // Check relative clauses (2+ required) - which, who, that, whose, where
+    const relativeClauses = (lt.match(/\b(which|who|that|whose|where)\b/g) || []).length;
+    
+    // Check reason clause (1+ required) - because, since
+    const hasReason = /\b(because|since)\b/.test(lt);
+    
+    // Check concession clause (1+ required) - although, even though, though
+    const hasConcession = /\b(although|even though|though)\b/.test(lt);
+    
+    // Check vocabulary usage (optional but recommended)
+    const vw = ['meticulous', 'concession', 'coherent', 'nuance', 'substantiate', 'perspicuous'];
+    let vocabCount = 0;
+    vw.forEach(function(w) { if (lt.includes(w)) vocabCount++; });
+    
+    // Check if it's an engineering topic
+    const engineeringTerms = ['engineer', 'design', 'system', 'process', 'machine', 'circuit', 'motor', 'sensor', 
+        'thermal', 'mechanical', 'electrical', 'civil', 'software', 'hardware', 'structure', 'fluid', 
+        'energy', 'power', 'load', 'stress', 'voltage', 'current', 'signal', 'data'];
+    const hasEngineeringTopic = engineeringTerms.some(function(term) { return lt.includes(term); });
+    
+    let issues = [];
+    if (relativeClauses < 2) issues.push('Use at least 2 relative clauses (which, who, that, whose, where)');
+    if (!hasReason) issues.push('Add a reason clause using "because" or "since"');
+    if (!hasConcession) issues.push('Add a concession clause using "although" or "even though"');
+    if (!hasEngineeringTopic) issues.push('Write about an engineering topic (heat exchanger, motor, circuit, etc.)');
+    if (vocabCount < 2) issues.push('Try using vocabulary words: meticulous, coherent, nuance, substantiate');
+    
+    // Word count issue
+    const wordMsg = getWordCountMessage(words);
+    if (wordMsg && words < 120) {
+        issues.push(wordMsg);
+    }
+    
+    const allMet = relativeClauses >= 2 && hasReason && hasConcession && words >= 120;
+    
+    if (allMet) {
+        let feedbackHTML = '✅ <strong>Excellent!</strong> Your technical explanation meets all requirements.<br><br>';
+        feedbackHTML += '<em style="font-size:0.8rem;color:#10b981;">';
+        feedbackHTML += '✅ Relative Clauses: ' + relativeClauses + ' ✓ | Reason Clause ✓ | Concession Clause ✓ | Word Count ✓';
+        feedbackHTML += '</em><br>';
+        if (vocabCount > 0) {
+            feedbackHTML += '<em style="font-size:0.8rem;color:#10b981;">✅ Vocabulary: ' + vocabCount + ' words used</em><br>';
+        }
+        // Show word count in feedback
+        if (wordMsg) {
+            feedbackHTML += '<br><em style="font-size:0.8rem;color:#64748b;">📝 ' + wordMsg + '</em>';
+        }
+        
+        
+        feedback.innerHTML = feedbackHTML;
+        feedback.className = 'fix-feedback correct';
+        feedback.style.display = 'block';
+        showReferenceAnswer();
+        return true;
+    } else {
+        let feedbackHTML = '<strong>⚠️ Almost there!</strong> Here\'s what to fix:<br>';
+        feedbackHTML += '<div style="margin-top:0.5rem;">• ' + issues.join('<br>• ') + '</div>';
+        
+        // Show word count message if exists
+        if (wordMsg && words < 120) {
+            feedbackHTML += '<br><em style="font-size:0.8rem;color:#64748b;">📝 ' + wordMsg + '</em>';
+        }
+        
+        
+        feedback.innerHTML = feedbackHTML;
+        feedback.className = 'fix-feedback almost';
+        feedback.style.display = 'block';
+        return false;
+    }
+}
+
+// AI EVALUATION FUNCTION
+async function evaluateWriting() {
+    const inputEl = document.getElementById('writingEssay');
+    if (!inputEl) return false;
+    const text = inputEl.value.trim();
+    const feedback = document.getElementById('writingFeedback');
+    const words = text.split(/\s+/).filter(function(w) { return w.length > 0; }).length;
+    
+    // Hide reference answer initially
+    if (refContainer) {
+        refContainer.style.display = 'none';
+        refContainer.innerHTML = '';
+    }
+    
+    // Empty check
+    if (text === "") {
+        feedback.innerHTML = '⚠️ Please write your technical explanation.';
+        feedback.className = 'fix-feedback empty';
+        feedback.style.display = 'block';
+        return false;
+    }
+    
+    // Word count check - SHOW IN FEEDBACK not on right side
+    if (words < 50) {
+        const wordMsg = getWordCountMessage(words);
+        feedback.innerHTML = '<strong>⚠️ Too short!</strong> You wrote ' + words + ' words. ' + wordMsg + '. Write a complete technical explanation of about 150 words with relative, reason, and concession clauses.';
+        feedback.className = 'fix-feedback empty';
+        feedback.style.display = 'block';
+        return false;
+    }
+    
+    // Show evaluating status
+    feedback.innerHTML = '<span style="display:inline-block;animation:pulse 1.5s infinite;">⏳</span> Analyzing your technical explanation...';
+    feedback.className = 'fix-feedback hint-box';
+    feedback.style.display = 'block';
+    
+    const customPrompt = `You are an Advanced English instructor evaluating a technical explanation written by an engineering student.
+Day 2 - Mastering Complex Sentence Structures.
+
+TASK: Write a 150-word technical explanation of any engineering concept.
+
+REQUIREMENTS:
+1. At least 2 relative clauses (which, who, that, whose, where)
+2. At least 1 reason clause (because, since)
+3. At least 1 concession clause (although, even though, though)
+4. Explain a real engineering concept with technical accuracy
+5. Use professional vocabulary appropriate for engineers
+
+EVALUATION RULES:
+- Count the exact number of relative clauses (which, who, that, whose, where used as clause connectors)
+- Check for reason clause (because/since + subject + verb)
+- Check for concession clause (although/even though/though + contrasting idea)
+- Verify the explanation is technically accurate (not random sentences)
+- Check if vocabulary from Day 2 is used: Meticulous, Concession, Coherent, Nuance, Substantiate
+
+SCORING:
+- 85-100: All clauses present (2+ relative, 1 reason, 1 concession), technically accurate, 120+ words, vocabulary used
+- 60-84: Most clauses present (missing 1), mostly accurate, 100+ words
+- 40-59: Some clauses missing (2+ missing), basic explanation, under 100 words
+- 0-39: Few or no clauses, not a technical explanation, very short
+
+FEEDBACK RULES (CRITICAL - MUST FOLLOW):
+1. Start with what the student did RIGHT: "Good use of relative clauses!" or "I like your technical explanation of..."
+2. Point out EXACTLY what clause type is missing: "You need a concession clause" or "Add 'although' to show contrast"
+3. Give a CONCRETE example sentence they can use in their explanation
+4. Include word count feedback if it's below 120 words
+5. Be encouraging and specific — act like a teacher helping a student improve
+6. Keep feedback to 3-4 sentences maximum
+7. Address the student as "you"
+8. NEVER say "Check the reference answer" or mention "local validation"
+
+FEEDBACK EXAMPLES (Use this exact style):
+GOOD RESPONSE:
+"Good use of relative clauses with 'which' and 'that'! Your explanation of the heat exchanger is technically accurate. However, you're missing a concession clause. Add something like: 'Although the design appears simple, it requires precise calculations.' Also, try using 'meticulous' to describe the engineering process."
+
+GOOD RESPONSE:
+"I like how you explained the motor's working principle! You have relative clauses and a reason clause, but need a concession clause. Example: 'Even though the motor is efficient at high speeds, it generates excessive heat at low RPMs.' This will make your explanation more nuanced."
+
+BAD RESPONSES (NEVER USE):
+- "Needs more clauses" (too vague)
+- "Good job!" (not helpful)
+- "Lacks sophistication" (not specific)
+- "Refer to the example" (don't mention references)
+
+Return ONLY a JSON object: 
+{
+  "score": 0-100,
+  "correct": true/false,
+  "feedback": "3-4 sentences: praise + specific missing element + concrete example sentence",
+  "suggestion": "One complete sentence (under 25 words) the student can directly add to their explanation"
+}`;
+
+    try {
+        const response = await fetch('/learning/ai/evaluate/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify({
+                text: text,
+                task_type: 'technical_explanation',
+                day_number: 2,
+                level: 'advanced',
+                system_prompt: customPrompt
+            })
+        });
+        
+        const res = await response.json();
+        
+        if (res.success) {
+            // ✅ AI WORKED - Show AI feedback
+            const isCorrect = res.correct !== false && res.score >= 60;
+            const statusIcon = isCorrect ? '✅' : '⚠️';
+            const statusClass = isCorrect ? 'correct' : 'almost';
+            
+            let feedbackHTML = '';
+            feedbackHTML += statusIcon + ' <strong> Feedback</strong><br>';
+            feedbackHTML += '<div style="margin-top:0.5rem;">' + res.feedback + '</div><br>';
+            feedbackHTML += '💡 <strong>Suggestion:</strong> <em>"' + res.suggestion + '"</em>';
+            
+            // Add word count feedback if needed
+            const wordMsg = getWordCountMessage(words);
+            if (wordMsg && words < 120) {
+                feedbackHTML += '<br><br><em style="font-size:0.8rem;color:#64748b;">📝 Word count: ' + words + '/150 - ' + wordMsg + '</em>';
+            }
+            
+            feedback.innerHTML = feedbackHTML;
+            feedback.className = 'fix-feedback ' + statusClass;
+            feedback.style.display = 'block';
+            
+            // DO NOT show reference answer when AI works
+            if (refContainer) {
+                refContainer.style.display = 'none';
+            }
+            
+            if (isCorrect && words >= 120) {
+                return true;
+            }
+            return false;
+        } else {
+            // ❌ AI FAILED - Use local validation
+            console.log('AI evaluation failed, using local validation');
+            return localValidateWriting(text, words, feedback);
+        }
+    } catch (e) {
+        // ❌ NETWORK ERROR - Use local validation
+        console.error('AI evaluation error:', e);
+        return localValidateWriting(text, words, feedback);
+    }
+}
+
+// Check Writing Button
+document.getElementById('checkWritingBtn')?.addEventListener('click', async function () {
+    const btn = document.getElementById('checkWritingBtn');
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '⏳ Checking...';
+    
+    writingPassed = await evaluateWriting();
+    
+    btn.disabled = false;
+    btn.textContent = originalText;
+    
+    const completeBtn = document.getElementById('completeWritingBtn');
+    if (completeBtn && completeBtn.textContent !== '✓ Completed') {
+        completeBtn.disabled = !writingPassed;
+    }
+});
+
+// Complete Writing Button
+document.getElementById('completeWritingBtn')?.addEventListener('click', () => {
+    if (writingPassed) {
+        markActivityComplete('writing', 'chk6');
+    } else {
+        alert('⚠️ Please complete the writing task successfully first. Use the feedback to improve your explanation.');
+    }
+});
+
+// Add getCookie function if not already present
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
         // Auto-save on input changes
         document.addEventListener('input', e => { if (['INPUT','TEXTAREA'].includes(e.target.tagName)) saveProgressToCache(); });
         document.addEventListener('change', e => { if (e.target.type === 'radio') saveProgressToCache(); });
@@ -378,5 +719,6 @@
             setTimeout(restoreCompletedButtons, 100);
         });
     </script>
+    <script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 </html>

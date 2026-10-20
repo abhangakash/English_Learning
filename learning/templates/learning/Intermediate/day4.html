@@ -3,6 +3,9 @@
 <html lang="en">
 
 <head>
+    <meta name="analytics-level" content="intermediate">
+    <meta name="analytics-day" content="4">
+    <meta name="analytics-stage" content="daily_learning">
     <meta charset="UTF-8">
     <meta name="user-id" content="{{ request.user.id }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -1756,6 +1759,8 @@ RETURN ONLY VALID JSON in this EXACT format:
                 }
             });
     </script>
+
+    <script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 
 </html>

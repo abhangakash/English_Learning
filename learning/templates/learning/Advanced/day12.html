@@ -11,6 +11,21 @@
     <link rel="stylesheet" href="{% static 'learning/css/base.css' %}">
     <style>
         /* Internal CSS to match Day 11 standards */
+        /* Gray completed button */
+.complete-activity-btn.completed,
+.complete-activity-btn:disabled {
+    background-color: #9ca3af !important;
+    border-color: #9ca3af !important;
+    color: white !important;
+    cursor: not-allowed;
+}
+
+.day-complete-btn:disabled {
+    background-color: #9ca3af !important;
+    border-color: #9ca3af !important;
+    color: white !important;
+    cursor: not-allowed;
+}
         .writing-textarea {
             width: 100%;
             padding: 1.2rem;
@@ -105,7 +120,7 @@
             <!-- 1. LISTENING ACTIVITY -->
             <div class="activity-card" id="listening-card">
                 <div class="card-header listening">
-                    <h2>🎧 1. Listening Activity · Spoken Fluency</h2>
+                    <h2>🎧 1. Listening Activity : Spoken Fluency</h2>
                 </div>
                 <div class="card-body">
                     <div class="task-box">
@@ -118,7 +133,7 @@
                     </div>
 
                     <audio id="listeningAudioLocal" controls>
-                        <source src="{% static 'learning/audio/Beginner/day12.mp3' %}" type="audio/mpeg">
+                        <source src="{% static 'learning/audio/Advanced/day12.mp3' %}" type="audio/mpeg">
                     </audio>
 
                     <div id="listeningTextSection" style="display: none;">
@@ -142,8 +157,7 @@
                                     point?</p>
                                 <textarea id="taskInput" class="grammar-input" rows="3"
                                     placeholder="Identify the signaling phrase and explain its impact..."></textarea>
-                                <button class="btn-outline" id="checkTaskBtn" style="margin-top: 0.8rem;">✓ Check My
-                                    Answer</button>
+                                <button class="btn-outline" id="checkTaskBtn" style="margin-top: 0.8rem;">✓ Check Answer</button>
                                 <div id="taskFeedback" class="fix-feedback"></div>
                             </div>
                         </div>
@@ -168,7 +182,7 @@
                                 <label class="quiz-option"><input type="radio" name="q2" value="None"> None</label>
                             </div>
 
-                            <button class="btn-outline" id="checkListeningWorkBtnLocal" style="margin-top: 0.5rem;">✓ Check My Choices</button>
+                            <button class="btn-outline" id="checkListeningWorkBtnLocal" style="margin-top: 0.5rem;">✓ Check Answers</button>
                             <div id="listeningQuizFeedback" class="quiz-feedback"></div>
                         </div>
 
@@ -183,7 +197,7 @@
             <!-- 2. SPEAKING ACTIVITY -->
             <div class="activity-card" id="speaking-card">
                 <div class="card-header speaking">
-                    <h2>🗣️ 2. Speaking Activity · The Filler-Free Explanation</h2>
+                    <h2>🗣️ 2. Speaking Activity : The Filler-Free Explanation</h2>
                 </div>
                 <div class="card-body">
                     <div class="speaking-unified-box">
@@ -214,7 +228,6 @@
                                 </div>
                             </div>
                             <div class="speaking-sentence-item">
-                                <div class="sentence-number-badge">3</div>
                                 <div class="sentence-text-content">
                                     Practise saying these without any 'um', 'basically', 'actually', 'na', or 'you
                                     know'.
@@ -255,7 +268,7 @@
             <!-- 3. READING ACTIVITY -->
             <div class="activity-card" id="reading-card">
                 <div class="card-header reading">
-                    <h2>📖 3. Reading Passage · Building Automaticity</h2>
+                    <h2>📖 3. Reading Passage : Building Automaticity</h2>
                 </div>
                 <div class="card-body">
                     <div class="task-box" style="margin-bottom: 1.5rem;">
@@ -275,7 +288,7 @@
                         <h3 style="margin-bottom: 1rem; color: #1e293b;">🔍 Analysis Tasks</h3>
 
                         <div class="listening-task-area">
-                            <p>(a) What is 'automaticity' in language learning? Define it in your own words.</p>
+                            <p>1️⃣ What is 'automaticity' in language learning? Define it in your own words.</p>
                             <textarea id="readingT31" class="grammar-input" rows="2"
                                 placeholder="Explain automaticity..."></textarea>
                             <button class="btn-outline" id="checkReadingT31Btn">✓ Check Answer</button>
@@ -283,7 +296,7 @@
                         </div>
 
                         <div class="listening-task-area">
-                            <p>(b) List three activities the author says build automaticity.</p>
+                            <p>2️⃣ List three activities the author says build automaticity.</p>
                             <textarea id="readingT32" class="grammar-input" rows="2"
                                 placeholder="List the activities..."></textarea>
                             <button class="btn-outline" id="checkReadingT32Btn">✓ Check Answer</button>
@@ -291,7 +304,7 @@
                         </div>
 
                         <div class="listening-task-area">
-                            <p>(c) According to the author, how do advanced speakers differ from beginners?</p>
+                            <p>3️⃣ According to the author, how do advanced speakers differ from beginners?</p>
                             <textarea id="readingT33" class="grammar-input" rows="2"
                                 placeholder="Explain the difference..."></textarea>
                             <button class="btn-outline" id="checkReadingT33Btn">✓ Check Answer</button>
@@ -306,10 +319,50 @@
                 </div>
             </div>
 
+             <!-- 6. WRITING ACTIVITY -->
+            <div class="activity-card" id="writing-card">
+                <div class="card-header writing">
+                    <h2>✍️ 4. Writing Activity : The Monologue Script</h2>
+                </div>
+                <div class="card-body">
+                    <div class="writing-tip-box">
+                        <p><strong>💡 Writing Tip:</strong> Writing a speech script forces you to think about spoken
+                            rhythm. After writing, read it aloud five times, each time speaking more slowly than feels
+                            natural. Your brain will absorb the pattern and reproduce it spontaneously.</p>
+                    </div>
+
+                    <div class="task-box">
+                        <div class="task-header">
+                            <div class="title"><span>🎯</span><span>The Task</span></div>
+                        </div>
+                        <div class="task-content">
+                           Write a monologue script (120 words) that you could deliver without notes. Choose one technical process you know well. <br>Include three deliberate pauses (marked with —) and zero filler words.
+                        </div>
+                    </div>
+
+                    <div class="writing-prompt">
+                        <label style="margin-bottom: 0.5rem; display: block; font-weight: 600;"> Your Monologue
+                            Script:</label>
+                        <textarea id="progressEmailBody" class="writing-textarea"
+                            placeholder="Describe the process... use — for pauses."></textarea>
+                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
+                            count: <span id="wordCount">0</span> / ~120</div>
+                    </div>
+
+                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check Answer</button>
+                    <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
+
+                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
+                            Mark Writing as Complete</button>
+                    </div>
+                </div>
+            </div>
+
             <!-- 4. VOCABULARY ACTIVITY -->
             <div class="activity-card" id="vocabulary-card">
                 <div class="card-header vocabulary">
-                    <h2>📘 4. Vocabulary of the Day</h2>
+                    <h2>📘 5. Vocabulary of the Day</h2>
                 </div>
                 <div class="card-body">
                     <div class="vocab-table-container">
@@ -370,18 +423,19 @@
 
                     <div class="power-word-section">
                         <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #854d0e;">
-                            <span>🔥</span><span>POWER WORD: ARTICULATE</span>
-                        </div>
+                            <span>🔥</span><span>POWER WORD: ARTICULATE (ar-TIK-yoo-lit)</span>
+                        </div><br>
                         <p><strong>Meaning:</strong> Fluent and clear in speech</p>
                         <p><strong>Usage:</strong> "The most articulate engineers are often selected first for
                             leadership roles."</p>
                     </div>
 
-                    <div class="power-word-section" style="border-left-color: #22c55e;">
+                    <div class="idiom-section">
                         <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; color: #166534;">
-                            <span>💬</span><span>IDIOM: "Find your voice"</span>
+                            <span>💬</span><span>IDIOM: "Find your voice"</span><br>
                         </div>
                         <p><strong>Meaning:</strong> Discover your authentic communication style</p>
+                        <p><strong>Example:</strong> "After three months of practice, she finally found her voice in boardroom discussions."</p>
                     </div>
 
                     <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
@@ -411,48 +465,6 @@
                         <em>'The machine itself is fine, but the installation is faulty.'</em> — here 'itself' clarifies
                         the distinction.
                     </p>
-                </div>
-            </div>
-
-            <!-- 6. WRITING ACTIVITY -->
-            <div class="activity-card" id="writing-card">
-                <div class="card-header writing">
-                    <h2>✍️ 5. Writing Activity · The Monologue Script</h2>
-                </div>
-                <div class="card-body">
-                    <div class="writing-tip-box">
-                        <p><strong>💡 Writing Tip:</strong> Writing a speech script forces you to think about spoken
-                            rhythm. After writing, read it aloud five times, each time speaking more slowly than feels
-                            natural. Your brain will absorb the pattern and reproduce it spontaneously.</p>
-                    </div>
-
-                    <div class="task-box">
-                        <div class="task-header">
-                            <div class="title"><span>🎯</span><span>The Task</span></div>
-                        </div>
-                        <div class="task-content">
-                            Write a monologue script (120 words) for a technical process. Include three deliberate
-                            pauses (—) and zero filler words.
-                        </div>
-                    </div>
-
-                    <div class="writing-prompt">
-                        <label style="margin-bottom: 0.5rem; display: block; font-weight: 600;">📝 Your Monologue
-                            Script:</label>
-                        <textarea id="progressEmailBody" class="writing-textarea"
-                            placeholder="Describe the process... use — for pauses."></textarea>
-                        <div style="font-size: 0.8rem; color: #64748b; text-align: right; margin-top: 0.5rem;">Word
-                            count: <span id="wordCount">0</span> / ~120</div>
-                    </div>
-
-                    <button class="btn-outline" id="checkWritingBtn" style="margin-top: 1rem;">✓ Check My
-                        Script</button>
-                    <div id="progressEmailBodyFeedback" class="fix-feedback"></div>
-
-                    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
-                        <button class="complete-activity-btn" id="completeWritingBtn" disabled data-checklist="chk5">✓
-                            Mark Writing as Complete</button>
-                    </div>
                 </div>
             </div>
 
@@ -487,217 +499,366 @@
     <!-- JS SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="{% static 'learning/js/main.js' %}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize Day
-            if (typeof initializeDay === 'function') {
-                initializeDay(12, 'advanced', {
-                    vocabularyWords: ['Automaticity', 'Articulate', 'Cadence', 'Enunciate', 'Modulate']
-                });
-            }
-
-            // --- 1. LISTENING ACTIVITY ---
-            let taskDone = false;
-            let quizDone = false;
-
-            // Audio Reveal Logic (Isolated from main.js)
-            const audio = document.getElementById('listeningAudioLocal');
-            if (audio) {
-                audio.addEventListener('ended', function() {
-                    document.getElementById('listeningTextSection').style.display = 'block';
-                    document.getElementById('postAudioListeningContent').style.display = 'block';
-                });
-            }
-
-            function updateListeningCompletion() {
-                if (taskDone && quizDone) {
-                    document.getElementById('completeListeningBtn').disabled = false;
-                } else {
-                    document.getElementById('completeListeningBtn').disabled = true;
-                }
-            }
-
-            document.getElementById('checkTaskBtn')?.addEventListener('click', async () => {
-                const text = document.getElementById('taskInput').value.trim();
-                taskDone = await evaluateTaskRaw(text, 'taskFeedback', 'listening_analysis', 5);
-                updateListeningCompletion();
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize Day
+        if (typeof initializeDay === 'function') {
+            initializeDay(12, 'advanced', {
+                vocabularyWords: ['Automaticity', 'Articulate', 'Cadence', 'Enunciate', 'Modulate']
             });
+        }
 
-            document.getElementById('checkListeningWorkBtnLocal')?.addEventListener('click', function () {
-                const q1 = document.querySelector('input[name="q1"]:checked');
-                const q2 = document.querySelector('input[name="q2"]:checked');
-                const feedback = document.getElementById('listeningQuizFeedback');
+        // --- 1. LISTENING ACTIVITY ---
+        let taskDone = false;
+        let quizDone = false;
 
-                if (!q1 || !q2) {
-                    feedback.innerHTML = '⚠️ Please answer both quiz questions.';
-                    feedback.className = 'quiz-feedback incorrect';
-                    feedback.style.display = 'block';
-                    return;
-                }
+        const audio = document.getElementById('listeningAudioLocal');
+        if (audio) {
+            audio.addEventListener('ended', function() {
+                document.getElementById('listeningTextSection').style.display = 'block';
+                document.getElementById('postAudioListeningContent').style.display = 'block';
+            });
+        }
 
-                const isQ1Correct = q1.value === "By saying 'this is the critical part'";
-                const isQ2Correct = q2.value === 'None';
+        function updateListeningCompletion() {
+            if (taskDone && quizDone) {
+                document.getElementById('completeListeningBtn').disabled = false;
+            } else {
+                document.getElementById('completeListeningBtn').disabled = true;
+            }
+        }
 
-                if (isQ1Correct && isQ2Correct) {
-                    feedback.innerHTML = '✅ Correct! The signaling phrase was identified and no fillers were used.';
-                    feedback.className = 'quiz-feedback correct';
-                    quizDone = true;
-                } else {
-                    feedback.innerHTML = '❌ Some answers need review. Check the signaling phrase and filler count.';
-                    feedback.className = 'quiz-feedback incorrect';
-                    quizDone = false;
-                }
+        document.getElementById('checkTaskBtn')?.addEventListener('click', async () => {
+            const text = document.getElementById('taskInput').value.trim();
+            taskDone = await evaluateTaskRaw(text, 'taskFeedback', 'listening_analysis', 5);
+            updateListeningCompletion();
+        });
+
+        document.getElementById('checkListeningWorkBtnLocal')?.addEventListener('click', function () {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const feedback = document.getElementById('listeningQuizFeedback');
+
+            if (!q1 || !q2) {
+                feedback.innerHTML = '⚠️ Please answer both quiz questions.';
+                feedback.className = 'quiz-feedback incorrect';
                 feedback.style.display = 'block';
-                updateListeningCompletion();
-            });
+                return;
+            }
 
-            // --- AI EVALUATION HELPER ---
-            async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
-                const feedback = document.getElementById(feedbackId);
-                const words = text.split(/\s+/).filter(w => w.length > 0).length;
+            const isQ1Correct = q1.value === "By saying 'this is the critical part'";
+            const isQ2Correct = q2.value === 'None';
 
-                if (words < minWords) {
-                    feedback.innerHTML = `⚠️ Too brief. Please provide more detail.`;
-                    feedback.className = 'fix-feedback incorrect';
-                    feedback.style.display = 'block';
-                    return false;
-                }
+            if (isQ1Correct && isQ2Correct) {
+                feedback.innerHTML = '✅ Correct! The signaling phrase was identified and no fillers were used.';
+                feedback.className = 'quiz-feedback correct';
+                quizDone = true;
+            } else {
+                feedback.innerHTML = '❌ Some answers need review. Check the signaling phrase and filler count.';
+                feedback.className = 'quiz-feedback incorrect';
+                quizDone = false;
+            }
+            feedback.style.display = 'block';
+            updateListeningCompletion();
+        });
 
-                feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
-                feedback.className = 'fix-feedback';
+        // --- AI EVALUATION HELPER ---
+        async function evaluateTaskRaw(text, feedbackId, type, minWords = 5) {
+            const feedback = document.getElementById(feedbackId);
+            const words = text.split(/\s+/).filter(w => w.length > 0).length;
+
+            if (words < minWords) {
+                feedback.innerHTML = '⚠️ Too brief. Please provide more detail.';
+                feedback.className = 'fix-feedback incorrect';
                 feedback.style.display = 'block';
-
-                const customPrompts = {
-                    listening_analysis: "Identify how the speaker signals importance in the script. The correct answer should mention the signaling phrase 'and this is the critical part' and mention that the filler word count is zero (none).",
-                    reading_a: "Define 'automaticity' based on the text. The correct answer should explain that it means correct grammar is processed in the background/unconsciously while focusing on meaning.",
-                    reading_b: "List three activities that build automaticity according to the passage. Correct answers must include: reading aloud, shadowing native speakers, and delivering prepared speeches.",
-                    reading_c: "Explain how advanced speakers differ from beginners according to the author. The correct answer should mention that advanced speakers process grammar in the background/automatically, while beginners must think about it.",
-                    professional_monologue: "Write a 120-word technical monologue script. It MUST include at least three deliberate pauses (—) and contain zero filler words (um, uh, like)."
-                };
-
-                const system_prompt = `Evaluate the following response as an English communication trainer.
-                
-                Original Task: "${customPrompts[type]}"
-
-                Provide a strict, professional evaluation in this format:
-                ✅ Evaluation:
-                2-4 sentences assessing how well the response meets the task requirements. Comment on content selection, structure, clarity, relevance, and adherence to the instructions.
-
-                💡 Improvement:
-                Give one specific, practical suggestion that would make the response stronger. Focus only on the single most important improvement.
-
-                Do not mention scores, grades, ratings, or word count. Keep the feedback concise, direct, and teacher-like.
-
-                Return ONLY a JSON object:
-                {
-                    "correct": true/false,
-                    "evaluation": "The evaluation text...",
-                    "improvement": "The improvement suggestion..."
-                }`;
-
-                try {
-                    const response = await fetch('/learning/ai/evaluate/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
-                        body: JSON.stringify({ text, task_type: type, day_number: 12, level: 'advanced', system_prompt })
-                    });
-                    const res = await response.json();
-                    if (res.success) {
-                        const isCorrect = res.correct !== false;
-                        const statusEmoji = isCorrect ? '✅' : '❌';
-
-                        feedback.innerHTML = `
-                            <div style="margin-bottom: 0.8rem;">
-                                <strong>${statusEmoji} Evaluation:</strong><br>
-                                <span style="font-size: 0.95rem; line-height: 1.5;">${res.evaluation}</span>
-                            </div>
-                            <div style="border-top: 1px solid #e2e8f0; padding-top: 0.8rem;">
-                                <strong>💡 Improvement:</strong><br>
-                                <span style="font-size: 0.95rem; line-height: 1.5;">${res.improvement}</span>
-                            </div>
-                        `;
-                        feedback.className = `fix-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-                        return isCorrect;
-                    }
-                    return false;
-                } catch (e) {
-                    feedback.innerHTML = '⚠️ Error connecting to AI.';
-                    feedback.className = 'fix-feedback incorrect';
-                    return false;
-                }
+                return false;
             }
 
-            async function evaluateTask(id, type, taskName, minWords = 5) {
-                const inputEl = document.getElementById(id + 'Input') || document.getElementById(id);
-                return await evaluateTaskRaw(inputEl.value.trim(), id + 'Feedback', type, minWords);
-            }
+            feedback.innerHTML = '⏳ <strong>Evaluating...</strong>';
+            feedback.className = 'fix-feedback';
+            feedback.style.display = 'block';
 
-            // --- 3. READING ---
-            let readingT1Done = false, readingT2Done = false, readingT3Done = false;
-            document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => {
-                readingT1Done = await evaluateTask('readingT31', 'reading_a', 'Define automaticity', 10);
-                updateReadingCompletion();
-            });
-            document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => {
-                readingT2Done = await evaluateTask('readingT32', 'reading_b', 'Activities for automaticity', 5);
-                updateReadingCompletion();
-            });
-            document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => {
-                readingT3Done = await evaluateTask('readingT33', 'reading_c', 'Advanced vs Beginners fluency', 15);
-                updateReadingCompletion();
-            });
-            function updateReadingCompletion() {
-                if (readingT1Done && readingT2Done && readingT3Done) {
-                    document.getElementById('completeReadingBtn').disabled = false;
+            const customPrompts = {
+                listening_analysis: "Identify how the speaker signals importance in the script. The correct answer should mention the signaling phrase 'and this is the critical part' and mention that the filler word count is zero (none).",
+                reading_a: "Define 'automaticity' based on the text. The correct answer should explain that it means correct grammar is processed in the background/unconsciously while focusing on meaning.",
+                reading_b: "List three activities that build automaticity according to the passage. Correct answers must include: reading aloud, shadowing native speakers, and delivering prepared speeches.",
+                reading_c: "Explain how advanced speakers differ from beginners according to the author. The correct answer should mention that advanced speakers process grammar in the background/automatically, while beginners must think about it.",
+                professional_monologue: "Write a 120-word technical monologue script. It MUST include at least three deliberate pauses (—) and contain zero filler words (um, uh, like)."
+            };
+
+            const system_prompt = `Evaluate the following response as an English communication trainer.
+            
+            Original Task: "${customPrompts[type]}"
+
+            Provide a strict, professional evaluation in this format:
+            ✅ Evaluation:
+            1-2 sentences assessing how well the response meets the task requirements. Comment on content selection, structure, clarity, relevance, and adherence to the instructions.
+
+            💡 Improvement:
+            Give one specific, practical suggestion that would make the response stronger. Focus only on the single most important improvement.
+
+            Do not mention scores, grades, ratings, or word count. Keep the feedback concise, direct, and teacher-like.
+
+            Return ONLY a JSON object:
+            {
+                "correct": true/false,
+                "evaluation": "The evaluation text...",
+                "improvement": "The improvement suggestion..."
+            }`;
+
+            try {
+                const response = await fetch('/learning/ai/evaluate/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+                    body: JSON.stringify({ text, task_type: type, day_number: 12, level: 'advanced', system_prompt })
+                });
+                const res = await response.json();
+                if (res.success) {
+                    const isCorrect = res.correct !== false;
+                    const statusEmoji = isCorrect ? '✅' : '❌';
+
+                    feedback.innerHTML = `
+                        <div style="margin-bottom: 0.8rem;">
+                            <strong>${statusEmoji} Evaluation:</strong><br>
+                            <span style="font-size: 0.95rem; line-height: 1.5;">${res.evaluation}</span>
+                        </div>
+                        <div style="border-top: 1px solid #e2e8f0; padding-top: 0.8rem;">
+                            <strong>💡 Improvement:</strong><br>
+                            <span style="font-size: 0.95rem; line-height: 1.5;">${res.improvement}</span>
+                        </div>
+                    `;
+                    feedback.className = `fix-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+                    return isCorrect;
                 }
+                return false;
+            } catch (e) {
+                feedback.innerHTML = '⚠️ Error connecting to server.';
+                feedback.className = 'fix-feedback incorrect';
+                return false;
             }
+        }
 
-            // --- 5. WRITING ---
-            document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
-                const isCorrect = await evaluateTask('progressEmailBody', 'professional_monologue', '120-word monologue script', 80);
-                if (isCorrect) {
-                    document.getElementById('completeWritingBtn').disabled = false;
-                }
-            });
-            document.getElementById('progressEmailBody')?.addEventListener('input', function () {
-                document.getElementById('wordCount').innerText = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
-            });
+        async function evaluateTask(id, type, taskName, minWords = 5) {
+            const inputEl = document.getElementById(id + 'Input') || document.getElementById(id);
+            return await evaluateTaskRaw(inputEl.value.trim(), id + 'Feedback', type, minWords);
+        }
 
-            // --- SPEAKING ---
-            let speakMediaRecorder, speakChunks = [];
-            document.getElementById('speakingRecordBtn')?.addEventListener('click', async () => {
+        // --- 3. READING ---
+        let readingT1Done = false, readingT2Done = false, readingT3Done = false;
+        document.getElementById('checkReadingT31Btn')?.addEventListener('click', async () => {
+            readingT1Done = await evaluateTask('readingT31', 'reading_a', 'Define automaticity', 10);
+            updateReadingCompletion();
+        });
+        document.getElementById('checkReadingT32Btn')?.addEventListener('click', async () => {
+            readingT2Done = await evaluateTask('readingT32', 'reading_b', 'Activities for automaticity', 5);
+            updateReadingCompletion();
+        });
+        document.getElementById('checkReadingT33Btn')?.addEventListener('click', async () => {
+            readingT3Done = await evaluateTask('readingT33', 'reading_c', 'Advanced vs Beginners fluency', 15);
+            updateReadingCompletion();
+        });
+        function updateReadingCompletion() {
+            if (readingT1Done && readingT2Done && readingT3Done) {
+                document.getElementById('completeReadingBtn').disabled = false;
+            }
+        }
+
+        // --- 5. WRITING ---
+        document.getElementById('checkWritingBtn')?.addEventListener('click', async () => {
+            const isCorrect = await evaluateTask('progressEmailBody', 'professional_monologue', '120-word monologue script', 80);
+            if (isCorrect) {
+                document.getElementById('completeWritingBtn').disabled = false;
+            }
+        });
+        document.getElementById('progressEmailBody')?.addEventListener('input', function () {
+            document.getElementById('wordCount').innerText = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+        });
+
+        // --- SPEAKING ACTIVITY (with 10-second validation) ---
+        let speakMediaRecorder, speakChunks = [];
+        let speakTimerInterval = null, speakSeconds = 0;
+
+        function formatSpeakTime(s) {
+            const m = Math.floor(s / 60);
+            const sec = s % 60;
+            return m.toString().padStart(2, '0') + ':' + sec.toString().padStart(2, '0');
+        }
+
+        document.getElementById('speakingRecordBtn')?.addEventListener('click', async () => {
+            try {
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 speakMediaRecorder = new MediaRecorder(stream);
                 speakChunks = [];
+                
                 speakMediaRecorder.ondataavailable = e => speakChunks.push(e.data);
+                
                 speakMediaRecorder.onstop = () => {
+                    clearInterval(speakTimerInterval);
+                    speakTimerInterval = null;
+                    
                     const blob = new Blob(speakChunks, { type: 'audio/webm' });
                     document.getElementById('speakingPlayback').src = URL.createObjectURL(blob);
                     document.getElementById('speakingPlaybackCard').style.display = 'block';
-                    document.getElementById('completeSpeakingBtn').disabled = false;
+                    
+                    const msgEl = document.querySelector('#speakingPlaybackCard .playback-success-msg');
+                    
+                    if (speakSeconds >= 10) {
+                        document.getElementById('completeSpeakingBtn').disabled = false;
+                        if (msgEl) {
+                            msgEl.innerHTML = '<span>✅</span> Recording saved! Listen back to check your tone and pace.';
+                            msgEl.style.background = '#d1fae5';
+                            msgEl.style.color = '#065f46';
+                        }
+                    } else {
+                        document.getElementById('completeSpeakingBtn').disabled = true;
+                        if (msgEl) {
+                            msgEl.innerHTML = '<span>⚠️</span> Too short! Please speak all sentences with proper pauses.';
+                            msgEl.style.background = '#fef9e3';
+                            msgEl.style.color = '#92400e';
+                        }
+                    }
+                    
                     stream.getTracks().forEach(t => t.stop());
                 };
+                
                 speakMediaRecorder.start();
+                speakSeconds = 0;
+                
+                document.getElementById('speakingTimer').textContent = formatSpeakTime(0);
+                speakTimerInterval = setInterval(() => {
+                    speakSeconds++;
+                    document.getElementById('speakingTimer').textContent = formatSpeakTime(speakSeconds);
+                }, 1000);
+                
                 document.getElementById('speakingRecordBtn').style.display = 'none';
                 document.getElementById('speakingStopBtn').style.display = 'inline-flex';
                 document.getElementById('speakingRecordingStatus').style.display = 'flex';
-            });
-            document.getElementById('speakingStopBtn')?.addEventListener('click', () => {
-                speakMediaRecorder.stop();
-                document.getElementById('speakingRecordBtn').style.display = 'inline-flex';
-                document.getElementById('speakingStopBtn').style.display = 'none';
-                document.getElementById('speakingRecordingStatus').style.display = 'none';
-            });
-
-            // --- HANDLERS ---
-            document.getElementById('completeListeningBtn')?.addEventListener('click', () => markActivityComplete('listening', 'chk1'));
-            document.getElementById('completeSpeakingBtn')?.addEventListener('click', () => markActivityComplete('speaking', 'chk2'));
-            document.getElementById('completeReadingBtn')?.addEventListener('click', () => markActivityComplete('reading', 'chk3'));
-            document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => markActivityComplete('vocabulary', 'chk4'));
-            document.getElementById('completeWritingBtn')?.addEventListener('click', () => markActivityComplete('writing', 'chk5'));
-            document.getElementById('dayCompleteBtn')?.addEventListener('click', completeDay);
+                
+            } catch (e) {
+                console.error('Microphone error', e);
+            }
         });
-    </script>
+
+        document.getElementById('speakingStopBtn')?.addEventListener('click', () => {
+            if (speakMediaRecorder && speakMediaRecorder.state === 'recording') {
+                speakMediaRecorder.stop();
+            }
+            document.getElementById('speakingRecordBtn').style.display = 'inline-flex';
+            document.getElementById('speakingStopBtn').style.display = 'none';
+            document.getElementById('speakingRecordingStatus').style.display = 'none';
+        });
+
+        // ========== HELPER: Mark any activity as complete ==========
+        function completeActivity(checklistId, buttonId, activityName) {
+            // Tick checkbox
+            const chk = document.getElementById(checklistId);
+            if (chk && !chk.checked) chk.checked = true;
+            
+            // Update button
+            const btn = document.getElementById(buttonId);
+            if (btn) {
+                btn.textContent = '✓ Completed';
+                btn.disabled = true;
+                btn.classList.add('completed');
+                btn.style.backgroundColor = '#9ca3af';
+                btn.style.borderColor = '#9ca3af';
+                btn.style.color = 'white';
+            }
+            
+            // Update main.js activity tracking
+            if (activityName && typeof activityCompleted !== 'undefined') {
+                activityCompleted[activityName] = true;
+            }
+            
+            // Set window flags
+            if (activityName === 'speaking') window.speakingCompleted = true;
+            if (activityName === 'reading') window.readingCompleted = true;
+            
+            // Update counter & save
+            if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+            if (typeof saveProgress === 'function') saveProgress();
+        }
+
+        // --- COMPLETION BUTTONS ---
+        document.getElementById('completeSpeakingBtn')?.addEventListener('click', () => {
+            if (speakSeconds >= 10) {
+                completeActivity('chk2', 'completeSpeakingBtn', 'speaking');
+            } else {
+                alert('⚠️ Too short! Please record again and speak all sentences with proper pauses. Minimum 10 seconds required.');
+            }
+        });
+
+        document.getElementById('completeListeningBtn')?.addEventListener('click', () => {
+            completeActivity('chk1', 'completeListeningBtn', 'listening');
+        });
+
+        document.getElementById('completeReadingBtn')?.addEventListener('click', () => {
+            completeActivity('chk3', 'completeReadingBtn', 'reading');
+        });
+
+        document.getElementById('completeVocabularyBtn')?.addEventListener('click', () => {
+            completeActivity('chk4', 'completeVocabularyBtn', 'vocabulary');
+        });
+
+        document.getElementById('completeWritingBtn')?.addEventListener('click', () => {
+            completeActivity('chk5', 'completeWritingBtn', 'writing');
+        });
+
+        document.getElementById('dayCompleteBtn')?.addEventListener('click', () => {
+            if (typeof completeDay === 'function') completeDay();
+        });
+
+        // ========== RESTORE PROGRESS ON PAGE LOAD ==========
+        // Run AFTER main.js loadProgress has finished
+        setTimeout(function() {
+            const metaUserId = document.querySelector('meta[name="user-id"]')?.content || 'guest';
+            const storageKey = 'progress_' + metaUserId + '_advanced_day_12';
+            const saved = localStorage.getItem(storageKey);
+            
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    
+                    // Restore checkboxes from main.js saved data
+                    if (data.completed) {
+                        const map = {
+                            'listening': 'chk1',
+                            'speaking': 'chk2',
+                            'reading': 'chk3',
+                            'vocabulary': 'chk4',
+                            'writing': 'chk5'
+                        };
+                        
+                        Object.keys(map).forEach(activity => {
+                            const chkId = map[activity];
+                            const btnId = 'complete' + activity.charAt(0).toUpperCase() + activity.slice(1) + 'Btn';
+                            
+                            if (data.completed[activity]) {
+                                const chk = document.getElementById(chkId);
+                                if (chk) chk.checked = true;
+                                
+                                const btn = document.getElementById(btnId);
+                                if (btn) {
+                                    btn.textContent = '✓ Completed';
+                                    btn.disabled = true;
+                                    btn.classList.add('completed');
+                                    btn.style.backgroundColor = '#9ca3af';
+                                    btn.style.borderColor = '#9ca3af';
+                                    btn.style.color = 'white';
+                                }
+                            }
+                        });
+                    }
+                    
+                    if (typeof updateChecklistProgress === 'function') updateChecklistProgress();
+                } catch(e) {
+                    console.warn('Day 12 restore failed:', e);
+                }
+            }
+        }, 300); // 300ms delay to ensure main.js finishes first
+    });
+</script>
+<script src="{% static 'learning/js/analytics_tracker.js' %}"></script>
 </body>
 
 </html>

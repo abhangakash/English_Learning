@@ -55,6 +55,9 @@ urlpatterns = [
     # Vocabulary
     path('api/save-vocabulary/', views.save_vocabulary, name='save_vocabulary'),
     
+    # Analytics API Endpoints
+    path('api/save-day-analytics/', views.save_day_analytics, name='save_day_analytics'),
+    path('api/save-advanced-toolkit/', views.save_advanced_toolkit, name='save_advanced_toolkit'),
 
     # ==================== ADVANCED TOOLS URLs ====================
     path('level/advanced/toolkit/', views.level_overview, {'level_name': 'advanced'}, name='toolkit_root'),
