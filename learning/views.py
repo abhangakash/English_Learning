@@ -449,7 +449,7 @@ def day_detail(request, level_name, day_number):
         'sentences': sentences,
     }
     
-    template_name = f'learning/{level_name}/day{day_number}.html'
+    template_name = f'learning/{level_name.capitalize()}/day{day_number}.html'
     return render(request, template_name, context)
 
 def get_sentences_for_day(level_name, day_number):
