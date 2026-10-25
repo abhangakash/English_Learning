@@ -6,6 +6,7 @@ from listening.models import TestResult as ListeningResult
 from reading.models import ReadingResult
 from speaking.models import TestSession
 from writing.models import WritingTestResult as WritingResult
+from django.core.cache import cache
 
 
 from django.shortcuts import render, redirect, get_object_or_404
@@ -50,7 +51,7 @@ from speaking.models import TestSession
 from writing.models import WritingTestResult as WritingResult
 from speaking.models import Student  # For speaking results
 
-def home(request):
+def _compute_home_stats():
     """Home page view with dynamic stats - UPDATED for accurate counts"""
     from learning.models import UserLearningProgress
     
@@ -149,8 +150,14 @@ def home(request):
         'advanced_count': advanced_count,
     }
     
-    return render(request, 'home_page/home.html', context)
+    return context
 
+def home(request):
+    context = cache.get('home_stats')
+    if context is None:
+        context = _compute_home_stats()
+        cache.set('home_stats', context, 300)
+    return render(request, 'home_page/home.html', context)
 
 def register(request):
     """User registration view"""

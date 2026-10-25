@@ -1,3 +1,5 @@
+
+
 """
 Django settings for english_learning project.
 
@@ -16,19 +18,38 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ADDED: load local .env file (ignored if not present, e.g. on Render)
+try:
+    from dotenv import load_dotenv
+    load_dotenv(BASE_DIR / '.env')
+except ImportError:
+    pass
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*+ksmi)lsz$dqlwqtocyxc$&f7tz!zmrf&2^)lq6_d)tj+$sn)'
+# CHANGED: secret key from environment
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dev-only-insecure-key')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# CHANGED: debug from environment (defaults to False)
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
+# CHANGED: hosts from environment
 ALLOWED_HOSTS = [
-    "*"
+    h.strip()
+    for h in os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+    if h.strip()
 ]
+RENDER_HOST = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_HOST:
+    ALLOWED_HOSTS.append(RENDER_HOST)
+CUSTOM_DOMAINS = [
+    d.strip()
+    for d in os.environ.get('CUSTOM_DOMAINS', '').split(',')
+    if d.strip()
+]
+ALLOWED_HOSTS += CUSTOM_DOMAINS
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -91,11 +112,13 @@ WSGI_APPLICATION = 'english_learning.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres.pbxufsucwjrstltgwziv',
-        'PASSWORD': '5exvzfpyC9VKRWWp',
-        'HOST': 'aws-1-ap-south-1.pooler.supabase.com',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME', 'postgres'),
+        'USER': os.environ.get('DB_USER', 'postgres.pbxufsucwjrstltgwziv'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', '5exvzfpyC9VKRWWp'),
+        'HOST': os.environ.get('DB_HOST', 'aws-1-ap-south-1.pooler.supabase.com'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
+        'CONN_MAX_AGE': 60,            # ADDED: reuse DB connection (speed fix)
+        'CONN_HEALTH_CHECKS': True,    # ADDED: drop dead connections safely
         'OPTIONS': {
             'sslmode': 'require',
             "options": "-c statement_timeout=0"
@@ -133,7 +156,7 @@ USE_TZ = True
 
 USE_L10N = True
 
-# ========== STATIC FILES CONFIGURATION (FIXED - NO WARNINGS) ==========
+# ========== STATIC FILES CONFIGURATION ==========
 STATIC_URL = '/static/'
 
 # Only include directories that actually exist
@@ -145,8 +168,11 @@ STATICFILES_DIRS = [
 # Directory where Django will collect all static files for production
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Storage backend for static files in production
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# CHANGED: STATICFILES_STORAGE is ignored in Django 6, STORAGES is the correct setting
+STORAGES = {
+    'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+    'staticfiles': {'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage'},
+}
 # =========================================================
 
 LOGIN_URL = '/login/'
@@ -181,8 +207,16 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.ngrok-free.app",
     "https://*.ngrok-free.dev",
 ]
+# ADDED: allow Render URL and your custom domains for login/forms
+if RENDER_HOST:
+    CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_HOST}')
+CSRF_TRUSTED_ORIGINS += [f'https://{d}' for d in CUSTOM_DOMAINS]
+
+# ADDED: tells Django the site is HTTPS behind Render's proxy
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dddd5z1fk',
-    'API_KEY': '275733348281325',
-    'API_SECRET': '8piDH7X1cGBqyAULhSa_lYYUT1k',
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', 'dddd5z1fk'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY', '275733348281325'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', '8piDH7X1cGBqyAULhSa_lYYUT1k'),
 }
