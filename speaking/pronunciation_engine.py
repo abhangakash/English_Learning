@@ -275,12 +275,45 @@ class PronunciationEngine:
         self.silence_threshold = 0.005
 
     def transcribe_audio(self, audio_path):
-        """Transcribe audio using the Swift model."""
+        """Transcribe audio. Uses Groq if GROQ_API_KEY is set, else the local model."""
+        api_key = os.environ.get("GROQ_API_KEY")
+        if api_key:
+            return self._transcribe_with_groq(audio_path, api_key)
+
         try:
             result = get_asr_pipeline()(audio_path)
             return result["text"].strip().lower()
         except Exception as exc:
             print(f"Transcription error: {exc}")
+            return ""
+
+    def _transcribe_with_groq(self, audio_path, api_key):
+        """Send the recording to Groq's hosted Whisper."""
+        import requests
+
+        try:
+            with open(audio_path, "rb") as audio_file:
+                response = requests.post(
+                    "https://api.groq.com/openai/v1/audio/transcriptions",
+                    headers={"Authorization": f"Bearer {api_key}"},
+                    files={"file": (os.path.basename(audio_path), audio_file)},
+                    data={
+                        "model": "whisper-large-v3-turbo",
+                        "language": "en",
+                        "response_format": "json",
+                        "temperature": "0",
+                    },
+                    timeout=30,
+                )
+
+            if response.status_code != 200:
+                print(f"Groq error {response.status_code}: {response.text[:300]}")
+                return ""
+
+            return response.json().get("text", "").strip().lower()
+
+        except Exception as exc:
+            print(f"Groq transcription error: {exc}")
             return ""
 
     def extract_mfcc(self, audio_path):
