@@ -186,3 +186,12 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '275733348281325',
     'API_SECRET': '8piDH7X1cGBqyAULhSa_lYYUT1k',
 }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {'console': {'class': 'logging.StreamHandler'}},
+    'loggers': {
+        'django.request': {'handlers': ['console'], 'level': 'ERROR', 'propagate': False},
+    },
+}
